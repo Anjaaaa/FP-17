@@ -1,0 +1,13 @@
+Messung 1 "Daten_TEM_00.txt":
+
+L = 57.5 cm / L = 58.9cm
+Abstand Resonator-Diode: 114cm
+
+*****************
+
+
+Messung 4 "Daten_Interferenz.txt":
+
+Gitterkonstante: 100/mm
+Abstand Schirm-0.Maximum: 104cm
+
