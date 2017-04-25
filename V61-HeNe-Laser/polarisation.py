@@ -7,6 +7,7 @@ from scipy.optimize import curve_fit
 from sympy import *
 from table import (
         make_table,
+        make_full_table,
         make_SI,
         write)
 
@@ -14,6 +15,14 @@ phi, I = np.genfromtxt('Daten/Daten_Polarisation.txt', unpack = True)
 phi *= 2*np.pi/360
 I *= 10**(-6)
 
+write('build/tablePolarisation.tex', make_table([phi, I*10**6],[1,1]))
+write('build/fulltablePolarisation.tex', make_full_table(
+    r'Intensitätsverteilung in Abhängigkeit des Winkels des Polarisators',
+    'tab:Polarisation',
+    'build/tablePolarisation.tex',
+    [1,1],
+    [r'$\varphi$',
+    r'$I \ \mathrm{in} \ \si{\micro\ampere}$']))
 
 def func(x, a,b,c):
   return a*np.sin(b*x+c)**2
