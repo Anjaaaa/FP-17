@@ -1,0 +1,20 @@
+ \subsection{Berechnung der Wellenlänge}
+ Die Wellenlänge des HeNe-Lasers wird mit Hilfe eines Interferenzbildes berechnet, das durch die Beugung am Gitter entsteht. Jeweils rechts und links vom Hauptmaximum (Maximum 0-ter Ordnung) werden die Abstände $a$ der Maxima $n$-ter Ordnung zum Hauptmaximum gemessen. Die Wellenlänge $\lambda$ lässt sich dann mit dem Abstand $b$ zwischen Gitter und Schirm berechnen nach:
+ 
+ \begin{equation}
+ \lambda = \frac{g \cdot \sin{\phi_n}}{n} \quad .
+ \end{equation}
+ 
+Dabei ist $g$ die Gitterkonstante und $\phi_n$ der Winkel zum $n$-ten Maximum.
+Es gilt
+\begin{align}
+\phi_n = \arctan{\left( \frac{a}{b} \right)} \quad \textrm{,}\\
+g = \SI{100}{\per\milli\meter} \quad \textrm{,}\\
+b = \SI{104}{\centi\meter} \quad .
+\end{align}
+ 
+ Die Wellenlänge für das einzelne Maximum ist jeweils aus dem Mittelwert des rechten und linken Abstandes berechnet (siehe Tabelle~\ref{tab:Wellenlaenge}). Daraus ergibt sich eine Wellenlänge von
+\begin{equation}
+\lambda = \input{build/wellenlaenge.tex} \quad .
+\end{equation}
+\input{build/tab_wellenlaenge_gesamt.tex}

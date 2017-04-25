@@ -5,15 +5,13 @@
     \sisetup{parse-numbers=false}
     \begin{tabular}{
 	S[table-format=1.0]
-	@{${}\pm{}$}
-	S[table-format=2.2, table-number-alignment = left]
+	S[table-format=2.2]
 	S[table-format=2.2]
 	S[table-format=3.2]
-	@{${}\pm{}$}
 	}
 	\toprule
-	\multicolumn{2}{c}{Ordnung Maximum}		& {Abstand rechts}		& 
-	\multicolumn{2}{c}{Abstand links}		& {$\lambda$ in $\si{\nano\meter}$}		\\ 
+	{Ordnung Maximum }		& {Abstand $a$ rechts in \si{\centi\meter}}		& 
+	{Abstand $a$ links in \si{\centi\meter}}		& {$\lambda$ in $\si{\nano\meter}$}		\\ 
 	\midrule
     \input{build/tab_wellenlaenge.tex}
     \bottomrule
