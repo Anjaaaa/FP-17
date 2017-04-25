@@ -8,4 +8,5 @@
 \contentsline {section}{\numberline {2}Versuchsaufbau}{5}
 \contentsline {section}{\numberline {3}Messungen}{5}
 \contentsline {section}{\numberline {4}Auswertung}{6}
+\contentsline {subsection}{\numberline {4.1}Polarisation}{6}
 \contentsline {section}{\numberline {5}Diskussion}{7}

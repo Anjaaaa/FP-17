@@ -1,0 +1,16 @@
+PWD /home/anja/OwnCloud/Uni/Praktikum/FP-17/V61-HeNe-Laser
+INPUT /usr/share/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT Polarisation.tex
+OUTPUT Polarisation.log
+INPUT /usr/share/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT build/PolAmplitude.tex
+INPUT build/PolAmplitude.tex
+INPUT build/PolFrequenz.tex
+INPUT build/PolFrequenz.tex
+INPUT build/PolOffset.tex
+INPUT build/PolOffset.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT build/PolMax.tex
+INPUT build/PolMax.tex
