@@ -1,0 +1,73 @@
+\usepackage{geometry}
+\geometry{a4paper, top=40mm, left=30mm, right=30mm, bottom=35mm}
+\setlength\parindent{0pt}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{multicol} % Spalten
+\usepackage{color} % Farben
+\usepackage[hyphens]{url} % Internetadresse (mit automatischer Trennung)
+\usepackage{enumitem} % Aufzählungen
+
+
+% Literaturverzeichnis
+\usepackage{csquotes}
+\usepackage{biblatex}
+\addbibresource{../Allgemeines/Literatur.bib}
+
+
+% Mathesymbole
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{bm} % fette Schrift in Matheumgebung
+%\usepackage{physics} % Derivate richtig schreiben
+%\usepackage[version=4]{mhchem} % Chemische Elemente
+\usepackage[
+	locale=DE,
+	separate-uncertainty=true, % Fehler mit ±
+	per-mode=symbol-or-fraction, % m/s im Text, sonst \frac
+	% alternativ:
+	% 	per-mode=reciprocal,
+	% 	m s^{-1}
+	output-decimal-marker=., % . statt , für Dezimalzahlen
+	alsoload=synchem, % für \torr und andere chemische sachen
+	]{siunitx} % si-Einheiten
+	
+% Chemiesymbole
+\usepackage[version=3]{mhchem}
+
+
+% Bilder
+\usepackage{caption}
+\usepackage{graphicx, wrapfig}
+\usepackage{subcaption} % Bilder in Gruppe einzeln benennen
+\usepackage{tikz}
+\usetikzlibrary{matrix} % zeigt Koordinatensystem an
+\usepackage[european]{circuitikz} % Schaltkreise
+\usetikzlibrary{arrows}
+\newcommand{\mymeter}[2] % Option um Schaltsymbole zu drehen
+{  % #1 = name , #2 = rotation angle
+	\begin{scope}[transform shape,rotate=#2]
+		\draw[thick] (#1)node(){$\mathbf V$} circle (11pt);
+		\draw[rotate=45,-latex] (#1)  +(-17pt,0) --+(17pt,0);
+	\end{scope}
+}
+
+\usepackage[
+labelfont=bf,        % Tabelle x: Abbildung y: ist jetzt fett
+font=small,          % Schrift etwas kleiner als Dokument
+width=0.9\textwidth, % maximale Breite einer Caption schmaler
+]{caption}
+\sisetup{table-format=1.2}
+\usepackage{booktabs}
+
+% Kopf- und Fußzeile
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+\fancyhead{} % Default-Einstellungen im Header löschen
+\fancyhead[L]{\sc{Versuch \V}}
+\fancyhead[R]{\sc{\rightmark}}
+
+

@@ -1,0 +1,27 @@
+Nachfolgend wird eine lineare Regression für Wertepaare $(x_i,y_i)$ durchgeführt. Dafür müssen die Steigung
+\begin{equation}
+	m = \dfrac{
+		n\cdot\sum\limits_{i=1}^nx_iy_i-\sum\limits_{i=1}^nx_i\cdot\sum\limits_{i=1}^ny_i
+		}
+		{n\cdot\sum\limits_{i=1}^nx_i^2-\left(\sum\limits_{i=1}^nx_i\right)^2
+		}
+\end{equation}
+und der y-Achsenabschnitt
+\begin{equation}
+	b = \dfrac{
+		\sum\limits_{i=1}^nx_i^2\cdot\sum\limits_{i=1}^ny_i-\sum\limits_{i=1}^nx_i\cdot\sum\limits_{i=1}^nx_iy_i
+		}{
+		n\cdot\sum\limits_{i=1}^nx_i^2-\left(\sum\limits_{i=1}^nx_i\right)^2
+		}
+\end{equation}
+berechnet werden. Den jeweiligen Fehler erhält man mit
+\begin{equation}
+	s_m^2 = s_y^2 \cdot \dfrac{n}{n\cdot\sum\limits_{i=1}^nx_i^2-\left(\sum\limits_{i=1}^nx_i\right)^2}
+\end{equation}
+\begin{equation}
+	s_b^2 = s_y^2 \cdot \dfrac{\sum\limits_{i=1}^nx_i^2}{n\cdot\sum\limits_{i=1}^nx_i^2-\left(\sum\limits_{i=1}^nx_i\right)^2}\ .
+\end{equation}
+$s_y$ ist hierbei die Abweichung der Regressionsgeraden in y-Richtung.
+\begin{equation}
+	s_y^2 = \dfrac{\sum\limits_{i=1}^n\left(\Delta y_i\right)^2}{n-2} = \dfrac{\sum\limits_{i=1}^n\left(y_i-b-mx_i\right)^2}{n-2}
+\end{equation}

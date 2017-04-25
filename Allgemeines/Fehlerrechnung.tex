@@ -1,0 +1,29 @@
+Im folgenden wurden Mittelwerte von $N$ Messungen der Größe $x$ berechnet
+\begin{equation}
+\bar{x} =  \frac{1}{N-1} \sum_{i=1}^\text{N} x_i \ ,
+\end{equation}
+sowie die Varianz
+\begin{equation}
+V(x) = \frac{1}{N-1} \sum_{i=1}^\text{N} (x_i - \bar{x})^2
+\end{equation}
+woraus die Standardabweichung folgt
+\begin {equation}
+\sigma_x = \sqrt{V(x)}.
+\end{equation}
+Die Standardabweichung des Mittelwertes
+\begin{equation}
+\Delta_{x} = \frac{\sigma_x}{\sqrt{N}} \ ,
+\end{equation}
+kürzer auch Fehler des Mittelwertes genannt, bezieht noch die Anzahl der Messungen mit ein. \\
+%Liegen $N$ Messwerte $x_i$ mit Fehlern $\Delta_{x_i}$ vor, so wird aus ihnen ein gewichteter Mittelwert sowie ein gewichteter Fehler berechnet:
+%\begin{align}
+%	\bar{x} &= \frac{\sum_{i=1}^N \left(\frac{x_i}{\Delta_{x_i}^2} \right)}{\sum_{i=1}^N \left(\frac{1}{\Delta_{x_i}^2} \right)} \\
+%	\Delta_x &= \sqrt{\frac{1}{{\sum_{i=1}^N \left(\frac{1}{\Delta_{x_i}^2} \right)}}} \quad .
+%\end{align}
+Des weiteren ist die Gaußsche Fehlerfortpflanzung definiert als
+\begin{equation}
+\sigma_A = \sqrt{ \sum_{i=1}^N  \left(   \frac{\partial A(x_1, ... ,x_N)}{\partial x_i} \right)^2 \sigma_{x_i} ^2 } \quad .
+\end{equation}
+
+\clearpage
+
