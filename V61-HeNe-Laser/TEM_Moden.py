@@ -37,8 +37,10 @@ plt.close()
 #daten für latex auslesen:
 a = ufloat(params[0], np.sqrt(cov[0,0]))
 b = ufloat(params[1], np.sqrt(cov[1,1]))
+c = ufloat(params[2], np.sqrt(cov[2,2]))
 write('build/TEM_00_a.tex', make_SI(a, r'\nano\ampere'))
 write('build/TEM_00_b.tex', make_SI(b, r'\milli\meter'))
+write('build/TEM_00_c.tex', make_SI(c, r'\milli\meter'))
 
 write('build/tab_TEM_00.tex', make_table([x_00, I_00], [1,2]))
 write('build/tab_TEM_00_gesamt.tex', make_full_table(
@@ -46,7 +48,7 @@ r'Intensität der TEM$_{00}$-Mode entlang der x-Achse',
 'tab:TEM_00',
 'build/tab_TEM_00.tex',
 [],
-[r'I in \si{\nano\ampere', r'x in \si{\milli\meter}']))
+[r'I in \si{\nano\ampere}', r'x in \si{\milli\meter}']))
 
 
 
