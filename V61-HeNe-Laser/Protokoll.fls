@@ -452,10 +452,6 @@ INPUT ./Niveauschema.png
 INPUT ./Niveauschema.png
 INPUT Aufbau_Ablauf.tex
 INPUT Aufbau_Ablauf.tex
-INPUT ../Allgemeines/Fehlerrechnung.tex
-INPUT ../Allgemeines/Fehlerrechnung.tex
-INPUT ../Allgemeines/Regression.tex
-INPUT ../Allgemeines/Regression.tex
 INPUT Auswertung.tex
 INPUT Auswertung.tex
 INPUT Diskussion.tex
@@ -490,3 +486,4 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

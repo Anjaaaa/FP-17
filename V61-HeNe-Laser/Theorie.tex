@@ -29,8 +29,11 @@ Die Form der Resonatorspiegel kann verschieden sein und entscheidet über die St
 \begin{align}
 	g = 1-\frac{L}{r} \ ,
 \end{align}
-wobei $r$ der Krümmungsradius des Spiegels  und L die Länge des Resonators ist. Ein Resonator ist optisch stabil, wenn $ 0\leq g_1\cdot g_2<1$ gilt. \\
-Auch die Moden der stehenden Welle, die sich im Resonator ausbildet, haben einen Einfluss auf die Verluste. Die sogenannte $\text{TEM}_{00}$-Mode ist hierbei die präferierte, denn sie hat keine transversalen Anteile, welche die Fokussierung erschweren. Ihre Intensitätsverteilung auf einem Schirm wird durch die Gaußverteilung
+wobei $r$ der Krümmungsradius des Spiegels  und L die Länge des Resonators ist. Ein Resonator ist optisch stabil, wenn 
+\begin{align}\label{eq:Stabilitat}
+	0\leq g_1\cdot g_2<1
+\end{align}
+gilt. Auch die Moden der stehenden Welle, die sich im Resonator ausbildet, haben einen Einfluss auf die Verluste. Sie werden als $\text{TEM}_{lp}$-Moden bezeichnet, wobei $l,p$ die Anzahlen der Knoten in $x,y$- -- also transversaler -- Richtung sind. Die sogenannte $\text{TEM}_{00}$-Mode ist hierbei die präferierte, denn sie hat keine transversalen Anteile, welche die Fokussierung erschweren. Ihre Intensitätsverteilung auf einem Schirm wird durch die Gaußverteilung
 \begin{align}
 	I(r) = I_0\exp\left(-2\left(\frac{r}{\omega}\right)^2\right)
 \end{align}
@@ -43,7 +46,7 @@ moduliert werden, wobei $\theta = \omega_0\lambda\slash\pi$ die Divergenz des St
 Neben den beschriebenen grundlegenden Bauteilen werden weitere Elemente zur Verbesserung des Strahls eingesetzt:
 \begin{itemize}
 	\item Brewsterfenster an beiden Seiten der Kammer, die das Lasermedium enthält, sorgen für die Polarisation des Lichts. Sie bestehen aus Glasplatten, die im Brewsterwinkel zum Strahl stehen und so die senkrecht polarisierten Anteile der Welle herausfiltern.
-	\item Modenblenden sind mechanische Widerstände, die transversale Moden blockieren.
+	\item Modenblenden sind mechanische Widerstände, die transversale Moden blockieren. WO WERDEN DIE HINGESTELLT?
 \end{itemize}
 \subsection{Der HeNe-Laser}
 Beim HeNe-Laser befindet sich neben Neon als Lasermedium noch Helium als Pumpgas im Verhältnis 1 (Ne) zu 5 (He). Die Heliumatome werden durch Entladung angeregt. Durch Stöße zweiter Art ($A^* + B \rightarrow A + B^*$) werden die Neonatome angeregt. Das Energieniveauschema \ref{fig:Niveaus} stellt diesen und die darauf folgenden Abläufe in den Atomhüllen dar. Die intensivste der emittierten Wellenlängen, ist rote mit einer Wellenlänge von $\lambda = \SI{632.8}{\nano\metre}$.

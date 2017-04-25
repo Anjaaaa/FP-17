@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.14)  25 APR 2017 12:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.14)  25 APR 2017 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1685,7 +1685,14 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Protokoll.bbl' found.
-(./Protokoll.bbl)
+(./Protokoll.bbl
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Niveaus':
+(biblatex)                - Entry 'Niveaus' (../Allgemeines/Literatur.bib): Inv
+alid format '24.04.17' of date field 'date' - ignoring.
+
+)
 Package biblatex Info: Reference section=0 on input line 27.
 Package biblatex Info: Reference segment=0 on input line 27.
 Now handling font encoding TS1 ...
@@ -2981,11 +2988,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1]
-
-LaTeX Warning: Citation 'V61' on page 2 undefined on input line 35.
-
-(./Theorie.tex
+[1] (./Theorie.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -2998,12 +3001,6 @@ File: BasicAufbau.png Graphic file (type png)
 Package pdftex.def Info: BasicAufbau.png used on input line 24.
 (pdftex.def)             Requested size: 256.07741pt x 65.789pt.
 
-LaTeX Warning: Citation 'V61' on page 2 undefined on input line 25.
-
-
-LaTeX Warning: Citation 'V61' on page 2 undefined on input line 25.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
@@ -3012,29 +3009,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 40--45
+Underfull \hbox (badness 10000) in paragraph at lines 43--48
 
  []
 
-<Niveauschema.png, id=38, 339.2675pt x 152.57pt>
-File: Niveauschema.png Graphic file (type png)
-<use Niveauschema.png>
-Package pdftex.def Info: Niveauschema.png used on input line 52.
-(pdftex.def)             Requested size: 256.07741pt x 115.16287pt.
-
-LaTeX Warning: Citation 'Niveaus' on page 3 undefined on input line 53.
-
-
-LaTeX Warning: Citation 'Niveaus' on page 3 undefined on input line 53.
-
-)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3 <./BasicAufbau.png>]
+[3 <./BasicAufbau.png>] <Niveauschema.png, id=42, 339.2675pt x 152.57pt>
+File: Niveauschema.png Graphic file (type png)
+<use Niveauschema.png>
+Package pdftex.def Info: Niveauschema.png used on input line 55.
+(pdftex.def)             Requested size: 256.07741pt x 115.16287pt.
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -3050,7 +3040,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5
 
-] (../Allgemeines/Fehlerrechnung.tex
+] (./Auswertung.tex)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -3059,7 +3049,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6
 
-]) (../Allgemeines/Regression.tex)
+] (./Diskussion.tex)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -3067,16 +3057,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7
-
-] (./Auswertung.tex) (./Diskussion.tex)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[8
-
 
 ] (./Protokoll.tdo)
 \tf@tdo=\write7
@@ -3096,36 +3076,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9
+[8
 
 ]
-
-LaTeX Warning: Citation 'V61' undefined on input line 68.
-
-
-LaTeX Warning: Empty bibliography on input line 69.
-
-(./Protokoll.aux)
-
-LaTeX Warning: There were undefined references.
+Overfull \hbox (4.68753pt too wide) in paragraph at lines 69--69
+[]\OT1/cmr/m/n/10.95 Othmar Mar-ti und Mau-el Gon-cal-ves. \OT1/cmr/m/it/10.95 
+Vor-le-sungs-skript PHYS2200.0 Atom-phy-sik, Wirt-
+ []
 
 
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Protokoll
-(biblatex)                and rerun LaTeX afterwards.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[9
+
+] (./Protokoll.aux)
 Package logreq Info: Writing requests to 'Protokoll.run.xml'.
 \openout1 = `Protokoll.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41954 strings out of 493013
- 910453 string characters out of 6139316
- 1389531 words of memory out of 5000000
- 44892 multiletter control sequences out of 15000+600000
+ 41968 strings out of 493013
+ 910751 string characters out of 6139316
+ 1389541 words of memory out of 5000000
+ 44912 multiletter control sequences out of 15000+600000
  31708 words of font info for 118 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 57i,12n,77p,10394b,2698s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,12n,77p,10394b,2743s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -3140,11 +3119,12 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Protokoll.pdf (10 pages, 236248 bytes).
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Protokoll.pdf (10 pages, 248495 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 124 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
