@@ -33,14 +33,14 @@ parameter_curved, pcov_curved = curve_fit(g_curved, L_curved, I_curved_norm)
 parameter_flat, pcov_flat = curve_fit(g_flat, L_flat, I_flat_norm)
 
 write('build/tableStabCurv.tex', make_table([L_curved, I_curved*10**9, I_curved_norm],[1,1,1]))
-#write('build/fulltableStabCurv.tex', make_full_table(
-#    r'Resonatorlänge und dazu gemessene Intensität bei einem Resonator mit zwei konkaven Spiegeln',
-#    'tab:curv',
-#    'build/tableStabCurv.tex',
-#    [],
-#    [r'$L \ / \ \mathrm{in} \si{\metre}$',
-#    r'$I \ / \ \si{\micro\ampere}$',
-#    r'$I_\text{norm}]))
+write('build/fulltableStabCurv.tex', make_full_table(
+    r'Resonatorlänge und dazu gemessene Intensität bei einem Resonator mit zwei konkaven Spiegeln',
+    'tab:curv',
+    'build/tableStabCurv.tex',
+    [],
+    [r'$L \ / \ \mathrm{in} \si{\metre}$',
+    r'$I \ / \ \si{\micro\ampere}$',
+    r'$I_\text{norm}']))
 
 
 x_curved = np.linspace(0.0,2.8,100)
