@@ -27,8 +27,8 @@ Bestimmend für die Frequenz des Laserlichts ist das Lasermedium. Durch eine äu
 \end{figure} \\
 Die Form der Resonatorspiegel kann verschieden sein und entscheidet über die Stabilität des Lasers. Als Kenngröße dient dabei $g_i = 1-\frac{L}{r_i}$, die einen Zusammenhang zwischen dem Krümmungsradius des Spiegels $r_i$ der Länge $L$ des Resonators herstellt. Eingesetzt in die resonator-spezifische Funktion $g(L) = g_1 \cdot g_2$ erhält man beispielsweise 
 \begin{align}
-	&g(L) = \frac{1}{r_1r_2}L^2 - \left(\frac{1}{r_1}+\frac{1}{r_2}\right)L + 1 &&\text{\small wenn beide Spiegel gekrümmt,} \\
-	&g(L) = 1-\frac{L}{r_2} &&\text{\small wenn ein Spiegel planar, der andere gekrümmt ist.}
+	&g(L) = \frac{1}{r_1r_2}L^2 - \left(\frac{1}{r_1}+\frac{1}{r_2}\right)L + 1 &&\text{\small wenn beide Spiegel gekrümmt,} \label{eq:StabCurv}\\
+	&g(L) = 1-\frac{L}{r_2} &&\text{\small wenn ein Spiegel planar, der andere gekrümmt ist.}\label{eq:StabFlat}
 \end{align}
 Ein Resonator ist optisch stabil, wenn 
 \begin{align}\label{eq:Stabilitat}
