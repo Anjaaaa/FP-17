@@ -27,7 +27,7 @@ L_curved *= 10**(-2)
 
 
 # Tabellen machen
-write('build/tableStabCurv.tex', make_table([L_curved, I_curved*10**9],[2,1]))
+write('build/tableStabCurv.tex', make_table([L_curved, I_curved*10**9],[2,0]))
 write('build/fulltableStabCurv.tex', make_full_table(
     r'Resonatorlänge und dazu gemessene Intensität bei einem Resonator mit zwei konkaven Spiegeln',
     'tab:curv',
@@ -36,7 +36,7 @@ write('build/fulltableStabCurv.tex', make_full_table(
     [r'$L \ / \ \mathrm{in} \si{\metre}$',
     r'$I \ / \ \si{\micro\ampere}$']))
 
-write('build/tableStabFlat.tex', make_table([L_flat, I_flat*10**9],[2,1]))
+write('build/tableStabFlat.tex', make_table([L_flat, I_flat*10**9],[2,0]))
 write('build/fulltableStabFlat.tex', make_full_table(
     r'Resonatorlänge und dazu gemessene Intensität bei einem Resonator mit einem flachen und einem konkaven Spiegel',
     'tab:flat',
