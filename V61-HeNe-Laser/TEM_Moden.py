@@ -79,4 +79,24 @@ plt.legend(loc = 'best')
 plt.savefig('build/TEM_01.png')
 plt.close()
 
+#daten für latex auslesen:
+a01 = ufloat(params[0], np.sqrt(cov[0,0]))
+b01 = ufloat(params[1], np.sqrt(cov[1,1]))
+c01 = ufloat(params[2], np.sqrt(cov[2,2]))
+d01 = ufloat(params[3], np.sqrt(cov[3,3]))
+e01 = ufloat(params[4], np.sqrt(cov[4,4]))
+write('build/TEM_01_a.tex', make_SI(a01, r'\nano\ampere'))
+write('build/TEM_01_b.tex', make_SI(b01, r'\milli\meter'))
+write('build/TEM_01_c.tex', make_SI(c01, r'\milli\meter'))
+write('build/TEM_01_d.tex', make_SI(d01, r'\nano\ampere'))
+write('build/TEM_01_e.tex', make_SI(e01, r'\milli\meter'))
+
+write('build/tab_TEM_01.tex', make_table([x_01, I_01], [1,2]))
+write('build/tab_TEM_01_gesamt.tex', make_full_table(
+r'Intensität der TEM$_{01}$-Mode entlang der x-Achse',
+'tab:TEM_01',
+'build/tab_TEM_01.tex',
+[],
+[r'I in \si{\nano\ampere}', r'x in \si{\milli\meter}']))
+
 

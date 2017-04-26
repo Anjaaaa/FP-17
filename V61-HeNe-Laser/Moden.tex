@@ -1,12 +1,13 @@
 \subsection{Intensität der TEM$_{00}$- und TEM$_{01}$-Mode}
+\todo{Entweder müssen wir hier auch den First Guess in die Abbildungen machen oder oder oben bei der Polarisation auch nicht.}
+\todo{Es könnte sich hier anbieten alle Messwerte in eine Tabelle zu schreiben, sodass man nicht diese langen Tabellen auf fast leeren Seiten hat.}
 \subsubsection{TEM$_{00}$-Mode}
-
-Fitparameter sind die maximale Amplitude $I_0$, die Breite des Laser-Strahls $\omega$, nachdem dieser die Zerstreuungslinse durchlaufen hat, und die Verschiebung des Maximums entlang der x-Achse $x_0$. Die Messdaten sind in Tabelle REF zu finden und der zugehörige Plot ist Abbildung \ref{fig:TEM_00}.
+Es wird eine Gauß-Verteilung in Anlehnung an \eqref{eq:intensity} an die Messwerte aus Tabelle \ref{fig:TEM_00} gefittet. Fitparameter sind die maximale Amplitude $I_0$, die Breite des Laser-Strahls $\omega$, nachdem dieser die Zerstreuungslinse durchlaufen hat, und die Verschiebung des Maximums entlang der x-Achse $x_0$. Der zugehörige Plot ist in Abbildung \ref{fig:TEM_00} zu finden.
 
 \begin{align}
-	I_0 =  \input{build/TEM_00_a.tex}\\
-	\omega =  \input{build/TEM_00_b.tex} \\
-	x_0 = \input{build/TEM_00_c.tex}
+	I_0 &=  \input{build/TEM_00_a.tex}\\
+	\omega &=  \input{build/TEM_00_b.tex} \\
+	x_0 &= \input{build/TEM_00_c.tex}
 \end{align}
 	
  \input{build/tab_TEM_00_gesamt.tex}
@@ -19,4 +20,25 @@ Fitparameter sind die maximale Amplitude $I_0$, die Breite des Laser-Strahls $\o
 	\label{fig:TEM_00}
 \end{figure} 
 
-blblblbl
+\subsubsection{TEM$_{01}$-Mode}
+Bei der TEM$_{01}$-Mode ist das Verfahren ähnlich, hier werden zwei Gauß-Verteilungen mit folgenden Parametern an die Messwerte aus Tabelle \ref{tab:TEM_01} gefittet:
+\begin{align*}
+	I(x) = I_\text{0l}\exp\left(-2\left(\frac{x+x_\text{0l}}{w}\right)^2\right) + I_\text{0r}\exp\left(-2\left(\frac{x+x_\text{0r}}{w}\right)^2\right) \ .
+\end{align*}
+Die Berechnung ergibt die Werte
+\begin{align}
+	I_\text{0l} &= \input{build/TEM_01_d.tex} \\
+	x_\text{0l} &= \input{build/TEM_01_c.tex} \\
+	I_\text{0r} &=  \input{build/TEM_01_a.tex} \\
+	x_\text{0r} &= \input{build/TEM_01_e.tex} \\
+	\omega &=  \input{build/TEM_01_b.tex} \ .
+\end{align}
+Abbildung \ref{fig:TEM_01} zeigt den dazugehörigen Plot.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.6\textwidth]{build/TEM_01.png}
+	\caption{Intensität der TEM$_{01}$-Mode entlang der x-Achse gemessen}
+	\label{fig:TEM_01}
+\end{figure}
+
+\input{build/tab_TEM_01_gesamt.tex}
