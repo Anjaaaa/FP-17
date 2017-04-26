@@ -33,8 +33,8 @@ write('build/fulltableStabCurv.tex', make_full_table(
     'tab:curv',
     'build/tableStabCurv.tex',
     [],
-    [r'$L \ / \ \mathrm{in} \si{\metre}$',
-    r'$I \ / \ \si{\micro\ampere}$']))
+    [r'$L \ \mathrm{in} \ \si{\metre}$',
+    r'$I \ \mathrm{in} \ \si{\micro\ampere}$']))
 
 write('build/tableStabFlat.tex', make_table([L_flat, I_flat*10**9],[2,0]))
 write('build/fulltableStabFlat.tex', make_full_table(
@@ -42,8 +42,8 @@ write('build/fulltableStabFlat.tex', make_full_table(
     'tab:flat',
     'build/tableStabFlat.tex',
     [],
-    [r'$L \ / \ \mathrm{in} \si{\metre}$',
-    r'$I \ / \ \si{\micro\ampere}$']))
+    [r'$L \ \mathrm{in} \ \si{\metre}$',
+    r'$I \ \mathrm{in} \ \si{\micro\ampere}$']))
 
 
 # Fitten
