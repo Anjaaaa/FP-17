@@ -14,6 +14,11 @@
 % 	pdflatex Protokoll.tex
 % oder einfach make ausführen
 
+% macht, dass die table und figures nicht immer oben sind
+\makeatletter
+\renewcommand{\fps@figure}{!ht}
+\renewcommand{\fps@table}{!ht}
+\makeatother
 
 \usepackage[
 %	disable,
