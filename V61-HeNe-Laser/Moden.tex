@@ -2,9 +2,6 @@
 \todo{Es könnte sich hier anbieten alle Messwerte in eine Tabelle zu schreiben, sodass man nicht diese langen Tabellen auf fast leeren Seiten hat.}
 \subsubsection{TEM$_{00}$-Mode}
 
-
-Fitparameter sind die maximale Amplitude $I_0$, die Breite des Laser-Strahls $\omega$, nachdem dieser die Zerstreuungslinse durchlaufen hat, und die Verschiebung des Maximums entlang der x-Achse $x_0$. Die Messdaten sind in Tabelle \ref{tab:TEM_00} zu finden und der zugehörige Plot ist Abbildung \ref{fig:TEM_00}.
-
 Es wird eine Gauß-Verteilung in Anlehnung an \eqref{eq:intensity} an die Messwerte aus Tabelle \ref{fig:TEM_00} gefittet. Fitparameter sind die maximale Amplitude $I_0$, die Breite des Laser-Strahls $\omega$, nachdem dieser die Zerstreuungslinse durchlaufen hat, und die Verschiebung des Maximums entlang der x-Achse $x_0$. Der zugehörige Plot ist in Abbildung \ref{fig:TEM_00} zu finden.
 
 
@@ -13,6 +10,7 @@ Es wird eine Gauß-Verteilung in Anlehnung an \eqref{eq:intensity} an die Messwe
 	\omega &=  \input{build/TEM_00_b.tex} \\
 	x_0 &= \input{build/TEM_00_c.tex}
 \end{align}
+
 	
  \input{build/tab_TEM_00_gesamt.tex}
 
@@ -23,6 +21,8 @@ Es wird eine Gauß-Verteilung in Anlehnung an \eqref{eq:intensity} an die Messwe
 	\caption{Intensität der TEM$_{00}$-Mode entlang der x-Achse gemessen}
 	\label{fig:TEM_00}
 \end{figure} 
+
+\clearpage
 
 \subsubsection{TEM$_{01}$-Mode}
 Bei der TEM$_{01}$-Mode ist das Verfahren ähnlich, hier werden zwei Gauß-Verteilungen mit folgenden Parametern an die Messwerte aus Tabelle \ref{tab:TEM_01} gefittet:
