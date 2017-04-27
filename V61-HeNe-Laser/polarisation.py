@@ -17,14 +17,14 @@ phi, I = np.genfromtxt('Daten/Daten_Polarisation.txt', unpack = True)
 phi *= 2*np.pi/360
 I *= 10**(-6)
 
-write('build/tablePolarisation.tex', make_table([phi, I*10**6],[1,1]))
-#write('build/fulltablePolarisation.tex', make_full_table(
-#    r'Intensitätsverteilung in Abhängigkeit des Winkels des Polarisators',
-#    'tab:Polarisation',
-#    'build/tablePolarisation.tex',
-#    [],
-#    [r'$\varphi$',
-#    r'$I \ \mathrm{in} \ \si{\micro\ampere}$']))
+write('build/tablePolarisation.tex', make_table([phi, I*10**6],[2,0]))
+write('build/fulltablePolarisation.tex', make_full_table(
+    r'Intensität in Abhängigkeit des Winkels des Polarisators',
+    'tab:Polarisation',
+    'build/tablePolarisation.tex',
+    [],
+    [r'$\varphi$',
+    r'$I \ \mathrm{in} \ \si{\micro\ampere}$']))
 
 def func(x, a,b,c):
   return a*np.sin(b*x+c)**2
@@ -44,11 +44,10 @@ print(parameter[1])
 print(parameter[2])
 x = np.arange(0, 2*np.pi, 0.01 )
 plt.plot(x, 10**6*func(x,parameter[0], parameter[1], parameter[2]), color = 'r', label = 'Fit')
-plt.plot(x, 10**6*func(x,a_0, b_0, c_0), color = '0.75', label = 'First Guess')
 plt.plot(phi, 10**6*I, 'kx', label='Messwerte')
-
+plt.xlim(0, 2*np.pi)
 plt.xlabel(r'$\mathrm{\varphi}$')
-plt.ylabel(r'$I \ / \ \mathrm{\mu}$A')
+plt.ylabel(r'$I \ \mathrm{in} \ \mathrm{\mu}$A')
 plt.legend(loc='best')
 plt.savefig('Fit_Polarisation.png')
 plt.show()

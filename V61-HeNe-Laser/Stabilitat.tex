@@ -1,14 +1,20 @@
 \subsection{Überprüfung der Stabilität}
-Zur Überprüfung der Stabilitätsbedingung \eqref{eq:Stabilitat} werden die Messwerte normiert, sodass die höchste Intensität jeweils den Wert 1 zugewiesen bekommt. Die resultierenden, sowie die gemessenen Werte sind in den Tabellen VERWEIS und VERWEIS zu sehen. Dann wird für den Resonator mit den beiden konkaven Spiegeln ein quadratisches Polynom -- in Anlehnung an \eqref{eq:StabCurv} -- an die Messwerte für die normierten Intensitäten gefittet. Das Ergebnis ist in Abbildung \ref{fig:fitcurved} dargestellt. Dasselbe wird mit den Werten für den Resonator mit einem flachen Spiegel und einer linearen Funktion gemacht. Die Ergebnisse hierfür finden sich in Abbildung \ref{fig:fitflat}. Auf die Angabe der errechneten Parameter wird hier verzichtet, da die gefittete Funktion offensichtlich weit von den Erwartungen abweicht.
+\subsection{Resonator mit zwei gekrümmten Spiegeln\label{sec:curved}}
+Durch Einsetzen von \eqref{eq:StabCurved} ($r_1 = r_2 = \SI{1.400}{\metre}$) in die Stabilitätsbedinung \eqref{eq:Stabilitat} ergibt sich, dass der Resonator optisch stabil ist, wenn für die Länge $L$ der Resonators gilt $\SI{0}{\metre}\leq L<\SI{2.800}{\metre}$. Dieser Bereich ist in Abbildung \ref{fig:curved} blau hinterlegt. Die minimale bzw. maximale Länge des Resonators, vorgegeben durch die Versuchsanordnung sind durch die roten Linien gekennzeichnet. Im gesamten möglichen Bereich ist der Aufbau eines stabilen Lasers möglich, wie die eingezeichneten Messwerte aus Tabelle \ref{tab:curv} belegen.
+\input{build/fulltableStabCurv.tex}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.6\textwidth]{FitCurved.png}
-	\caption{Fit zur Überprüfung der Stabilitätsbedingung bei zwei konkaven Spiegeln mit den Messwerten und der theoretisch erwarteten Funktion $g(L)$}
-	\label{fig:fitcurved}
+	\includegraphics[width=.7\textwidth]{PlotCurved2.png}
+	\caption{Veranschaulichung der Stabilitätsbedingung für einen Resonator mit zwei gekrümmten Spiegeln}
+	\label{fig:curved}
 \end{figure}
+\clearpage
+\subsection{Resonator mit einem gekrümmten und einem planaren Spiegel}
+Das Vorgehen ist hier analog zu \ref{sec:curved}. Dieses Mal wird \eqref{eq:StabFlat} ($r_1 = \SI{1.400}{\metre}, r_2\rightarrow\infty$) in \eqref{eq:Stabilitat} eingesetzt und ergibt eine stabile Resonatorlänge $L$ für $\SI{0}{\metre}\leq L<\SI{1.400}{\metre}$. Der stabile Bereich ist wieder blau hinterlegt und die untere Grenze, die durch die Länge der Kammer des Lasermediums bedingt ist, ist wiederum als rote Linie eingezeichnet. Die Messwerte aus Tabelle \ref{tab:flat} decken hier nicht den ganzen möglichen Bereich ab, denn bei einer Resonatorlänge $L>\SI{0.98}{\metre}$ kann der Laser nicht mehr zum Lasen gebracht werden.
+\input{build/fulltableStabFlat.tex}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.6\textwidth]{FitFlat.png}
-	\caption{Fit zur Überprüfung der Stabilitätsbedingung bei einem gekrümmten und einem flachen Spiegel mit den Messwerten und der theoretisch erwarteten Funktion $g(L)$}
-	\label{fig:fitflat}
+	\includegraphics[width=.7\textwidth]{PlotFlat2.png}
+	\caption{Veranschaulichung der Stabilitätsbedingung für einen Resonator mit einem gekrümmten und einem planaren Spiegel}
+	\label{fig:flat}
 \end{figure}

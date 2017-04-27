@@ -1,23 +1,19 @@
 \subsection{Polarisation}
-Die Winkel mit den zugehörigen Intensitäten sind in Tabelle VERWEIS aufgetragen. Mit Hilfe der Funktion \textit{curve\_fit} von Python und einem First Guess von
+Die Winkel mit den zugehörigen Intensitäten sind in Tabelle \ref{tab:Polarisation} aufgetragen. Die Funktion
 \begin{align*}
-	I_\text{guess} = \SI{100}{\micro\ampere}\sin^2(\varphi + 0.4)
+	I_\text{fit} = I_0\sin^2\left(\omega\varphi + \varphi_0\right)
 \end{align*}
-wird die Funktion
-\begin{align*}
-	I_\text{fit} = a\sin^2\left(b\varphi + c\right)
-\end{align*}
-an die Messwerte gefittet. Dabei ergeben sich die Parameter
+wird an die Messwerte gefittet. Dabei ergeben sich die Parameter
 \begin{align}
-	a &= \input{build/PolAmplitude.tex} \\
-	b &= \input{build/PolFrequenz.tex} \\
-	c &= \input{build/PolOffset.tex} \ .
+	I_0 &= \input{build/PolAmplitude.tex} \\
+	\omega &= \input{build/PolFrequenz.tex} \\
+	\varphi_0 &= \input{build/PolOffset.tex} \ .
 \end{align}
-Die Messwerte, der First Guess und die gefittete Funktion sind in Abbildung \ref{fig:fitPol} zu sehen.
+Die Messwerte und die gefittete Funktion sind in Abbildung \ref{fig:fitPol} zu sehen. Die Maxima befinden sich bei \input{build/PolMax.tex}- bzw. $1.3\pi$, d.h. der Laser war in diese Richtung polarisiert.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.6\textwidth]{Fit_Polarisation.png}
+	\includegraphics[width=.7\textwidth]{Fit_Polarisation.png}
 	\caption{Fit zur Bestimmung der Polarisationsrichtung}
 	\label{fig:fitPol}
 \end{figure}
-Der Laser war demnach in \input{build/PolMax.tex}- bzw. $1.3\pi$ - Richtung polarisiert.
+\input{build/fulltablePolarisation.tex}
