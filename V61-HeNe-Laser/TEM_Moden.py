@@ -48,7 +48,7 @@ r'Intensität der TEM$_{00}$-Mode entlang der x-Achse',
 'tab:TEM_00',
 'build/tab_TEM_00.tex',
 [],
-[r'I in \si{\nano\ampere}', r'x in \si{\milli\meter}']))
+[ r'x in \si{\milli\meter}', r'I in \si{\nano\ampere}']))
 
 
 
