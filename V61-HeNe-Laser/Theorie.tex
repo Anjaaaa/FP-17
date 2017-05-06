@@ -1,8 +1,10 @@
+In diesem Kapitel werden als ersten die physikalischen Grundlagen des Versuchs erläutert, dann auf den eigentlichen Versuchsaufbau eingegangen und zuletzt noch die konkrete Funktionsweise des HeNe-Lasers erklärt.
+
 \subsection{Zugrundeliegende Physik}
 Laser (kurz für \textit{light amplification by stimulated emission of radiation}) machen sich die Wechselwirkung zwischen Photonen und Hüllenelektronen zunutze. Dabei gibt es drei grundlegende Phänomene (erklärt am Beispiel eines Zweiniveausystems mit Energiedifferenz $E$):
 \begin{itemize}
 	\item Absorption: Das Elektron ist auf dem unteren Niveau. Ein einfallendes Photon mit Energie $E$ gibt seine gesamte Energie an das Elektron ab, das somit auf das obere Niveau gelangt. Das Atom ist nun angeregt.
-	\item Induzierte Emission: Das Elektron ist auf dem oberen Niveau. Ein einfallendes Photon, das etwa die Energie $E$ hat, verursacht die Emission eines zweiten Photons mit Energie $E$ beim Übergang des Elektrons zum unteren Niveau.
+	\item Induzierte Emission: Das Elektron ist auf dem oberen Niveau. Ein einfallendes Photon, das die Energie $E$ hat, verursacht die Emission eines zweiten Photons mit Energie $E$ beim Übergang des Elektrons zum unteren Niveau.
 	\item Spontane Emission: Das Elektron ist auf dem oberen Niveau und emittiert spontan, zur Energieminimierung, ein Photon der Energie $E$.
 \end{itemize}
 Die Besetzungsdichten der beiden Niveaus $n_1,n_2$ können mit folgenden Differentialgleichungen beschrieben werden
@@ -10,7 +12,7 @@ Die Besetzungsdichten der beiden Niveaus $n_1,n_2$ können mit folgenden Differe
 	\dot{n}_1 &= - n_1B_{12}\rho(x) + n_2B_{21}\rho(x) + n_2A_{21} \nonumber\\
 	\dot{n}_2 &= + n_1B_{12}\rho(x) - n_2B_{21}\rho(x) - n_2A_{21}
 \end{align}
-$\rho(x)$ ist dabei die Energiedichte des einfallenden Strahlungsfelds und $A_{21}, B_{12}, B_{21}$ die Einsteinkoeffizienten und dienen als Maß für die Wahrscheinlichkeit eines Übergangs. \\
+Die Energiedichte des einfallenden Strahlungsfelds ist dabei $\rho(x)$ und $A_{21}, B_{12}, B_{21}$ die Einsteinkoeffizienten und dienen als Maß für die Wahrscheinlichkeit eines Übergangs. \\
 Man spricht von Besetzungsinversion, wenn die Besetzung des oberen Niveaus $n_2$ größer ist, als die des unteren $n_1$, mit anderen Worten, wenn die Differenz der beiden Besetzungsdichten $\Delta N = n_1-n_2$ negativ ist. Durch Transformation der Variablen $n_1,n_2$ zu $\Delta N, N=n_1+n_2=const$ in den Gleichungen \eqref{eq:DGL} und Lösung der neuen Differentialgleichung ergibt sich der Ausdruck
 \begin{align}
 	\Delta N(t) = N \left[ -\left(\frac{1}{2\frac{B\rho}{A_{21}}+1}+1\right)
@@ -28,7 +30,7 @@ Bestimmend für die Frequenz des Laserlichts ist das Lasermedium. Durch eine äu
 Die Form der Resonatorspiegel kann verschieden sein und entscheidet über die Stabilität des Lasers. Als Kenngröße dient dabei $g_i = 1-\frac{L}{r_i}$, die einen Zusammenhang zwischen dem Krümmungsradius des Spiegels $r_i$ der Länge $L$ des Resonators herstellt. Eingesetzt in die Resonator-spezifische Funktion $g(L) = g_1 \cdot g_2$ erhält man, wenn einer der beiden Spiegel gekrümmt ist, beispielsweise 
 \begin{align}
 	&g_\text{curved}(L) = \frac{1}{r_1r_2}L^2 - \left(\frac{1}{r_1}+\frac{1}{r_2}\right)L + 1 &&\text{\small wenn der zweite auch gekrümmt ist bzw.} \label{eq:StabCurved}\\
-	&g_\text{flat}(L) = 1-\frac{L}{r_2} &&\text{\small wenn der zweite planar ist.}\label{eq:StabFlat}
+	&g_\text{flat}(L) = 1-\frac{L}{r_1} &&\text{\small wenn der zweite planar ist.}\label{eq:StabFlat}
 \end{align}
 Ein Resonator ist optisch stabil, wenn 
 \begin{align}\label{eq:Stabilitat}
@@ -43,7 +45,7 @@ mit dem Abstand zur optischen Achse $r$ und dem Strahldurchmesser $2\omega$ besc
 \begin{align}
 	\omega(z) = \omega_0\sqrt{1+\left(\frac{\theta z}{\omega_0}\right)^2}
 \end{align}
-moduliert werden, wobei $\theta = \omega_0\lambda\slash\pi$ die Divergenz des Strahls ist. \\
+modelliert werden, wobei $\theta = \omega_0\lambda\slash\pi$ die Divergenz des Strahls ist. \\
 \ \\
 Neben den beschriebenen grundlegenden Bauteilen werden weitere Elemente zur Verbesserung des Strahls eingesetzt:
 \begin{itemize}
