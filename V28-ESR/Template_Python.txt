@@ -1,0 +1,49 @@
+import numpy as np
+from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+from scipy.stats import norm #Nur hier, um fehlerbehaftete Daten zu erzeugen
+
+
+###Daten einlesen:
+# Spalte1, Spalte2, ... = np.genfromtxt('Dateiname.txt', unpack=True)
+
+
+###Regression:
+
+#Funktion definieren
+def Funktion(x, a, b):
+    return a * np.exp(-b * x)
+
+#Rechnung ohne Berücksichtigung eines Fehlers in y-Richtung
+params, cov = curve_fit(Funktion, x_vector, y_vector)
+print(params)
+print(cov)
+
+#Berechnung mit einem prozentualen Fehler in y-Richtung
+params, cov = curve_fit(Funktion, x_vector, y_vector, sigma=0.03*y_vector, absolute_sigma=False)
+print(params)
+print(cov)
+
+#Berechnung mit einem festen Fehler (z.B. Ablesefehler) in y-Richtung
+params, cov = curve_fit(Funktion, x_vector, y_vector, sigma=0.03*y_vector, absolute_sigma=False)
+print(params)
+print(cov)
+
+###Plotten, Beispiele http://matplotlib.org/1.2.1/examples/index.ht
+
+plt.plot(x_vector, model(x_vector, params[0], params[1]))
+plt.errorbar(x_vector, model(x_vector, params[0], params[1]), yerr=..., xerr=..., )
+
+plt.xlim(0,10)
+plt.ylim(0,10)
+
+plt.xlabel('...')
+plt.ylabel('...')
+plt.legend(loc='best')
+
+plt.show()
+plt.savefig('Dateinname.png')
+
+
+
+
