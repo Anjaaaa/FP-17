@@ -53,5 +53,5 @@ plt.xlim(10*10**6,30*10**6)
 
 plt.legend(loc='best')
 
-plt.savefig('FitCurved.png')
+plt.savefig('FitCurved.pdf')
 plt.show()
