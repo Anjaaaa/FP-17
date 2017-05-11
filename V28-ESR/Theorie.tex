@@ -1,0 +1,17 @@
+Im Folgenden werden die theoretischen Grundlagen der Elektronen-Spin-Resonanz erläutert. Hierzu ist vor allem die Herleitung des magnetischen Moments in Folge des Bahndrehimpulses und Spins sowie die Aufspaltung der Energienieveaus in einem Magnetfeld in Abhängigkeit des magnetischen Momentes wichtig.
+\subsection{Magnetisches Moment -- Herleitung}
+Das magnetische Moment ist das Produkt aus einem Kreisstrom und einer Fläche. Um die Teilchenströme eines Atoms zu berechnen betrachtet man die Wellenfunktionen eines Atoms in Kugelkoordinaten $(r, \theta, \phi)$
+\begin{equation}
+	\psi_{\textrm{n,l,m}}(r, \theta, phi) = \textrm{R}_{\textrm{n,l}}(r)  \, \Theta_{\textrm{ l,m}}(\theta)  \, \Phi_{\textrm{m}}(\phi) \quad .
+\end{equation}
+Relevant sind die Hauptquantenzahl $n \in \mathbb{N}$, die Bahndrehimpulsquantenzahl $l = \frac{k}{2}, k \in \mathbb{N}$ und die Orientierungsquantenzahl $m \in  (-l, -l+1, ..., l)$. Alle Anteile der Wellenfunktion sind normiert und es gilt
+\begin{equation*}
+	 \Phi_{\textrm{m}}(\phi) = \frac{1}{\sqrt{2 \pi}} \textrm{e}^{i \texmrm{m} \phi}  \quad \textrm{und} \quad  \textrm{R}_{\textrm{n,l}}(r),  \Theta_{\textrm{ l,m}}(\theta) \in \mathbb{R} \quad .
+\end{equation*}
+Nur die azimutale Anteil des Wellenfunktion trägt zur Teilchenstromdichte $\va{S}$ bei, da alle anderen Anteile rein reellwertig sind
+\begin{equation}
+	\va{S} = \frac{\hbar}{2 i \textrm{m}_0} \left( \psi^* \grad \psi - \psi \grad \psi^*  \right)
+	= \frac{\hbar \textrm{R}^2 \Theta^2 \textrm{m}}{\textrm{m}_0 2 \pi r \sin{\theta}} = \va{S}_\phi \quad .
+\end{equation}
+
+\subsection{Aufspaltung der Energieniveaus in einem Magnetfeld}
