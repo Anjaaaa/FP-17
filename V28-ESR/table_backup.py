@@ -55,7 +55,7 @@ def make_SI(num, unit, exp='', figures=None):
 
 def write(filename, content):
     f = codecs.open(filename, "w", "utf-8")
-    if type(content) == uncertainties.core.Variable:
+    if type(content) == uncertainties.Variable:
         content = "\num{" + str(x.n) + " +- " + str(x.s) + "}"
         f.write(content)
         if not content.endswith('\n'):
@@ -73,56 +73,7 @@ def write(filename, content):
     #     if not content.endswith('\n'):
     #         f.write('\n')
 
-
-def make_full_table(caption,label,source_table, stacking=np.array([]), units=None):
-    # Vorgeplänkel
-    Output = """\\begin{table}
-    \\centering
-    \\caption{""" + caption + """}
-    \\label{""" + label + """}
-    \\sisetup{parse-numbers=false}
-    \\begin{tabular}{\n"""
-
-    # Kerngeschäft : source_table einlesen und verarbeiten, dh. Vor und Nachkommastellen rausfinden
-    counter_columns = 0
-    counter_lines = 0
-    with open(source_table, 'r') as f:
-        Text = f.read()
-        for buchstabe in Text:
-            if (buchstabe == '&'):
-                counter_columns += 1
-            elif (buchstabe == '\\'):
-                counter_lines += 1
-
-    NumberOfLines = int(counter_lines/2)
-    NumberOfColumns = int(counter_columns/counter_lines*2+1)
-    counter_digits_preDot = np.zeros((NumberOfLines, NumberOfColumns), dtype=np.int)
-    counter_digits_postDot = np.zeros((NumberOfLines, NumberOfColumns), dtype=np.int)
-    dot_reached = False
-    counter_columns = 0
-    counter_lines = 0
-    with open(source_table, 'r') as f:
-        Text = f.read()
-    # 'Vor und Nachkommastellen rausfinden' beginnt hier
-        for buchstabe in Text:
-            if (buchstabe == '&'):
-                counter_columns += 1
-                dot_reached = False
-            elif (buchstabe == '.'):
-                dot_reached = True
-            elif (buchstabe == '\\'):
-                counter_lines += 1
-                counter_columns = counter_columns % (NumberOfColumns-1)
-                dot_reached = False
-            elif (buchstabe != ' ') & (buchstabe != '\n'):
-                if (counter_lines/2 <= (NumberOfLines-1)):
-                    if dot_reached == False:
-                        counter_digits_preDot[int(counter_lines/2)][int(counter_columns)] += 1
-                    else:
-                        counter_digits_postDot[int(counter_lines/2)][int(counter_columns)] += 1
-    # jetzt ermittle maximale Anzahl an Stellen und speichere sie in MaxDigitsPreDot und MaxDigitsPostDot
-    MaxDigitsPreDot = []
-    counter_digits_preDot_np = np.array(counter_digits_preDot)
+ray(counter_digits_preDot)
     for x in counter_digits_preDot_np.T:
         MaxDigitsPreDot.append(max(x))
     MaxDigitsPostDot = []
@@ -178,4 +129,6 @@ def make_full_table(caption,label,source_table, stacking=np.array([]), units=Non
     \\bottomrule
     \\end{tabular}
     \\end{table}"""
-    return Output
+return Output
+:q!
+
