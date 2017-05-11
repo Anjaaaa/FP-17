@@ -13,12 +13,11 @@ from table import (
 
 nuOsz, nuE, max1, unc1, max2, unc2 = np.genfromtxt("Daten.txt", unpack = True)
 # Frequenzen in MHz, Maxima in mA
-
+# nuE bleiben auch die ganze Zeit in MHz, die 10**6 werden in den Rechnung hinzugefügt
 Max1 = unp.uarray(max1, unc1) * 10**(-3)
 Max2 = unp.uarray(max2, unc2) * 10**(-3)
 Max = (Max2-Max1)/2
 
-nuE *= 10**6
 
 ### Umrechnung in B
 B = 8/np.sqrt(125) * 4*np.pi * 4*np.pi * 10**(-7) * 156/0.1 * Max  # Ergebnis in Tesla
@@ -32,7 +31,7 @@ BNom = unp.nominal_values(B)
 BDev = unp.std_devs(B)
 
 def Bfunc(nu, g): # Bfunc = nu / g / mu0 * h
-    return nu / g / (9.274051 * 10**(-24)) * 6.626070040*10**(-34) 
+    return nu*10**6 / g / (9.274051 * 10**(-24)) * 6.626070040*10**(-34) 
 
 gFit, gErr = curve_fit(Bfunc, nuE, BNom, p0 = [1], sigma = BDev)
 
@@ -42,14 +41,23 @@ print('Untere Grenze Toleranzbereich:', gFit-gErr)
 print('Lande-Faktor (Literatur): ', 2.002319)
 
 # Plot
-x = np.linspace(10*10**6,30*10**6,100)
-plt.plot(x, Bfunc(x, 2.002319), 'b', label ='Theorie')
-plt.plot(x, Bfunc(x, gFit[0]), 'r', label = 'Fit')
-plt.plot(nuE, BNom, 'kx', label = 'Messwerte')
-plt.errorbar(nuE, BNom, yerr=BDev, fmt = '.', color = 'k')
-plt.xlim(10*10**6,30*10**6)
-#plt.xlabel(r'$$')
-#plt.ylabel(r'$$')
+x = np.linspace(0,33,3)
+plt.plot(x, Bfunc(x, 2.002319)*10**3, 'b', label ='Theorie')
+plt.plot(x, Bfunc(x, gFit[0])*10**3, 'r', label = 'Fit')
+plt.plot(nuE, BNom*10**3, 'kx', label = 'Messwerte')
+plt.errorbar(nuE, BNom*10**3, yerr=BDev*10**3, fmt = '.', color = 'k')
+plt.xlim(0,33)
+#plt.ylim(0,Bfunc(33, 2.002319)*10**3)
+plt.xlabel(r'$\nu \ \mathrm{in} \ \mathrm{MHz}$')
+plt.ylabel(r'$B \ \mathrm{in} \ \mathrm{mT}$')
+
+
+### Unnötiges Einzeichnen des Toleranzbereichs
+gMin = gFit[0]-gErr[0,0]
+gMax = gFit[0]+gErr[0,0]
+
+plt.fill_between(x, Bfunc(x,gMin)*10**3, Bfunc(x,gMax)*10**3, color = 'red', alpha = 0.25, label = 'Toleranzbereich')
+
 
 plt.legend(loc='best')
 
@@ -60,7 +68,7 @@ plt.show()
 
 ### Werte in Latex-Dateien schreiben
 
-write('build/tableMesswerte.tex', make_table([nuE*10**(-6), Max1*10**3, Max2*10**3],[3,1,1]))
+write('build/tableMesswerte.tex', make_table([nuE, Max1*10**3, Max2*10**3],[3,1,1]))
 write('build/fulltableMesswerte.tex', make_full_table(
     r'Stromstärke $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu$',
     'tab:Werte',
@@ -70,7 +78,7 @@ write('build/fulltableMesswerte.tex', make_full_table(
     r'$I_1 \ \mathrm{in} \ \si{\milli\ampere}$',
     r'$I_2 \ \mathrm{in} \ \si{\milli\ampere}$']))
 
-write('build/tableRegression.tex', make_table([nuE*10**(-6), B*10**6],[3,1]))
+write('build/tableRegression.tex', make_table([nuE, B*10**6],[3,1]))
 write('build/fulltableRegression.tex', make_full_table(
     r'Bei der Regression verwendete Werte',
     'tab:Regression',
@@ -78,3 +86,7 @@ write('build/fulltableRegression.tex', make_full_table(
     [],
     [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
     r'$B \ \mathrm{in} \ \si{\micro\tesla}$']))
+
+g = ufloat(gFit, gErr)
+write('build/Erdmaganetfeld.tex', make_SI(Erde*10**6, r'\micro\tesla'))
+write('build/Landefaktor.tex', make_SI(g, r''))
