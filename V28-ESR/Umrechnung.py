@@ -22,7 +22,7 @@ Messung15 = [(293-208)/5.1,(371-293)/4.7,(467-371)/5.7,(568-467)/6.0]
 # Mittelwert
 scale15 = ufloat(np.mean(Messung15), np.sqrt(np.std(Messung15)))
 # Abstand der Maxima vom ersten Punkt (hier 208)
-a15 = ufloat(8.9,0.4)
+a15 = ufloat(8.9,0.5)
 b15 = ufloat(11.9,0.2)
 # Wert in mA = Abstand zu 208 in mA umrechnen + 208
 a15 = a15*scale15 + 208
@@ -35,7 +35,7 @@ Messung20 = [(473-341)/7.3,(518-473)/2.5,(619-518)/5.6,(705-619)/4.7]
 # Mittelwert
 scale20 = ufloat(np.mean(Messung20), np.sqrt(np.std(Messung20)))
 # Abstand der Maxima vom ersten Punkt (hier 341)
-a20 = ufloat(6.2,0.4)
+a20 = ufloat(6.2,0.5)
 b20 = ufloat(11.3,0.1)
 # Wert in mA = Abstand zu 341 in mA umrechnen + 341
 a20 = a20*scale20 + 341
@@ -48,8 +48,8 @@ Messung25 = [(585-516)/4.5,(668-585)/5.3,(751-668)/5.7,(849-751)/6.5]
 # Mittelwert
 scale25 = ufloat(np.mean(Messung25), np.sqrt(np.std(Messung25)))
 # Abstand der Maxima vom ersten Punkt (hier 516)
-a25 = ufloat(4.7,0.5)
-b25 = ufloat(7.7,0.5)
+a25 = ufloat(4.7,0.6)
+b25 = ufloat(7.7,0.6)
 # Wert in mA = Abstand zu 516 in mA umrechnen + 516
 a25 = a25*scale25 + 516
 b25 = b25*scale25 + 516

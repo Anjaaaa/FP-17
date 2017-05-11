@@ -25,7 +25,7 @@ B = 8/np.sqrt(125) * 4*np.pi * 4*np.pi * 10**(-7) * 156/0.1 * Max  # Ergebnis in
 
 ### Erdmagnetfeld
 Erde = np.mean(B)
-print(Erde)
+print('Erde: ', Erde)
 
 ### Ausgleichsrechnung
 BNom = unp.nominal_values(B)
@@ -37,16 +37,16 @@ def Bfunc(nu, g): # Bfunc = nu / g / mu0 * h
 gFit, gErr = curve_fit(Bfunc, nuE, BNom, p0 = [1], sigma = BDev)
 
 
-print(gFit[0], gErr[0,0])
-print('BNom: ', BNom)
-print('Bfunc: ',Bfunc(nuE,1))
-
+print('Lande-Faktor: ', gFit[0], '+-', gErr[0,0])
+print('Untere Grenze Toleranzbereich:', gFit-gErr)
+print('Lande-Faktor (Literatur): ', 2.002319)
 
 # Plot
 x = np.linspace(10*10**6,30*10**6,100)
-plt.plot(x, Bfunc(x, 1), 'b', label ='Theorie')
+plt.plot(x, Bfunc(x, 2.002319), 'b', label ='Theorie')
 plt.plot(x, Bfunc(x, gFit[0]), 'r', label = 'Fit')
 plt.plot(nuE, BNom, 'kx', label = 'Messwerte')
+plt.errorbar(nuE, BNom, yerr=BDev, fmt = '.', color = 'k')
 plt.xlim(10*10**6,30*10**6)
 #plt.xlabel(r'$$')
 #plt.ylabel(r'$$')
@@ -55,3 +55,26 @@ plt.legend(loc='best')
 
 plt.savefig('FitCurved.pdf')
 plt.show()
+
+
+
+### Werte in Latex-Dateien schreiben
+
+write('build/tableMesswerte.tex', make_table([nuE*10**(-6), Max1*10**3, Max2*10**3],[3,1,1]))
+write('build/fulltableMesswerte.tex', make_full_table(
+    r'Stromstärke $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu$',
+    'tab:Werte',
+    'build/tableMesswerte.tex',
+    [],
+    [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
+    r'$I_1 \ \mathrm{in} \ \si{\milli\ampere}$',
+    r'$I_2 \ \mathrm{in} \ \si{\milli\ampere}$']))
+
+write('build/tableRegression.tex', make_table([nuE*10**(-6), B*10**6],[3,1]))
+write('build/fulltableRegression.tex', make_full_table(
+    r'Bei der Regression verwendete Werte',
+    'tab:Regression',
+    'build/tableRegression.tex',
+    [],
+    [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
+    r'$B \ \mathrm{in} \ \si{\micro\tesla}$']))
