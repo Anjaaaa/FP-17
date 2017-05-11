@@ -5,11 +5,12 @@
     \sisetup{parse-numbers=false}
     \begin{tabular}{
 	S[table-format=2.3]
-	S[table-format=3.0]
-	S[table-format=3.0]
+	S[table-format=1.2]
+	@{${}\pm{}$}
+	S[table-format=1.2, table-number-alignment = left]
 	}
 	\toprule
-	{$\nu \ \mathrm{in} \ \si{\mega\hertz}$}		& {$B \ \mathrm{in} \ \si{\micro\tesla}$}		\\ 
+	{$\nu \ \mathrm{in} \ \si{\mega\hertz}$}		& \multicolumn{2}{c}{$B \ \mathrm{in} \ \si{\milli\tesla}$}		\\ 
 	\midrule
     \input{build/tableRegression.tex}
     \bottomrule

@@ -61,7 +61,7 @@ plt.fill_between(x, Bfunc(x,gMin)*10**3, Bfunc(x,gMax)*10**3, color = 'red', alp
 
 plt.legend(loc='best')
 
-plt.savefig('FitCurved.pdf')
+plt.savefig('Fit.pdf')
 plt.show()
 
 
@@ -73,20 +73,20 @@ write('build/fulltableMesswerte.tex', make_full_table(
     r'Stromstärke $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu$',
     'tab:Werte',
     'build/tableMesswerte.tex',
-    [],
+    [1,2],
     [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
     r'$I_1 \ \mathrm{in} \ \si{\milli\ampere}$',
     r'$I_2 \ \mathrm{in} \ \si{\milli\ampere}$']))
 
-write('build/tableRegression.tex', make_table([nuE, B*10**6],[3,1]))
+write('build/tableRegression.tex', make_table([nuE, B*10**3],[3,1]))
 write('build/fulltableRegression.tex', make_full_table(
     r'Bei der Regression verwendete Werte',
     'tab:Regression',
     'build/tableRegression.tex',
-    [],
+    [1],
     [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
-    r'$B \ \mathrm{in} \ \si{\micro\tesla}$']))
+    r'$B \ \mathrm{in} \ \si{\milli\tesla}$']))
 
 g = ufloat(gFit, gErr)
-write('build/Erdmaganetfeld.tex', make_SI(Erde*10**6, r'\micro\tesla'))
-write('build/Landefaktor.tex', make_SI(g, r''))
+write('build/Erdmagnetfeld.tex', make_SI(Erde*10**3, r'\milli\tesla', figures = 1))
+write('build/Landefaktor.tex', make_SI(g, r'', figures = 2))

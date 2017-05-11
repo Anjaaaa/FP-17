@@ -6,13 +6,15 @@
     \begin{tabular}{
 	S[table-format=2.3]
 	S[table-format=3.0]
-	S[table-format=2.0]
+	@{${}\pm{}$}
+	S[table-format=2.0, table-number-alignment = left]
 	S[table-format=3.0]
-	S[table-format=2.0]
+	@{${}\pm{}$}
+	S[table-format=2.0, table-number-alignment = left]
 	}
 	\toprule
-	{$\nu \ \mathrm{in} \ \si{\mega\hertz}$}		& {$I_1 \ \mathrm{in} \ \si{\milli\ampere}$}		& 
-	{$I_2 \ \mathrm{in} \ \si{\milli\ampere}$}		\\ 
+	{$\nu \ \mathrm{in} \ \si{\mega\hertz}$}		& \multicolumn{2}{c}{$I_1 \ \mathrm{in} \ \si{\milli\ampere}$}		& 
+	\multicolumn{2}{c}{$I_2 \ \mathrm{in} \ \si{\milli\ampere}$}		\\ 
 	\midrule
     \input{build/tableMesswerte.tex}
     \bottomrule
