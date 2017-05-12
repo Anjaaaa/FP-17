@@ -13,7 +13,7 @@
 *.lof
 *.lot
 
-*.Protokoll.pdf
+**/Protokoll.pdf
 V61-HeNe-Laser/table_backup.py
 V61-HeNe-Laser/__pycache__/table.cpython-36.pyc
 V61-HeNe-Laser/.table.py.swp
