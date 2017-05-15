@@ -1,6 +1,6 @@
-\begin{table}
+\begin{table}[h!]
     \centering
-    \caption{Stromstärke $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu$}
+    \caption{Stromstärken $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu_e$ mit dem jeweiligen Skalierungsfaktor}
     \label{tab:Werte}
     \sisetup{parse-numbers=false}
     \begin{tabular}{
@@ -11,10 +11,13 @@
 	S[table-format=3.0]
 	@{${}\pm{}$}
 	S[table-format=2.0, table-number-alignment = left]
+	S[table-format=2.1]
+	@{${}\pm{}$}
+	S[table-format=1.1, table-number-alignment = left]
 	}
 	\toprule
-	{$\nu \ \mathrm{in} \ \si{\mega\hertz}$}		& \multicolumn{2}{c}{$I_1 \ \mathrm{in} \ \si{\milli\ampere}$}		& 
-	\multicolumn{2}{c}{$I_2 \ \mathrm{in} \ \si{\milli\ampere}$}		\\ 
+	{$\nu_e \ \mathrm{in} \ \si{\mega\hertz}$}		& \multicolumn{2}{c}{$I_1 \ \mathrm{in} \ \si{\milli\ampere}$}		& 
+	\multicolumn{2}{c}{$I_2 \ \mathrm{in} \ \si{\milli\ampere}$}		& \multicolumn{2}{c}{Skala in \si{\milli\ampere\per\centi\meter}}		\\ 
 	\midrule
     \input{build/tableMesswerte.tex}
     \bottomrule

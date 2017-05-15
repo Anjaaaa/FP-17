@@ -70,11 +70,11 @@ b30 = b30*scale30 + 576
 
 
 f = open("Daten.txt", "w")
-f.write( "# nu_osc nu_e erstes_max Fehler zweites_max Fehler" + "\n"  )
-f.write( "# MHz MHz mA mA mA mA" + "\n"  )
-f.write( "10    " + "10.588 " + str(a10.nominal_value) + " " + str(a10.std_dev) + " " +  str(b10.nominal_value) + " " + str(b10.std_dev) + " " +  "\n"  )
-f.write( "15.35 " + "15.970 " + str(a15.nominal_value) + " " + str(a15.std_dev) + " " + str(b15.nominal_value) + " " + str(b15.std_dev) + " " +   "\n"  )
-f.write( "20    " + "20.56  " + str(a20.nominal_value) + " " + str(a20.std_dev) + " " + str(b20.nominal_value) + " " + str(b20.std_dev) + " " +   "\n"  )
-f.write( "24.44 " + "23.87  " + str(a25.nominal_value) + " " + str(a25.std_dev) + " " + str(b25.nominal_value) + " " + str(b25.std_dev) + " " +   "\n"  )
-f.write( "30    " + "29.42  " + str(a30.nominal_value) + " " + str(a30.std_dev) + " " + str(b30.nominal_value) + " " + str(b30.std_dev) + " " +   "\n"  )
+f.write( "# nu_osc nu_e erstes_max Fehler zweites_max Fehler Skala" + "\n"  )
+f.write( "# MHz MHz mA mA mA mA mAprocm" + "\n"  )
+f.write( "10    " + "10.588 " + str(a10.nominal_value) + " " + str(a10.std_dev) + " " + str(b10.nominal_value) + " " + str(b10.std_dev) + " " + str(scale10.nominal_value) + " " + str(scale10.std_dev) + "\n")
+f.write( "15.35 " + "15.970 " + str(a15.nominal_value) + " " + str(a15.std_dev) + " " + str(b15.nominal_value) + " " + str(b15.std_dev) + " " + str(scale15.nominal_value) + " " + str(scale15.std_dev) + "\n")
+f.write( "20    " + "20.56  " + str(a20.nominal_value) + " " + str(a20.std_dev) + " " + str(b20.nominal_value) + " " + str(b20.std_dev) + " " + str(scale20.nominal_value) + " " + str(scale20.std_dev) + "\n")
+f.write( "24.44 " + "23.87  " + str(a25.nominal_value) + " " + str(a25.std_dev) + " " + str(b25.nominal_value) + " " + str(b25.std_dev) + " " + str(scale25.nominal_value) + " " + str(scale25.std_dev) + "\n")
+f.write( "30    " + "29.42  " + str(a30.nominal_value) + " " + str(a30.std_dev) + " " + str(b30.nominal_value) + " " + str(b30.std_dev) + " " + str(scale30.nominal_value) + " " + str(scale30.std_dev) + "\n")
 f.close()

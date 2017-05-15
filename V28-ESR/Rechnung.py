@@ -11,22 +11,24 @@ from table import (
         write)
 
 
-nuOsz, nuE, max1, unc1, max2, unc2 = np.genfromtxt("Daten.txt", unpack = True)
+nuOsz, nuE, max1, unc1, max2, unc2, scale, scaleUncertainty = np.genfromtxt("Daten.txt", unpack = True)
 # Frequenzen in MHz, Maxima in mA
 # nuE bleiben auch die ganze Zeit in MHz, die 10**6 werden in den Rechnung hinzugefügt
 Max1 = unp.uarray(max1, unc1) * 10**(-3)
 Max2 = unp.uarray(max2, unc2) * 10**(-3)
-Max = (Max2-Max1)/2
-
+scale = unp.uarray(scale, scaleUncertainty)
 
 ### Umrechnung in B
-B = 8/np.sqrt(125) * 4*np.pi * 4*np.pi * 10**(-7) * 156/0.1 * Max  # Ergebnis in Tesla
+B1 = 8/np.sqrt(125) * 4*np.pi * 10**(-7) * 156/0.1 * Max1
+B2 = 8/np.sqrt(125) * 4*np.pi * 10**(-7) * 156/0.1 * Max2  # Ergebnis in Tesla
 
 ### Erdmagnetfeld
-Erde = np.mean(B)
+BErde = (B2-B1)/2
+Erde = np.mean(BErde)
 print('Erde: ', Erde)
 
 ### Ausgleichsrechnung
+B = (B1+B2)/2               # Bereinigte Flussdichte (ohne Erdmagnetfeld)
 BNom = unp.nominal_values(B)
 BDev = unp.std_devs(B)
 
@@ -37,30 +39,26 @@ gFit, gErr = curve_fit(Bfunc, nuE, BNom, p0 = [1], sigma = BDev)
 
 
 print('Lande-Faktor: ', gFit[0], '+-', gErr[0,0])
-print('Untere Grenze Toleranzbereich:', gFit-gErr)
+print('Obere Grenze Toleranzbereich:', gFit+gErr)
 print('Lande-Faktor (Literatur): ', 2.002319)
 
-# Plot
+### Plot
 x = np.linspace(0,33,3)
-plt.plot(x, Bfunc(x, 2.002319)*10**3, 'b', label ='Theorie')
+plt.plot(x, Bfunc(x, 2.002319)*10**3, 'b', label ='Literatur')
 plt.plot(x, Bfunc(x, gFit[0])*10**3, 'r', label = 'Fit')
 plt.plot(nuE, BNom*10**3, 'kx', label = 'Messwerte')
-plt.errorbar(nuE, BNom*10**3, yerr=BDev*10**3, fmt = 'x', color = 'k')
+#plt.errorbar(nuE, BNom*10**3, yerr=BDev*10**3, fmt = 'x', color = 'k')
 plt.xlim(0,33)
 #plt.ylim(0,Bfunc(33, 2.002319)*10**3)
-plt.xlabel(r'$\nu \ \mathrm{in} \ \mathrm{MHz}$')
+plt.xlabel(r'$\nu_e \ \mathrm{in} \ \mathrm{MHz}$')
 plt.ylabel(r'$B \ \mathrm{in} \ \mathrm{mT}$')
 
-
 ### Unnötiges Einzeichnen des Toleranzbereichs
-gMin = gFit[0]-gErr[0,0]
-gMax = gFit[0]+gErr[0,0]
-
-plt.fill_between(x, Bfunc(x,gMin)*10**3, Bfunc(x,gMax)*10**3, color = 'red', alpha = 0.25, label = 'Toleranzbereich')
-
+#gMin = gFit[0]-gErr[0,0]
+#gMax = gFit[0]+gErr[0,0]
+#plt.fill_between(x, Bfunc(x,gMin)*10**3, Bfunc(x,gMax)*10**3, color = 'red', alpha = 0.25, label = 'Toleranzbereich')
 
 plt.legend(loc='best')
-
 plt.savefig('Fit.pdf')
 plt.show()
 
@@ -68,25 +66,27 @@ plt.show()
 
 ### Werte in Latex-Dateien schreiben
 
-write('build/tableMesswerte.tex', make_table([nuE, Max1*10**3, Max2*10**3],[3,1,1]))
+write('build/tableMesswerte.tex', make_table([nuE, Max1*10**3, Max2*10**3, scale],[3,1,1,1]))
 write('build/fulltableMesswerte.tex', make_full_table(
-    r'Stromstärke $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu$',
+    r'Stromstärken $I_1,I_2$ beim Auftreten des Maximums für verschiedene Anregungsfrequenzen $\nu_e$ mit dem jeweiligen Skalierungsfaktor',
     'tab:Werte',
     'build/tableMesswerte.tex',
-    [1,2],
-    [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
+    [1,2,3],
+    [r'$\nu_e \ \mathrm{in} \ \si{\mega\hertz}$',
     r'$I_1 \ \mathrm{in} \ \si{\milli\ampere}$',
-    r'$I_2 \ \mathrm{in} \ \si{\milli\ampere}$']))
+    r'$I_2 \ \mathrm{in} \ \si{\milli\ampere}$',
+    r'Skala in \si{\milli\ampere\per\centi\meter}']))
 
-write('build/tableRegression.tex', make_table([nuE, B*10**3],[3,1]))
+write('build/tableRegression.tex', make_table([nuE, B*10**3, BErde*10**3],[3,1,1]))
 write('build/fulltableRegression.tex', make_full_table(
-    r'Bei der Regression verwendete Werte',
-    'tab:Regression',
+    r'Frequenzen $\nu_e$ und dazugehörige erdmagnetfeld-bereinigte Flussdichten $B$ der Helmholtz-Spulen, sowie das berechnete Erdmagnetfeld $B_\text{Erde}$',
+    'tab:BFeld',
     'build/tableRegression.tex',
-    [1],
-    [r'$\nu \ \mathrm{in} \ \si{\mega\hertz}$',
-    r'$B \ \mathrm{in} \ \si{\milli\tesla}$']))
+    [1,2],
+    [r'$\nu_e \ \mathrm{in} \ \si{\mega\hertz}$',
+    r'$B \ \mathrm{in} \ \si{\milli\tesla}$',
+    r'$B_\text{Erde} \ \mathrm{in} \ \si{\milli\tesla}$']))
 
 g = ufloat(gFit, gErr)
 write('build/Erdmagnetfeld.tex', make_SI(Erde*10**3, r'\milli\tesla', figures = 1))
-write('build/Landefaktor.tex', make_SI(g, r'', figures = 2))
+write('build/Landefaktor.tex', make_SI(g, r'', figures = 1))

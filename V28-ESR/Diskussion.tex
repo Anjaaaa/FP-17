@@ -1,4 +1,19 @@
-- nicht optimal ausgerichtet -> man würde kleineres Erdmagnetfeld erwarten \\
-- lokales Extremum bei 10 und 30 MHz -> größere Unsicherheiten \\
-- mögliche Mischung mit Dispersionssignal \\
-- Rückkopplungseffekte 
+Tabelle \ref{tab:Ergebnisse} zeigt die aus der Messung gewonnenen Ergebnisse und vergleicht sie mit Literaturwerten.
+
+\begin{table}[h!]
+	\centering
+	\caption{Aus der Messung berechnete Werte der Flussdichte $B_\text{Erde}$ des Erdmagnetfeldes und des Landé-Faktors $g$ verglichen mit Literaturwerten aus \cite{BErde} und \cite{gFaktor}}
+	\label{tab:Ergebnisse}
+	\begin{tabular}{l|cc}
+		& $B_\text{Erde}$ & $g$ \\
+		\hline
+		Messung & \input{build/Erdmagnetfeld.tex} & \input{build/Landefaktor.tex} \\
+		Literatur & \SI{0.049}{\micro\tesla} & \SI{2.0023(0)}{} \\
+		\hline
+		Abweichung & -\SI{4.1}{\%} & +\SI{1.7}{\%}
+	\end{tabular}
+\end{table}
+
+Der Literaturwert für die Feldstärke des Erdmagnetfeldes liegt im Toleranzbereich des Messwertes. Es könnte vermutet werden, dass die kleine Abweichung nach unten daran liegt, dass die Apparatur nicht perfekt in Richtung des Erdfeldes ausgerichtet war, allerdings sind Messungen des Erdmagnetfeldes generell sehr schwierig, sodass das reine Spekulation ist und der erreichte Wert als sehr gut zu bewerten ist. \\
+Der berechnete Landé-Faktor weicht nur wenig vom Literaturwert ab, wobei auch die Unsicherheit sehr klein ist. \\
+Allerdings gilt zu Beachten, dass einige Quellen von Messunsicherheiten in der Rechnung ignoriert wurden. So war das Extremum, das mit Hilfe des Kondensators und des Widerstands eingestellt wird, bei \SI{10}{\mega\hertz} und \SI{30}{\mega\hertz} vermutlich nur lokal und nicht global. Zudem sind die meisten der aufgenommenen Kurven nicht symmetrisch, das liegt daran, dass die Abstimmung der Brückenschaltung nicht optimal war, sodass die Kurven nicht reine Resonanzkurven sind, sondern Anteile von Dispersionskurven haben. Besonders gut ist dieser Effekt bei den Kurven in \ref{fig:Scan10} und \ref{fig:Scan20} zu sehen. Zusätzlich dazu kann es bei elektronischen Schaltungen immer zu Rückkopplungseffekten kommen, die die Messung verfälschen.

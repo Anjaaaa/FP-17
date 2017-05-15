@@ -1,10 +1,56 @@
-\[ B_\text{Erde} = \input{build/Erdmagnetfeld.tex} \]
-\[ g = \input{build/Landefaktor.tex} \]
-\input{build/fulltableMesswerte.tex}
-\input{build/fulltableRegression.tex}
+Die mit dem X-Y-Schreiber aufgenommenen Kurven sind in den Abbildungen \ref{fig:Scan10}-\ref{fig:Scan30} zu sehen. Für jedes Kurvenpaar wird mit den Kalibrierungswerten aus Schritt \ref{Schritt6} des vorigen Kapitels ein Umrechnungsmaß berechnet. Die Stromstärken $I_1,I_2$ der Resonanzstellen und deren Ungenauigkeiten werden optisch abgeschätzt und dann mit Hilfe des Umrechnungsmaßes von \si{\centi\meter} in \si{\milli\ampere} umgerechnet, diese Werte sind in Tabelle \ref{tab:Werte} aufgetragen.
+\input{build/fulltableMesswerte.tex} \\
+Mit Hilfe von
+\begin{align}
+	B(I) = \frac{8}{\sqrt{125}}\frac{156}{\SI{0.1}{\meter}}\mu_0I
+\end{align}
+werden die Stromstärken in Flussdichten umgerechnet. Je nach Orientierung der Spule zum Erdmagnetfeld wird das Feld der Helmholtz-Spulen verstärkt oder abgeschwächt. Die Stärke des Erdfeldes ist demnach die Hälfte der Differenz der beiden Flussdichten. Pro eingestellter Frequenz ergibt sich so je eine magnetische Flussdichte des Erdmagnetfeldes, ihr Mittelwert ist
+\[ B_\text{Erde} = \input{build/Erdmagnetfeld.tex} \quad. \]
+Der Mittelwert der beiden Flussdichten ergibt die vom erdmagnetfeld-bereinigte Flussdichte. Für jede Frequenz ist diese zusammen mit der Flussdichte des Erdmagnetfeldes in Tabelle \ref{tab:BFeld} dargestellt.
+\input{build/fulltableRegression.tex} \\
+\clearpage
+Zur Berechnung des Landé-Faktors wird in Anlehnung an Gleichung \eqref{eq:DeltaE} die Funktion
+\begin{align*}
+	B(\nu) = \frac{h}{g\mu_\text{B}}\nu
+\end{align*}
+an die Wertepaare $\{\nu_e,B\}$ aus Tabelle \ref{tab:BFeld} gefittet. Die Berechnung ergibt für den Fitparameter $g$ den Wert
+\begin{align*}
+	g = \input{build/Landefaktor.tex} \quad,
+\end{align*}
+Abbildung \ref{fig:fit} zeigt den Fit, die Messwerte und die Kurve, die mit dem Literaturwert $g = 2.0023$ \cite{gFaktor} erhalten wird. Auf das Einzeichnen der Fehlerbalken wird verzichtet, da sie aufgrund der kleinen Unsicherheiten in $B$ die Lesbarkeit beeinträchtigen.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Fit.pdf}
-	\caption{Fit zur Bestimmung des Landefaktors}
+	\caption{Fit zur Bestimmung des Landé-Faktors}
 	\label{fig:fit}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=\linewidth]{Scan10.pdf}
+		\caption{\SI{10.588}{\mega\hertz}}
+		\label{fig:Scan10} 
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=\linewidth]{Scan15.pdf}
+		\caption{\SI{15.970}{\mega\hertz}}
+		\label{fig:Scan15}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{Scan20.pdf}
+		\caption{\SI{20.560}{\mega\hertz}}
+		\label{fig:Scan20} 
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{Scan25.pdf}
+		\caption{\SI{23.870}{\mega\hertz}}
+		\label{fig:Scan25}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{Scan30.pdf}
+		\caption{\SI{29.420}{\mega\hertz}}
+		\label{fig:Scan30}
+	\end{subfigure}
+	\caption{Scans der Resonanzkurven}
 \end{figure}
