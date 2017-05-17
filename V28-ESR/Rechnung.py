@@ -46,8 +46,8 @@ print('Lande-Faktor (Literatur): ', 2.002319)
 x = np.linspace(0,33,3)
 plt.plot(x, Bfunc(x, 2.002319)*10**3, 'b', label ='Literatur')
 plt.plot(x, Bfunc(x, gFit[0])*10**3, 'r', label = 'Fit')
-plt.plot(nuE, BNom*10**3, 'kx', label = 'Messwerte')
-#plt.errorbar(nuE, BNom*10**3, yerr=BDev*10**3, fmt = 'x', color = 'k')
+plt.plot(nuE, BNom*10**3, 'k.', label = 'Messwerte mit Ungenauigkeit')
+plt.errorbar(nuE, BNom*10**3, yerr=BDev*10**3, fmt = 'x', color = 'k')
 plt.xlim(0,33)
 #plt.ylim(0,Bfunc(33, 2.002319)*10**3)
 plt.xlabel(r'$\nu_e \ \mathrm{in} \ \mathrm{MHz}$')
@@ -87,6 +87,6 @@ write('build/fulltableRegression.tex', make_full_table(
     r'$B \ \mathrm{in} \ \si{\milli\tesla}$',
     r'$B_\text{Erde} \ \mathrm{in} \ \si{\milli\tesla}$']))
 
-g = ufloat(gFit, gErr)
+g = ufloat(gFit, np.sqrt(gErr))
 write('build/Erdmagnetfeld.tex', make_SI(Erde*10**3, r'\milli\tesla', figures = 1))
 write('build/Landefaktor.tex', make_SI(g, r'', figures = 1))
