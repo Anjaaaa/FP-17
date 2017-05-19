@@ -1,0 +1,60 @@
+\documentclass[a4,11pt]{article}
+\input{../Allgemeines/Header.tex}
+
+
+\newcommand{\Versuch}{Versuch}
+\newcommand{\Betreuer}{Max \textsc{Mustermann}}
+\newcommand{\Tag}{TT.MM.JJ}
+\newcommand{\V}{VXXX}
+\newcommand{\Korrektur}{}
+% Bibliographie erstellen:
+% 	pdflatex Protokoll.tex
+% 	biber Protokoll
+% 	pdflatex Protokoll.tex
+% oder einfach make ausführen
+
+
+\usepackage[
+%	disable,
+colorinlistoftodos,
+linecolor=yellow,
+backgroundcolor=yellow,
+textwidth=0.15\textwidth,
+textsize=footnotesize
+]{todonotes} % Notizen
+
+\begin{document}
+\input{../Allgemeines/Titlepage.tex}
+
+
+\tableofcontents
+\clearpage
+
+
+\section{Theorie}
+\input{Theorie.tex}
+\clearpage
+
+
+\section{Aufbau und Ablauf des Experiments}
+\input{Aufbau_Ablauf.tex}
+\clearpage
+
+
+\section{Auswertung}
+\input{Auswertung.tex}
+\clearpage
+
+
+\section{Diskussion}
+\input{Diskussion.tex}
+
+\clearpage
+\listoftodos
+\listoffigures
+\listoftables
+\clearpage
+\nocite{\V}
+\printbibliography[title = Literaturverzeichnis]
+
+\end{document}
