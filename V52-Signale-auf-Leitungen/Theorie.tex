@@ -1,0 +1,17 @@
+\subsection{Verlustbehaftete Leitungen}
+Um die elektrischen Eigenschaften von Bauteilen zu Modellieren wird üblicherweise ein Ersatzschaltbild verwendet. Abbildung \ref{fig:Ersatzschaltbild} zeigt die Ersatzschaltbilder für eine verlustfreie und eine verlustbehaftete Leitung. Die Bausteine werden in diesem Fall als \textit{Beläge} bezeichnet: Kapazitätsbelag $C$, Induktivitätsbelag $L$, ohmscher Belag $R$, Querleitfähigkeitsbelag $G$. Es wird zudem zwischen Längsspannungsverlust (an $R$) und Querstromverlust (an $G$) unterschieden, wobei die ohmschen bzw. Längsspannungsverluste meist überwiegen.
+\begin{figure}[h!]
+	\centering
+	\input{Ersatzschaltbild.tex}
+	\caption{Ersatzschaltbilder einer verlustfreien (\ref{fig:OhneVerlust}) und einer verlustbehafteten Leitung (\ref{fig:MitVerlust})}
+	\label{fig:Ersatzschaltbild}
+\end{figure} \\
+Mit Hilfe des Ersatzschaltbildes für die verlustbehaftete Leitung kann die Telegraphengleichung
+\begin{align}
+	\pdv[2]{U}{t} = LC\pdv[2]{U}{x} + (LG + RC)\pdv{U}{x} + RGU
+\end{align}
+für die Spannung $U(x,t)$ abgeleitet werden. Ihre Lösung ist
+\begin{align}
+	U(x,t) = U_0 \exp(-\gamma x)\exp(i\omega t) \quad ,
+\end{align}
+hierbei ist $\omega$ die Frequenz der Spannung und $\gamma = \alpha + ik = \sqrt{(R+i\omega L)(G+i\omega C)}$ die Ausbreitungskonstante. Sie enthält den Dämpfungsbelag $\alpha$ und den Phasenbelag $k$ (die Wellenzahl).
