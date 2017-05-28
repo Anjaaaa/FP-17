@@ -67,12 +67,21 @@ wobei die geometrische Reihe verwendet wurde. Da der Puls eine bestimmte Zeitspa
 	\caption[Zeitlicher Verlauf der Signalspannung]{Zeitlicher Verlauf der Signalspannung $U(x,t)$ an einem festen Ort $x=ct_1$ \cite{E2}}
 	\label{fig:ZeitlicherVerlauf}
 \end{figure}
+
+\subsection{Koaxialkabel}
+Im Experiment werden Koaxialkabel verwendet. Sie bestehen aus zwei ineinander steckenden zylinderförmigen Leitern. Das Verhältnis der beiden Durchmesser bestimmt maßgeblich den Wellenwiderstand $Z_0$, den Längsspannungsverlust $R$ und den Querstromverlust $G$. Eine der Quellen dieser Verluste ist bei einem Koaxialkabel der \textit{Skin-Effekt}, d.h. das Verdrängen des Stroms aus dem Leiterinneren nach außen. Er wird dadurch verursacht, dass sich im Inneren des Leiters durch die Wechselspannung Wirbelfelder ausbilden, die den Wechselstrom wiederum nach außen verdrängen. Dieser Effekt ist bei hohen Frequenzen stärker, sodass $R$ und $G$ bei über \SI{100}{\kilo\hertz} nicht mehr frequenzunabhängig sind, sondern mit $\sqrt{\omega}$ ansteigen. \\
+Für die Leitungskonstanten eines Koaxialkabels gelten die folgenden Beziehungen:
+\begin{align}
+	R &= \frac{\sqrt{\frac{\pi\nu\mu_c}{\omega\Im{\varepsilon}}}}{2\pi}\left(\frac{1}{d}+\frac{1}{D}\right) \\
+	&= \frac{\sqrt{\pi\rho\mu f}}{\pi}\left(\frac{1}{d}+\frac{1}{D}\right) \\
+	L &= \frac{\mu}{2\pi}\ln(\frac{D}{d}) \\
+	G &= \frac{2\pi\sigma}{\ln(\frac{D}{d})} \\
+	C &= \frac{2\pi\varepsilon}{\ln(\frac{D}{d})}
+\end{align}
+Hierbei sind $\varepsilon$ die Permittivität, $\mu$ die Permeabilität, $\sigma$ die spezifische Leitfähigkeit und $\rho$ der spezifische Widerstand.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Zeitkonstante.pdf}
+	\includegraphics[width=0.55\textwidth]{Zeitkonstante.pdf}
 	\caption{Signalspannung $U(x,t)$ und Zeitkonstanten für verschiedene Abschlusswiderstände \cite{E2}}
 	\label{fig:Zeitkonstanten}
 \end{figure}
-
-\subsection{Koaxialkabel}
-Im Experiment werden Koaxialkabel verwendet. Sie bestehen aus zwei ineinander steckenden zylinderförmigen Leitern. Das Verhältnis der beiden Durchmesser bestimmt maßgeblich den Wellenwiderstand $Z_0$, den Längsspannungsverlust $R$ und den Querstromverlust $G$. Eine der Quellen dieser Verluste ist bei einem Koaxialkabel der \textit{Skin-Effekt}, d.h. das Verdrängen des Stroms aus dem Leiterinneren nach außen. Er wird dadurch verursacht, dass sich im Inneren des Leiters durch die Wechselspannung Wirbelfelder ausbilden, die den Wechselstrom wiederum nach außen verdrängen. Dieser Effekt ist bei hohen Frequenzen stärker, sodass $R$ und $G$ bei über \SI{100}{\kilo\hertz} nicht mehr frequenzunabhängig sind, sondern mit $\sqrt{\omega}$ ansteigen.
