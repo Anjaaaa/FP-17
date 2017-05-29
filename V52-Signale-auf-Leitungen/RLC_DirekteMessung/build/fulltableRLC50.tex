@@ -1,0 +1,21 @@
+\begin{table}
+    \centering
+    \caption{Beim Kurzschließen des $50\Omega$-Kables gemessene Werte für $R_{50},C_{50},L_{50}$ und daruas berechnete Werte für $G_{50}$ bei den jeweils eingestellten Frequenzen $f$}
+    \label{tab:RLC50Werte}
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+	S[table-format=3.1]
+	S[table-format=1.4]
+	S[table-format=3.1]
+	S[table-format=1.2]
+	S[table-format=1.1]
+	}
+	\toprule
+	{$f_{50} \ \mathrm{in} \ \si{\kilo\hertz}$}		& {$R_{50} \ \mathrm{in} \ \si{\ohm}$}		& 
+	{$C_{50} \ \mathrm{in} \ \si{\pico\farad}$}		& {$L_{50} \ \mathrm{in} \ \si{\micro\henry}$}		& 
+	{$G_{50} \ \mathrm{in} \ \si{\milli\siemens}$}		\\ 
+	\midrule
+    \input{RLC_DirekteMessung/build/tableRLC50.tex}
+    \bottomrule
+    \end{tabular}
+    \end{table}
