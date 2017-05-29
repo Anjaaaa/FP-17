@@ -1,0 +1,12 @@
+Durch Quadrieren und Umstellen der Lösung der Telegraphengleichung \eqref{eq:LosungTelegraph} kann folgende Relation abgeleitet werden
+\begin{align*}
+	\alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(L,t)\right|}{U_0}\right) \\
+\end{align*}
+Der Spannungspuls durchläuft die gesamte Länge der Kabel, daher wird $x=L$ gesetzt. Die Messwerte liegen in der Einheit \si{\deci\bel} vor, daher wird der Ausdruck für $\alpha$ noch etwas umgeformt:
+\begin{align}
+	\alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\neper} \quad\footnotemark \\
+	&= -\frac{20}{x}\log_{10}\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\deci\bel} \\
+	&= -\frac{20}{x}\left(P(x,t)-P_0\right)\si{\deci\bel} \quad .
+\end{align}
+Hierbei wird im zweiten Schritt die Definition der Einheit $\si{\deci\bel}$ verwendet und im letzten $P(x,t) =$\glqq$\ln|U(x,t)|$\grqq und $P_0=$\glqq$\ln U_0$\grqq eingesetzt. Diese beiden Größen sind dann jeweils die abzulesenden Fourierkoeffizienten des langen bzw. des kurzen Kabels.
+\footnotetext{\si{\neper} ist eine Einheit, die das Verhältnis von zwei Werten angibt. Sie kann hier einfach hinzugefügt werden, da \SI{1}{\neper} = 1.}
