@@ -86,3 +86,14 @@ Hierbei sind $\varepsilon$ die Permittivität, $\mu$ die Permeabilität, $\sigma
 	\caption{Signalspannung $U(x,t)$ und Zeitkonstanten für verschiedene Abschlusswiderstände \cite{E2}}
 	\label{fig:Zeitkonstanten}
 \end{figure}
+\subsection{Laplace-Transformationen}\todo{evtl. auch in den Anhang oder woanders hin}
+Eingangsspannung: $U_0\cdot\theta(t)\rightarrow U_h(p) = \frac{U_0}{p}$ \\
+$LR$: $Z_A(t) = R + i\omega L$, $Z_A(p) = R + pL$.
+\begin{align*}
+	U_\text{RL}(t) &= U_0 + U_\text{r}(t) \\
+	&= U_0 + \mathcal{L}^{-1}\left(\frac{Z_A(p)-Z_0}{Z_A(p)+Z_0}\frac{U_0}{p}\right) \\
+	???? &= U_0 + \frac{R-Z_0}{R+Z_0}U_0\mathcal{L}^{-1}\left(\frac{1}{p}\right) + \frac{2Z_0L}{R+Z_0}U_0\mathcal{L}\left(\frac{1}{pL+R+Z_0}\right) \\
+	&= U_0 + \frac{R-Z_0}{R+Z_0}U_0 + \frac{2Z_0L}{R+Z_0}U_0\exp\left(-\frac{R+Z_0}{L}t\right) \\
+	&= U_0\left(1 + \frac{R}{R+Z_0} - \frac{Z_0}{R+Z_0} + \frac{2Z_0L}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right)
+\end{align*}
+Bei Leanna kommt in der letzten Zeile was anderes raus...
