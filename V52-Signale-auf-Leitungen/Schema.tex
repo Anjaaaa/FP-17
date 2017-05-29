@@ -1,0 +1,14 @@
+\begin{circuitikz}
+	\draw[latex'-latex'] (1.5,-2.5) -- (5.5,-2.5) node[below, xshift=-2cm] {$x$};
+	\draw[dashed] (1.5,-2.1) -- (1.5,-2.4);
+	\draw[dashed] (5.5,-2.1) -- (5.5,-2.4);
+	\draw (-.5, 0)	to (7, 0);
+	\draw (-.5, -2)	to (7, -2);
+	\draw (0,0)	to[sinusoidal voltage source, l = $U_g$] (0,-2)	to (0,-2);
+	\draw[latex'-latex'] (1.5,-0.1) to (1.5,-1.9) node[right, yshift=+0.9cm] {$U_0$};
+	\draw[-latex] (5.5,-.1) -- (5.5,-1.9) node[right, yshift=+0.9cm] {$U(z)$};
+	\draw (7,0)	to[R, l = $Z_\text{A}$] (7,-2);
+	\draw[dashed] (7.1,0) to (8,0);
+	\draw[dashed] (7.1,-2) to (8,-2);
+	\draw[latex'-latex'] (8,-0.1) to (8,-1.9) node[right, yshift=+0.9cm] {$U_\text{A}$};
+\end{circuitikz}
