@@ -10,111 +10,65 @@ from table import (
         make_SI,
         write)
 
+L = 50
+fKurz, PKurz = np.genfromtxt("Oszilloskop/DaempfungKurz/DatenKurz.txt", unpack = True)
+fLang, PLang = np.genfromtxt("Oszilloskop/DaempfungLang/DatenLang.txt", unpack = True)
+# Einheiten: Hertz, dB
+wKurz = fKurz*2*np.pi*10**(-6) # w in MHz
+wLang = fLang*2*np.pi*10**(-6)
+alpha = -20/L*(PLang-PKurz)
+print('alpha: ',ufloat(np.mean(alpha), np.std(alpha)/np.sqrt(len(alpha))))
 
-Lange50 = 15
-Lange75 = 25
 
-L50, R50, C50, f50 = np.genfromtxt("RLC_DirekteMessung/WerteRLC_50Ohm.txt", unpack = True)
-L75, R75, f75, C75 = np.genfromtxt("RLC_DirekteMessung/WerteRLC_75Ohm.txt", unpack = True)
-# Einheiten: microH, Ohm, pF, kHz
-# Umrechnen (außer f)
+def f(w,a,b,c):
+    return a*np.exp(b*w)+c
+def g(w,a,b,c):
+    return a/(w+b) + c
 
-L50 *= 10**(-6)
-L75 *= 10**(-6)
-C50 *= 10**(-12)
-C75 *= 10**(-12)
+paramfKurz, sigmafKurz = curve_fit(f, wKurz, PKurz, [1,-1,-50])
+paramgKurz, sigmagKurz = curve_fit(g, wKurz, PKurz, [10,0,-50])
+paramfLang, sigmafLang = curve_fit(f, wLang, PLang, [1,-1,-50])
+paramgLang, sigmagLang = curve_fit(g, wLang, PLang, [10,0,-50])
 
-# Theoriewerte
-sigma = 56*10**6
-mu = 4*np.pi*10**(-7)
-eps = 2.25*8.854187*10**(-12)
-D = 2.95*10**(-3)
-d = 0.9*10**(-3)
-Rconst = np.sqrt(mu/np.pi/sigma)*(1/d+1/D)
-Lconst = mu/2/np.pi*np.log(D/d)
-Cconst = 2*np.pi*eps/np.log(D/d)
-Gconst = Rconst*Cconst/Lconst
-def RT(f):
-    return np.sqrt(f*10**3)*Rconst
-def LT(f):
-    return Lconst*f/f
-def CT(f):
-    return Cconst*f/f
-def GT(f):
-    return Gconst * np.sqrt(f*10**3)
+### Güte des Fits
+resfKurz = PKurz- f(wKurz, *paramfKurz)
+ss_resfKurz = np.sum(resfKurz**2)
+ss_totKurz = np.sum((PKurz-np.mean(PKurz))**2)
+r_squaredfKurz = 1 - (ss_resfKurz / ss_totKurz)
+print('Gute fKurz: ',r_squaredfKurz)
+resgKurz = PKurz- g(wKurz, *paramgKurz)
+ss_resgKurz = np.sum(resgKurz**2)
+r_squaredgKurz = 1 - (ss_resgKurz / ss_totKurz)
+print('Gute gKurz: ',r_squaredgKurz)
+resfLang = PLang - f(wLang, *paramfLang)
+ss_resfLang = np.sum(resfLang**2)
+ss_totLang = np.sum((PLang-np.mean(PLang))**2)
+r_squaredfLang = 1 - (ss_resfLang / ss_totLang)
+print('Gute fLang: ',r_squaredfLang)
+resgLang = PLang - g(wLang, *paramgLang)
+ss_resgLang = np.sum(resgLang**2)
+r_squaredgLang = 1 - (ss_resgLang / ss_totLang)
+print('Gute gLang: ',r_squaredgLang)
 
+# Der Fit mit der e-Funktion ist schlechter.
 
 
 ### Plot
-# R
-print(L50)
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, R50, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, R75, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, RT(f)*Lange50, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, RT(f)*Lange75, 'm', label ='Theorie 75$\Omega$')
+w = np.linspace(0.1,26,1000)
+plt.plot(wLang, PLang, 'mx', label ='Lang Messwerte')
+plt.plot(w,g(w,*paramgLang), 'r', label = 'Lang Fit')
+plt.plot(wKurz, PKurz, 'cx', label ='Kurz Messwerte')
+plt.plot(w,g(w,*paramgKurz), 'b', label = 'Kurz Fit')
+plt.plot(w, 0*w, 'k')
+plt.plot(wKurz, alpha, 'k.', label = 'Alpha')
+plt.xlim(0.1,26)
 
-plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
-plt.ylabel(r'$R \ \mathrm{in} \ \Omega$')
-plt.xscale('log')
-
-plt.legend(loc='best')
-plt.savefig('RLC_DirekteMessung/build/PlotR.pdf')
-plt.show()
-
-
-# C
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, C50*10**9, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, C75*10**9, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, CT(f)*Lange50*10**9, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, CT(f)*Lange75*10**9, 'm', label ='Theorie 75$\Omega$')
-
-plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
-plt.ylabel(r'$C \ \mathrm{in} \ \mathrm{nF}$')
-plt.xscale('log')
+plt.xlabel(r'$\omega \ \mathrm{in} \ \mathrm{MHz}$')
+plt.ylabel(r'')
 
 plt.legend(loc='best')
-plt.savefig('RLC_DirekteMessung/build/PlotC.pdf')
+#plt.savefig('RLC_DirekteMessung/build/PlotR.pdf')
 plt.show()
-
-# L
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, L50*10**6, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, L75*10**6, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, LT(f)*Lange50*10**6, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, LT(f)*Lange75*10**6, 'm', label ='Theorie 75$\Omega$')
-
-plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
-plt.ylabel(r'$L \ \mathrm{in} \ \mu\mathrm{F}$')
-plt.xscale('log')
-
-plt.legend(loc='best')
-plt.savefig('RLC_DirekteMessung/build/PlotL.pdf')
-plt.show()
-
-# Einheiten Umrechnen microH, Ohm, pF, kHz
-
-# G = RC/L
-G50 = R50 * C50 / L50
-G75 = R75 * C75 / L75
-
-# G
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, G50*10**3, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, G75*10**3, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, GT(f)*Lange50*10**3, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, GT(f)*Lange75*10**3, 'm', label ='Theorie 75$\Omega$')
-
-plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
-plt.ylabel(r'$G \ \mathrm{in} \ \mathrm{mS}$')
-plt.xscale('log')
-
-plt.legend(loc='best')
-plt.savefig('RLC_DirekteMessung/build/PlotG.pdf')
-plt.show()
-
-
 
 
 ### Werte in Latex-Dateien schreiben
