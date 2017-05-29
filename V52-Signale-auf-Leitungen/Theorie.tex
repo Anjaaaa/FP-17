@@ -12,7 +12,7 @@ Mit Hilfe des Ersatzschaltbildes für die verlustbehaftete Leitung kann die Tele
 	\pdv[2]{U}{t} = LC\pdv[2]{U}{x} + (LG + RC)\pdv{U}{x} + RGU
 \end{align}
 für die Spannung $U(x,t)$ abgeleitet werden. Ihre Lösung ist
-\begin{align}
+\begin{align}\label{eq:LosungTelegraph}
 	U(x,t) = U_0 \exp(-\gamma x)\exp(i\omega t) \quad ,
 \end{align}
 hierbei ist $\omega$ die Frequenz der Spannung und $\gamma = \alpha + ik = \sqrt{(R+i\omega L)(G+i\omega C)}$\footnotemark die Ausbreitungskonstante. Sie enthält den Dämpfungsbelag $\alpha$ und den Phasenbelag $k$ (die Wellenzahl).
@@ -29,7 +29,7 @@ konstant ist.
 
 \subsection{Überlagerung von Signalen}
 Abbildung \ref{fig:Schema} zeigt wo sich die Spannungsabfälle in einer vollständigen, d.h. geschlossenen, Schaltung befinden. Jede Störstelle, d.h. jede Art von Übergang, in der Schaltung wirkt reflektierend. Der Reflexionsfaktor
-\begin{align}
+\begin{align}\label{eq:Reflexion}
 	\Gamma = \frac{U_\text{r}}{U_0} = \frac{Z_\text{A}-Z_0}{Z_\text{A}+Z_0}\quad \footnotemark
 \end{align}
 gibt dabei den Grad der Reflexion an.
@@ -49,7 +49,7 @@ Die resultierende Spannung $U_\text{r}(x,t)$ enthält eine Exponentialfunktion d
 	\label{fig:Schema}
 \end{figure} \\
 Wenn sich mehrere Störstellen in einer Schaltung befinden, wird der Spannungspuls auch mehrfach reflektiert. Es könnte beispielsweise eine Störstelle am Anfang und eine am Ende der Leitung mit den Reflexionskoeffizienten $\Gamma_\text{A}$ und $\Gamma_\text{E}$ geben. Ist die Eingangsspannung $U_0$, dann ist die Spannung des reflektierten Pulses nach der ersten Reflexion am Leitungsende $U_1 = \Gamma_\text{E}U_0$. Dieser Puls wird wiederum an der Störstelle am Leitungsanfang reflektiert, der hier reflektierte Puls hat die Spannung $U_2 = \Gamma_\text{A}U_1 = \Gamma_\text{A}\Gamma_\text{E}U_0$ usw. Der reflektierte Puls nach $n$ Reflexionen hat demnach die Amplitude
-\begin{align*}
+\begin{align*}\label{eq:Un}
 	U_n = \begin{cases}
 		\left(\Gamma_\text{A}\Gamma_\text{E}\right)^\frac{n}{2}U_0 &\quad, \text{ falls $n$ gerade} \\
 		\left(\Gamma_\text{A}\Gamma_\text{E}\right)^\frac{n-1}{2}\Gamma_\text{E}U_0 &\quad, \text{ falls $n$ ungerade}
@@ -71,9 +71,10 @@ wobei die geometrische Reihe verwendet wurde. Da der Puls eine bestimmte Zeitspa
 \subsection{Koaxialkabel}
 Im Experiment werden Koaxialkabel verwendet. Sie bestehen aus zwei ineinander steckenden zylinderförmigen Leitern. Das Verhältnis der beiden Durchmesser bestimmt maßgeblich den Wellenwiderstand $Z_0$, den Längsspannungsverlust $R$ und den Querstromverlust $G$. Eine der Quellen dieser Verluste ist bei einem Koaxialkabel der \textit{Skin-Effekt}, d.h. das Verdrängen des Stroms aus dem Leiterinneren nach außen. Er wird dadurch verursacht, dass sich im Inneren des Leiters durch die Wechselspannung Wirbelfelder ausbilden, die den Wechselstrom wiederum nach außen verdrängen. Dieser Effekt ist bei hohen Frequenzen stärker, sodass $R$ und $G$ bei über \SI{100}{\kilo\hertz} nicht mehr frequenzunabhängig sind, sondern mit $\sqrt{\omega}$ ansteigen. \\
 Für die Leitungskonstanten eines Koaxialkabels gelten die folgenden Beziehungen:
-\begin{align}
+\begin{align}\label{eq:Theorie}
 	R &= \frac{\sqrt{\frac{\pi\nu\mu_c}{\omega\Im{\varepsilon}}}}{2\pi}\left(\frac{1}{d}+\frac{1}{D}\right) \\
-	&= \frac{\sqrt{\pi\rho\mu f}}{\pi}\left(\frac{1}{d}+\frac{1}{D}\right) \\
+	&= \frac{\sqrt{\pi\rho\mu f}}{\pi}\left(\frac{1}{d}+\frac{1}{D}\right) \text{Die ist aus einer Quelle im Internet.} \\
+	&= \sqrt{\frac{\mu f}{\sigma\pi}}\left(\frac{1}{d}+\frac{1}{D}\right) \\
 	L &= \frac{\mu}{2\pi}\ln(\frac{D}{d}) \\
 	G &= \frac{2\pi\sigma}{\ln(\frac{D}{d})} \\
 	C &= \frac{2\pi\varepsilon}{\ln(\frac{D}{d})}

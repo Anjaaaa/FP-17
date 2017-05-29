@@ -1,0 +1,20 @@
+\subsection{Leitungskonstanten direkt}
+$G$ ausrechnen. Alles Plotten. Theoriewerte mit \eqref{eq:Theorie} ausrechnen.
+\subsection{Leitungskonstanten durch Reflexion}
+Offenes Ende: Form müsste RC-Parallelschaltung entsprechen. Rechne dafür die Laplace-Trafo aus. Fitte die ausgerechnete Funktion an die Werte. \\
+Geschlossenes Ende: Form müsste LR-Reihenschaltung entsprechen. Rechne dafür die Laplace-Trafo aus. Fitte die ausgerechnete Funktion an die Werte.
+\subsection{Dämpfungskonstante}
+\eqref{eq:LosungTelegraph} quadrieren:
+\begin{align*}
+	\left|U(x,t)\right|^2 &= U_0^2 \exp\left(-2\alpha x\right) \\
+	\Leftrightarrow\quad -2\alpha x &= 2\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right) \\
+	\Leftrightarrow\quad \alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right) \\
+	&\equiv \frac{1}{L}(\ln U_0 - \ln \left|U(L,t)\right|) \\
+	\text{Bei Leanna:}\quad &= \frac{1}{L}(L_{P_0} - L_P)
+\end{align*}
+Leanna setzt dann für $L_{P_0}$ die abgelesene Amplitude des kurzen Kabels ein und für $L_P$ die abgelesene Amplitude des langen Kabels.
+\subsection{Abschlusswiderstände}
+Finde richtige Kurve in \ref{fig:Zeitkonstanten}. Dann vorgehen wie im 2. Unterkapitel: Fitte e-Funktion mit $\exp(-t/T)$ an den Anstieg bzw. Abfall. Daraus bekommt man die Werte von $C,L,R$.
+\subsection{Mehrfachreflexion}
+Lese Spannungsdifferenzen ab. Das entspricht dann immer dem jeweiligen Term aus \eqref{eq:Un}. Mit einem Impulsfahrplan überlegt man sich dann wie die Koeffizienten genau aussehen müssen. Und mit einem LGS kann man auf die $\Gamma$s kommen. \\
+Mit \eqref{eq:Reflexion} kann ein Vergleichswert berechnet werden.
