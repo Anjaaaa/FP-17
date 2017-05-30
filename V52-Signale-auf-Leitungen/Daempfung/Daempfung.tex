@@ -1,12 +1,71 @@
-Durch Quadrieren und Umstellen der Lösung der Telegraphengleichung \eqref{eq:LosungTelegraph} kann folgende Relation abgeleitet werden
-\begin{align*}
-	\alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(L,t)\right|}{U_0}\right) \\
-\end{align*}
-Der Spannungspuls durchläuft die gesamte Länge der Kabel, daher wird $x=L$ gesetzt. Die Messwerte liegen in der Einheit \si{\deci\bel} vor, daher wird der Ausdruck für $\alpha$ noch etwas umgeformt:
-\begin{align}
-	\alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\neper} \quad\footnotemark \\
-	&= -\frac{20}{x}\log_{10}\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\deci\bel} \\
-	&= -\frac{20}{x}\left(P(x,t)-P_0\right)\si{\deci\bel} \quad .
+Zur Bestimmung der Dämpfungskonstante wird mit dem Oszilloskop für ein langes und ein kurzes Kabel eine FFT des Signals durchgeführt. Die hier entstandenen Bilder sind in Abbildung \ref{fig:FFT} zu sehen. Die Peaks kennzeichnen die Position und Größe der Fourierkoeffizienten $P$. Sie werden herausgefiltert und sind als Messwerte in Abbildung \ref{fig:PlotDaempfung} eingezeichnet. Der Zusammenhang zwischen $P$ und der Dämpfungskonstante $\alpha$ kann durch Quadrieren und Umstellen der Lösung der Telegraphengleichung \eqref{eq:LosungTelegraph} hergestellt werden:
+\begin{align}\label{eq:Daempfung}
+	\alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right) \notag \\
+	&= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\neper} \quad\footnotemark \notag \\
+	&= -\frac{20}{x}\log_{10}\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\deci\bel} \notag \\
+	&= -\frac{20}{x}\left(P(x,t)-P_0\right) \notag \\
+	&\equiv -\frac{20}{L}\left(P_\text{Lang}-P_\text{Kurz}\right) \quad .
 \end{align}
-Hierbei wird im zweiten Schritt die Definition der Einheit $\si{\deci\bel}$ verwendet und im letzten $P(x,t) =$\glqq$\ln|U(x,t)|$\grqq und $P_0=$\glqq$\ln U_0$\grqq eingesetzt. Diese beiden Größen sind dann jeweils die abzulesenden Fourierkoeffizienten des langen bzw. des kurzen Kabels.
+Im letzten Schritt wurde verwendet, dass das Signal die gesamte Länge des Kabel durchläuft ($x=L$) und die Länge des kurzen Kabel vernachlässigbar ist ($P_0 = P_\text{Kurz}$, $P(L) = P_\text{Lang}$).
 \footnotetext{\si{\neper} ist eine Einheit, die das Verhältnis von zwei Werten angibt. Sie kann hier einfach hinzugefügt werden, da \SI{1}{\neper} = 1.}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.495\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{Oszilloskop/DaempfungLang/F0042TEK.JPG}
+		\subcaption{Langes Kabel}
+		\label{fig:FFTLang}
+	\end{subfigure}
+	\begin{subfigure}{0.495\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{Oszilloskop/DaempfungKurz/F0041TEK.JPG}
+		\subcaption{Kurzes Kabel}
+		\label{fig:FFTKurz}
+	\end{subfigure}
+\caption{Oszilloskop-Bilder der FFT}
+\label{fig:FFT}
+\end{figure}
+\input{Daempfung/build/fulltable.tex}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Daempfung/build/Plot.pdf}
+	\caption{}
+	\label{fig:PlotDaempfung}
+\end{figure}\clearpage
+\subsubsection{Meine Lösung}
+Ich glaube die FFT macht das:
+\begin{align}
+	P = \ln\left(\frac{U(\omega)}{U_0}\right) \quad.
+\end{align}
+Die Fourierkoeffizienten von einem ungeraden Rechtecksignal und die Fouriertransformierte sind
+\begin{align*}
+	A_n &=\frac{4U_0}{\pi(2n+1)} = \frac{A_0}{2n+1} \\
+	U(\omega) &= \sum_{n=0}^{\infty}A_n\delta(\omega-\omega_0(2n+1)) \quad.
+\end{align*}
+Die Amplituden, die das Oszilloskop mit der FFT darstellt können demnach auch durch die Fourierkoeffizienten ausgedrückt werden ($\omega_n = n\omega_0$)
+\begin{align*}
+	P_n = \ln\left(\frac{A_n}{A_0}\right) &= \ln\left(\frac{\omega_0}{\omega_n}\right) \\
+	&= \ln\left(\frac{\omega_0}{\omega_n}\right)\si{\neper} \\
+	&= 20\log_{10}\left(\frac{\omega_0}{\omega_n}\right)\si{\deci\bel} \quad.
+\end{align*}
+Und das gilt für das kurze Kabel auch recht gut, wie Plot \ref{fig:PlotDaempfungB} zeigt. Die Dämpfungskonstante kann dann wie folgt berechnet werden
+\begin{align}\label{eq:DaempfungB}
+	P_{n,\text{Lang}}-P_{n,\text{Kurz}} &= \ln\left(\frac{U_{n,\text{Lang}}(\omega)}{U_0}\right) - \ln\left(\frac{U_{n,\text{Kurz}}(\omega)}{U_0}\right)\notag \\
+	&= \ln\left(\frac{U_{n,\text{Lang}}(\omega)}{U_0}\right) - \ln\left(\frac{U_{n,\text{Kurz}}(\omega)}{U_0}\right)\si{\neper}\notag \\
+	&= 20\cdot\log_{10}\left(\frac{U_{n,\text{Lang}}(\omega)}{U_{n,\text{Kurz}}(\omega)}\right)\si{\deci\bel}\notag \\
+	&= 20\cdot\log_{10}\left(\exp(-\alpha L)\right)\si{\deci\bel}\notag \\
+	&= -20\cdot\alpha\cdot L\cdot\log_{10}e\ \si{\deci\bel}\notag \\
+	\Leftrightarrow\quad \alpha &= \frac{P_\text{Lang}-P_\text{Kurz}}{20\cdot L\cdot\log_{10}e\ \si{\deci\bel}} \quad.
+\end{align}
+Die Werte aus den Oszilloskop-Bildern, sowie die, sich daraus ergebenden, Werte für die Dämpfungskonstante sind in Tabelle \ref{tab:DaempfungWerteB} abgebildet. Die Mittelung ergibt
+\input{Daempfung/build/fulltableB.tex}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Daempfung/build/PlotB.pdf}
+	\caption{}
+	\label{fig:PlotDaempfungB}
+\end{figure}
+\begin{align}
+	\alpha = \input{Daempfung/build/alpha.tex} \quad.
+\end{align}\clearpage

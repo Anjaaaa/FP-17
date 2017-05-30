@@ -1,0 +1,21 @@
+\begin{table}
+    \centering
+    \caption{Frequenz $\omega$ und Betrag der Amplitude $P$ der Peaks in der FFT für das kurze und das lange Kabel, sowie mit \eqref{eq:Daempfung} berechnete Dämpfung}
+    \label{tab:DaempfungWerte}
+    \sisetup{parse-numbers=false}
+    \begin{tabular}{
+	S[table-format=2.3]
+	S[table-format=2.2]
+	S[table-format=2.3]
+	S[table-format=2.2]
+	S[table-format=2.2]
+	}
+	\toprule
+	{$\omega_\text{Kurz} \ \mathrm{in} \ \si{\mega\hertz}$}		& {$|P_\text{Kurz}| \ \mathrm{in} \ \si{\deci\bel}$}		& 
+	{$\omega_\text{Lang} \ \mathrm{in} \ \si{\mega\hertz}$}		& {$|P_\text{Lang}| \ \mathrm{in} \ \si{\deci\bel}$}		& 
+	{$\alpha \ \mathrm{in} \ \si{\deci\bel\per\meter}$}		\\ 
+	\midrule
+    \input{Daempfung/build/table.tex}
+    \bottomrule
+    \end{tabular}
+    \end{table}
