@@ -63,6 +63,12 @@ R_geschlossen = (50/params[1] -50)
 write('Laplace/build/R_geschlossen.tex', make_SI(R_geschlossen, r'\ohm', figures = 4))
 L_geschlossen = (R_geschlossen + 50) / (params[2]*10**9)
 write('Laplace/build/L_geschlossen.tex', make_SI(L_geschlossen*10**6, r'\micro\henry', figures = 4))
+#Geschwindigkeit in Kupfer
+v = 299792458 / np.sqrt(2.25)
+lange_geschlossen = v / (params[2] * 10**9)
+write('Laplace/build/v.tex', make_SI(v, r'\meter\per\second', figures = 1))
+write('Laplace/build/lange_geschlossen.tex', make_SI(lange_geschlossen, r'\meter', figures = 4))
+
 
 
 #Offenes Ende
@@ -120,9 +126,15 @@ R_offen = (50/params[1] -50)
 write('Laplace/build/R_offen.tex', make_SI(R_offen, r'\ohm', figures = 4))
 C_offen = 1/(params[2] * (50 + R_offen) * 10 **9)
 write('Laplace/build/C_offen.tex', make_SI(C_offen*10**12, r'\pico\farad', figures = 4))
+
 print(R_offen)
 print(C_offen)
 
+#Geschwindigkeit in Kupfer
+v = 299792458 / np.sqrt(2.25)
+lange_offen = v / (params[2] * 10**9)
+print(lange_offen)
+write('Laplace/build/lange_offen.tex', make_SI(lange_offen, r'\meter', figures = 4))
 
 
 

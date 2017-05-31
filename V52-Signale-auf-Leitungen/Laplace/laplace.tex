@@ -2,7 +2,8 @@ Die Signalverläufe geben Aufschluss über die Leitungskonstanten der Kabel. Wie
 \begin{equation}
 	Z_0 = \si{50}{\ohm}
 \end{equation}
-angegeben. Der Spannungsverlauf wird mit einem Oszilloskop aufgezeichnet und die Werte an den theoretischen Verlauf der Kurve gefittet.
+angegeben. Der Spannungsverlauf wird mit einem Oszilloskop aufgezeichnet und die Werte an den theoretischen Verlauf der Kurve gefittet. \
+Aus den Parametern des Regression kann auch die Zeit bestimmt werden, die das Signal benötigt, bis das Ende des Kabels erreicht ist. Aus dieser Zeit wir am Ende des Kapitels die Länge des verwendeten Kabels bestimmt.
 
 \subsubsection{Kabel mit geschlossenem Ende}
 Der Signalverlauf ist in Abb. \ref{fig:oszi_geschlossen} dargestellt. Erwartet wird eine Flanke der Form
@@ -60,6 +61,26 @@ Es lassen sich die Kapazität $C$ des Kabels ebenso die der Widerstand $R$ aus d
 \begin{align}
 	R &= \frac{Z_0}{b} - Z_0 = \input{Laplace/build/R_offen.tex} \\
 	C &= \frac{1}{ c (r + Z_0) \cdot 10^9} = \input{Laplace/build/C_offen.tex} \quad.
+\end{align}
+
+\subsubsection{Kabellänge bestimmen}
+\todo[color = red]{Haben wir für diese Messung das ganz lange Kabel benutzt? Die Werte sind so groß. Eigentlich hätte ich auch einen Faktor 2 in der Formel erwartet, aber in der Anleitung in Abb. 3 sieht das anders aus... }
+Die Zeit~$T$ bis das Eingangssignal reflektiert wird ist gegeben durch 
+\begin{equation}
+	U_0(t) \propto \mathrm{e}^{-t/T} 
+\end{equation}
+und entspricht somit gerade dem Kehrwert des Fit-Parameters~$c$. Die Länge $l$ des Kabels lässt sich dann wie folgt berechnen
+\begin{equation}
+	l = T \cdot v = \frac{v}{c \cdot 10^{9}} \quad .
+\end{equation}
+Hierbei ist $v$ die Ausbreitungsgeschwindigkeit im Kabel, die gegeben ist durch
+\begin{equation}
+	v = \frac{c_{\textrm{Licht}}}{\sqrt{(\epsilon_r)}} = \frac{c_{\textrm{Licht}}}{\sqrt{(2.25)}} = \input{Laplace/build/v.tex}
+\end{equation}
+Da für in den Messungen mit dem offenen und dem geschlossenen Ende unterschiedliche Parameter $c$ gemessen wurden, obwohl es sich um das selbe Kabel handelt, werden die Längen einzeln ausgerechnet.
+\begin{align}
+	l_{\textrm{geschlossen}} &= \input{Laplace/build/lange_geschlossen.tex} \\
+	l_{\textrm{offen}} &= \input{Laplace/build/lange_offen.tex}
 \end{align}
 
 \clearpage
