@@ -1,0 +1,36 @@
+\begin{figure}
+	\centering
+	\input{Mehrfachreflexion/Impulsfahrplan.tex}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[angle = 90, origin = c, width=0.8\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
+	\caption{}
+	\label{fig:Mehrfachreflexion}
+\end{figure}
+LGS
+\begin{align}
+	\Delta U_1 &= \Gamma_{12}U_0 \\
+	\Delta U_2 &= \Gamma_A\Gamma_{12}^2U_0 + (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \\
+	\Delta U_3 &= \Gamma_{12}\Gamma_A\Gamma_E(1-\Gamma_{21})(1-\Gamma_{12})U_0 + \Gamma_A^2\Gamma_{12}^3U_0 \\
+	&+ (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})\Gamma_A\Gamma_{12}U_0 + (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0
+\end{align}
+Annahme: perfekte Transmission an A:
+\begin{align}
+	\Delta U_1 &= \Gamma_{12}U_0 \\
+	\Delta U_2 &= (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \\
+	\Delta U_3 &= (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0
+\end{align}
+Lösung
+\begin{align}
+	\Gamma_{12} &= \frac{\Delta U_1}{U_0} \\
+	\Gamma_{21} &= \frac{1}{1+\frac{\Delta U_2^2}{\Delta U_3(U_0-\Delta U_1)}} \quad, \Gamma_E \not= 0\text{ (unphysikalisch)}, \Delta U_1 \not= U_0\text{ (unphysikalisch)} \\
+	\Gamma_E &= \frac{\Delta U_3}{\Delta U_2} + \frac{\Delta U_2}{U_0-\Delta U_1}
+\end{align}
+Theorie
+\begin{align}
+	\Gamma_E &= 1 \\
+	\Gamma_A &= ?? \\
+	\Gamma_{12} &= 0.1\overline{8} \\
+	\Gamma_{21} &= -0.1\overline{8}
+\end{align}
