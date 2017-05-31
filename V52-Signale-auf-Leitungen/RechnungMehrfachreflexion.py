@@ -15,19 +15,21 @@ t, U = np.genfromtxt("Oszilloskop/Mehrfachreflexion/F0054CH1.txt", unpack = True
 
 # Zeiteinheit: Microsekunden
 t *= 10**6
-
+# Spannungseinheit: kV
+U *= 10**(-3)
 # Vertical Offset (laut der CSV-Datei) ist 568
-U += 568
+Offset = 0.568
+U -= Offset
 # Zeiten so verschieben, dass es bei 0 anfängt
 t -= t[0]
 
 # Grenzen für die Extraktionen
-oben1 = -1235+568
-oben2 = -555+568
-unten2 = -585+568
-oben3 = -430+568
-unten3 = -465+568
-unten4 = 110+568
+oben1 = -1.235 - Offset
+oben2 = -0.555 - Offset
+unten2 = -0.585 - Offset
+oben3 = -0.430 - Offset
+unten3 = -0.465 - Offset
+unten4 = 0.110 - Offset
 
 # Erstes Plateau extrahieren
 t1 = []
@@ -97,12 +99,26 @@ plt.plot(t2, P2, 'b.', ms=1)
 plt.plot(t3, P3, 'g.', ms=1)
 plt.plot(t4, P4, 'y.', ms=1)
 
-plt.ylabel(r'$U \ \mathrm{in} \ \mathrm{Hz}$')
+plt.ylabel(r'$U \ \mathrm{in} \ \mathrm{kHz}$')
 plt.xlabel(r'$t \ \mathrm{in} \ \mathrm{ms}$')
 plt.savefig('Mehrfachreflexion/build/Plot.pdf')
 plt.show()
 
 
+#######################################################################################################################################
+### Berechnung der Reflexionskonstanten
+Delta1 = U1-U0
+Delta2 = U2-U1
+Delta3 = U3-U2
+Gamma12 = -Delta1/U0
+Gamma21 = 1 / (1 + Delta2**2 / (Delta3 *(-U0 - Delta1)))
+GammaE = Delta3/Delta2 + Delta2/(-U0-Delta1)
+print(Delta1)
+print(Delta2)
+print(Delta3)
+
+
+#######################################################################################################################################
 ### Länge der Kabel ausrechenen
 #Geschwindigkeit in Kupfer
 v = 299792458 / np.sqrt(2.25)
@@ -121,38 +137,16 @@ L2 = ufloat(np.mean(L2),np.std(L2)/np.sqrt(2))
 print(L21)
 print(L22)
 ### Werte in Latex-Dateien schreiben
-write('Mehrfachreflexion/build/U0.tex', make_SI(U0, r'\volt', figures = 1))
-write('Mehrfachreflexion/build/U1.tex', make_SI(U1, r'\volt', figures = 1))
-write('Mehrfachreflexion/build/U2.tex', make_SI(U2, r'\volt', figures = 1))
-write('Mehrfachreflexion/build/U3.tex', make_SI(U3, r'\volt', figures = 1))
+write('Mehrfachreflexion/build/U0.tex', make_SI(U0, r'\kilo\volt', figures = 1))
+write('Mehrfachreflexion/build/U1.tex', make_SI(U1, r'\kilo\volt', figures = 1))
+write('Mehrfachreflexion/build/U2.tex', make_SI(U2, r'\kilo\volt', figures = 1))
+write('Mehrfachreflexion/build/U3.tex', make_SI(U3, r'\kilo\volt', figures = 1))
 write('Mehrfachreflexion/build/T1.tex', make_SI(T1, r'\micro\second', figures = 3))
 write('Mehrfachreflexion/build/T2.tex', make_SI(T2, r'\micro\second', figures = 3))
 write('Mehrfachreflexion/build/T3.tex', make_SI(T3, r'\micro\second', figures = 3))
 write('Mehrfachreflexion/build/L1.tex', make_SI(L1, r'\meter', figures = 1))
 write('Mehrfachreflexion/build/L2.tex', make_SI(L2, r'\meter', figures = 1))
-
-
-
-write('Mehrfachreflexion/build/table.tex', make_table([f50, R50, C50*10**12, L50*10**6, G50*10**3],[1,4,1,2,1]))
-write('RLC_DirekteMessung/build/fulltableRLC50.tex', make_full_table(
-    r'Beim Kurzschließen des $50\Omega$-Kables gemessene Werte für $R_{50},C_{50},L_{50}$ und daruas berechnete Werte für $G_{50}$ bei den jeweils eingestellten Frequenzen $f$',
-    'tab:RLC50Werte',
-    'RLC_DirekteMessung/build/tableRLC50.tex',
-    [],
-    [r'$f_{50} \ \mathrm{in} \ \si{\kilo\hertz}$',
-    r'$R_{50} \ \mathrm{in} \ \si{\ohm}$',
-    r'$C_{50} \ \mathrm{in} \ \si{\pico\farad}$',
-    r'$L_{50} \ \mathrm{in} \ \si{\micro\henry}$',
-    r'$G_{50} \ \mathrm{in} \ \si{\milli\siemens}$']))
-write('RLC_DirekteMessung/build/tableRLC75.tex', make_table([f75, R75, C75*10**12, L75*10**6, G75*10**3],[0,2,1,2,1]))
-write('RLC_DirekteMessung/build/fulltableRLC75.tex', make_full_table(
-    r'Beim Kurzschließen des $75\Omega$-Kables gemessene Werte für $R_{75},C_{75},L_{75}$ und daraus berechnete Werte für $G_{75}$ bei den jeweils eingestellten Frequenzen $f$',
-    'tab:RLC75Werte',
-    'RLC_DirekteMessung/build/tableRLC75.tex',
-    [],
-    [r'$f_{75} \ \mathrm{in} \ \si{\kilo\hertz}$',
-    r'$R_{75} \ \mathrm{in} \ \si{\ohm}$',
-    r'$C_{75} \ \mathrm{in} \ \si{\pico\farad}$',
-    r'$L_{75} \ \mathrm{in} \ \si{\micro\henry}$',
-    r'$G_{75} \ \mathrm{in} \ \si{\milli\siemens}$']))
+write('Mehrfachreflexion/build/Gamma12.tex', make_SI(Gamma12, r'', figures = 1))
+write('Mehrfachreflexion/build/Gamma21.tex', make_SI(Gamma21, r'', figures = 1))
+write('Mehrfachreflexion/build/GammaE.tex', make_SI(GammaE, r'', figures = 1))
 

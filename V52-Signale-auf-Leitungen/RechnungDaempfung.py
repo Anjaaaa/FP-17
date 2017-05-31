@@ -17,48 +17,6 @@ fLang, PLang = np.genfromtxt("Oszilloskop/DaempfungLang/DatenLang.txt", unpack =
 wKurz = fKurz*2*np.pi*10**(-6) # w in MHz
 wLang = fLang*2*np.pi*10**(-6)
 
-alpha = -20/L*(PLang-PKurz)
-
-### Plot
-w = np.linspace(0.1,26,1000)
-plt.plot(wLang, PLang, 'rx', label ='Lang Messwerte')
-plt.plot(wKurz, PKurz, 'bx', label ='Kurz Messwerte')
-plt.plot(wKurz, alpha, 'k.', label = 'Alpha')
-plt.plot(w, 0*w, 'k')
-
-plt.xlim(0.1,26)
-
-plt.xlabel(r'$\omega \ \mathrm{in} \ \mathrm{MHz}$')
-plt.ylabel(r'')
-
-plt.legend(loc='best')
-plt.savefig('Daempfung/build/Plot.pdf')
-plt.show()
-
-
-### Werte in Latex-Dateien schreiben
-
-write('Daempfung/build/table.tex', make_table([wKurz, -PKurz, wLang, -PLang, alpha],[3,2,3,2,2]))
-write('Daempfung/build/fulltable.tex', make_full_table(
-    r'Frequenz $\omega$ und Betrag der Amplitude $P$ der Peaks in der FFT für das kurze und das lange Kabel, sowie mit \eqref{eq:Daempfung} berechnete Dämpfung',
-    'tab:DaempfungWerte',
-    'Daempfung/build/table.tex',
-    [],
-    [r'$\omega_\text{Kurz} \ \mathrm{in} \ \si{\mega\hertz}$',
-    r'$|P_\text{Kurz}| \ \mathrm{in} \ \si{\deci\bel}$',
-    r'$\omega_\text{Lang} \ \mathrm{in} \ \si{\mega\hertz}$',
-    r'$|P_\text{Lang}| \ \mathrm{in} \ \si{\deci\bel}$',
-    r'$\alpha \ \mathrm{in} \ \si{\deci\bel\per\meter}$']))
-
-
-
-
-
-
-
-
-
-
 
 ### Meine Lösung #################################################################################
 
@@ -78,7 +36,6 @@ print('w0',w0)
 def P(w):
     return 20*np.log10(w0_nom/w)
 
-
 alpha = -(PLang-PKurz)/20/L/np.log10(np.exp(1))
 
 
@@ -87,7 +44,6 @@ w = np.linspace(0.1,26,1000)
 plt.plot(w, P(w), 'k-', label ='Theoretische Kurve ohne Dämpfung')
 plt.plot(wKurz, PKurz, 'bx', label ='Messwerte kurzes Kabel')
 plt.plot(wLang, PLang, 'rx', label ='Messwerte langes Kabel')
-
 plt.xlim(0,26)
 plt.ylim(-40,2.5)
 plt.xlabel(r'$\omega \ \mathrm{in} \ \mathrm{MHz}$')
@@ -111,7 +67,7 @@ write('Daempfung/build/fulltableB.tex', make_full_table(
     r'$\omega_\text{Lang} \ \mathrm{in} \ \si{\mega\hertz}$',
     r'$|P_\text{Lang}| \ \mathrm{in} \ \si{\deci\bel}$',
     r'$\alpha \ \mathrm{in} \ \si{\per\kilo\meter}$']))
-
+write('Daempfung/build/omega0', make_SI(w0,r'\mega\hertz', figures=2))
 alpha_nom = np.mean(alpha)
 alpha_std = np.std(alpha)/np.sqrt(len(alpha))
 alpha = ufloat(alpha_nom, alpha_std)
