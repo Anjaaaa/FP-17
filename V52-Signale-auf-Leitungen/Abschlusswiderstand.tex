@@ -32,7 +32,7 @@ Bei dieser Abschlussimpedanz handelt es sich um eine Spule und einen Widerstand,
 	d &= \input{Box23/build/d.tex} \\
 	e &= \input{Box23/build/e.tex} 
 \end{align}
-Daraus ergibt sich hier für den Widerstand und die Impedanz:
+Daraus ergibt sich hier für den Widerstand und die Induktivität:
 \begin{align}
 	R &= \frac{Z_0}{b} - Z_0 = \input{Box23/build/R.tex} \\
 	L &= \frac{1}{ c (r + Z_0) \cdot 10^9} = \input{Box23/build/L.tex} \quad.
@@ -44,3 +44,26 @@ Daraus ergibt sich hier für den Widerstand und die Impedanz:
 	\caption{Spannungsverlauf bei dem Kabel mit Abschlussimpedanz 2}
 	\label{fig:box23}
 \end{figure}
+
+\subsubsection{Abschlussimpedanz 3}
+Bei dieser Abschlussimpedanz handelt es sich, wie bei der Abschlussimpedanz 2, um eine Spule und einen Widerstand, die in Reihe geschaltet sind. Die Rechnungen sind also äquivalent. Abb. \ref{fig:box28} zeigt die Messwerte und die Fit-Funktion. Die Parameter lauten:
+\begin{align}
+	a &= \input{Box28/build/a.tex} \\
+	b &= \input{Box28/build/b.tex} \\
+	c &= \input{Box28/build/c.tex} \\
+	d &= \input{Box28/build/d.tex} \\
+	e &= \input{Box28/build/e.tex} 
+\end{align}
+Auch für diese Abschlussimpedanz wird der Widerstand und die Induktivität berechnet:
+\begin{align}
+	R &= \frac{Z_0}{b} - Z_0 = \input{Box28/build/R.tex} \\
+	L &= \frac{1}{ c (r + Z_0) \cdot 10^9} = \input{Box28/build/L.tex} \quad.
+\end{align}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Box28/Box28.pdf}
+	\caption{Spannungsverlauf bei dem Kabel mit Abschlussimpedanz 3}
+	\label{fig:box28}
+\end{figure}
+
