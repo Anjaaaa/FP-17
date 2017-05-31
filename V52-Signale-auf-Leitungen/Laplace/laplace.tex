@@ -5,7 +5,7 @@ Die Signalverläufe geben Aufschluss über die Leitungskonstanten der Kabel. Wie
 angegeben. Der Spannungsverlauf wird mit einem Oszilloskop aufgezeichnet und die Werte an den theoretischen Verlauf der Kurve gefittet. \
 Aus den Parametern des Regression kann auch die Zeit bestimmt werden, die das Signal benötigt, bis das Ende des Kabels erreicht ist. Aus dieser Zeit wir am Ende des Kapitels die Länge des verwendeten Kabels bestimmt.
 
-\subsubsection{Kabel mit geschlossenem Ende}
+\subsubsection{Kabel mit geschlossenem Ende}\label{sec:kapazitat}
 Der Signalverlauf ist in Abb. \ref{fig:oszi_geschlossen} dargestellt. Erwartet wird eine Flanke der Form
 \begin{align}
 			U(t) &= 2U_0\left(1 - \frac{Z_0}{R+Z_0} + \frac{Z_0}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right) \\
@@ -42,7 +42,7 @@ Aus den Parametern können der Widerstandsbelag $R$ und der Induktivitätsbelag 
 \end{figure}
 
 \clearpage
-\subsubsection{Kabel mit offenem Ende}
+\subsubsection{Kabel mit offenem Ende}\label{sec:impedanz}
 Der Spannungsverlauf des offenen Kabels ist in  Abb. \ref{fig:oszi_offen} zu sehen. Der Verlauf folgt der Funktionsvorschrift
 \begin{align}
 	U_0(t) &= 2U_0\left(1 -  \frac{Z_0}{R+Z_0} \exp \left( - \frac{1}{C(R+Z_0)} t\right) \right)\\

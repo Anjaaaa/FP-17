@@ -1,0 +1,46 @@
+Das Koaxialkabel wird mit drei unterschiedlichen Abschlussimpedanzen versehen. Alle drei Impedanzen sollen bestimmt werden und je nach der Art der Impedanz die Kapazität~$C$ und Induktivität~$L$ sowie der Widerstand~$R$ bestimmt. Die Eingangsimpedanz ist weiterhin $Z_0 = \SI{50}{\ohm}$.
+
+\subsubsection{Abschlussimpedanz 1}
+Der Anzeige des Oszilloskops nach zu urteilen handelt es sich um einen Widerstand und einen Kondensator in Reihenschaltung. Es wird für die aufsteigende Flanke die selbe Fit-Funktion angelegt wie bereits in Kapitel \ref{sec:kapazitat}. Die Messwerte und die Funktion sind in Abb. \ref{fig:box25} dargestellt. Die Parameter sind:
+\begin{align}
+	a &= \input{Box25/build/a.tex} \\
+	b &= \input{Box25/build/b.tex} \\
+	c &= \input{Box25/build/c.tex} \\
+	d &= \input{Box25/build/d.tex} \\
+	e &= \input{Box25/build/e.tex} 
+\end{align}
+Daraus ergibt sich für den Widerstand und die Kapazität:
+\begin{align}
+	R &= \frac{Z_0}{b} - Z_0 = \input{Box25/build/R.tex} \\
+	C &= \frac{1}{ c (r + Z_0) \cdot 10^9} = \input{Box25/build/C.tex} \quad.
+\end{align}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Box25/Box25.pdf}
+	\caption{Spannungsverlauf bei dem Kabel mit Abschlussimpedanz 1}
+	\label{fig:box25}
+\end{figure}
+
+\subsubsection{Abschlussimpedanz 2}
+Bei dieser Abschlussimpedanz handelt es sich um eine Spule und einen Widerstand, die in Reihe geschaltet sind. Die Fit-Funktion ist die selbe wie in Kapitel \ref{sec:impedanz}. Abb. \ref{fig:box23} zeigt die Messwerte ebenso wie die Fit-Funktion. Die Parameter sind:
+\begin{align}
+	a &= \input{Box23/build/a.tex} \\
+	b &= \input{Box23/build/b.tex} \\
+	c &= \input{Box23/build/c.tex} \\
+	d &= \input{Box23/build/d.tex} \\
+	e &= \input{Box23/build/e.tex} 
+\end{align}
+Daraus ergibt sich hier für den Widerstand und die Impedanz:
+\begin{align}
+	R &= \frac{Z_0}{b} - Z_0 = \input{Box23/build/R.tex} \\
+	L &= \frac{1}{ c (r + Z_0) \cdot 10^9} = \input{Box23/build/L.tex} \quad.
+\end{align}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Box23/Box23.pdf}
+	\caption{Spannungsverlauf bei dem Kabel mit Abschlussimpedanz 2}
+	\label{fig:box23}
+\end{figure}
