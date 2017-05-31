@@ -86,14 +86,56 @@ Hierbei sind $\varepsilon$ die Permittivität, $\mu$ die Permeabilität, $\sigma
 	\caption{Signalspannung $U(x,t)$ und Zeitkonstanten für verschiedene Abschlusswiderstände \cite{E2}}
 	\label{fig:Zeitkonstanten}
 \end{figure}
-\subsection{Laplace-Transformationen}\todo{evtl. auch in den Anhang oder woanders hin}
-Eingangsspannung: $U_0\cdot\theta(t)\rightarrow U_h(p) = \frac{U_0}{p}$ \\
-$LR$: $Z_A(t) = R + i\omega L$, $Z_A(p) = R + pL$.
+\subsection{Laplace-Transformationen} \label{seq:laplace}
+\todo{evtl. auch in den Anhang oder woanders hin}
+Die Spannungsverläufe für verschiedene Beläge werden mit Hilfe der Laplace-Transformation bestimmt. Im Folgenden werden die Verläufe für eine Induktivität~$L$, eine Kapazität~$C$ und einen reell wertigen Widerstand~$R$ berechnet. Da die Elemente nur die Abschlussimpedanz~$Z_A$ bestimmen, sind die ersten Schritte der Transformation für alle identisch
+\begin{align}
+	U(t) &= U_0 + U_r(t) = U_0 + \mathcal{L}^{-1} \{U_r(p) \} 
+	= U_0 + \mathcal{L}^{-1} \{\Gamma(p) U_h(p) \} \\
+&= U_0 + \mathcal{L}^{-1}\left(\frac{Z_A(p)-Z_0}{Z_A(p)+Z_0}\frac{U_0}{p}\right) \quad .
+\end{align}
+Je nachdem, wie $Z_A$ aussieht, wird dann eine Partialbruchzerlegung durchgeführt, um die Laplacetransformationen durchzuführen. Wichtig sind hier folgende Transformationen:
+\begin{align}
+	f(t) &\leftrightarrow \mathcal{L}[f](s)  \\
+	t^n\textrm{e}^{ct} &\leftrightarrow \frac{n!}{(s-c)^{n+1}} \\
+	t^n &\leftrightarrow \frac{n!}{s^{n+1}}
+\end{align}
+Die Laplacetransformation ist linear.
+\subsubsection{Induktivität}
+Die Impedanz der Spule im Impulsraum ist $Z_A(p) = R + pL$.
+%Eingangsspannung: $U_0\cdot\theta(t)\rightarrow U_h(p) = \frac{U_0}{p}$ \\
+
 \begin{align*}
-	U_\text{RL}(t) &= U_0 + U_\text{r}(t) \\
-	&= U_0 + \mathcal{L}^{-1}\left(\frac{Z_A(p)-Z_0}{Z_A(p)+Z_0}\frac{U_0}{p}\right) \\
-	???? &= U_0 + \frac{R-Z_0}{R+Z_0}U_0\mathcal{L}^{-1}\left(\frac{1}{p}\right) + \frac{2Z_0L}{R+Z_0}U_0\mathcal{L}\left(\frac{1}{pL+R+Z_0}\right) \\
-	&= U_0 + \frac{R-Z_0}{R+Z_0}U_0 + \frac{2Z_0L}{R+Z_0}U_0\exp\left(-\frac{R+Z_0}{L}t\right) \\
-	&= U_0\left(1 + \frac{R}{R+Z_0} - \frac{Z_0}{R+Z_0} + \frac{2Z_0L}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right)
+	U_\text{RL}(t) 
+	&= U_0 + \mathcal{L}^{-1}\left(\frac{R+pL-Z_0}{R+pL+Z_0}\frac{U_0}{p}\right) \\
+	 &= U_0 + \frac{R-Z_0}{R+Z_0}U_0\mathcal{L}^{-1}\left(\frac{1}{p}\right) + \frac{2Z_0L}{R+Z_0}U_0\mathcal{L}\left(\frac{1}{pL+R+Z_0}\right) \\
+	 	 &= U_0 + \frac{R-Z_0}{R+Z_0} + \frac{2Z_0}{R+Z_0}U_0\mathcal{L}\left(\frac{1}{p+\frac{R+Z_0}{L}}\right) \\
+	&= U_0 + \frac{R-Z_0}{R+Z_0}U_0 + \frac{2Z_0}{R+Z_0}U_0\exp\left(-\frac{R+Z_0}{L}t\right) \\
+	&= U_0\left(1 + \frac{R-Z_0}{R+Z_0} + \frac{2Z_0}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right) \\
+		&= 2U_0\left(1 - \frac{Z_0}{R+Z_0} + \frac{Z_0}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right)
 \end{align*}
-Bei Leanna kommt in der letzten Zeile was anderes raus...
+\clearpage
+\subsubsection{Kapazität}
+Die Impedanz der Kapazität im Frequenzraum ist $Z_A = R + \frac{1}{pC}$.
+
+\begin{align*}
+	U_\text{RC}(t) 
+	&= U_0 + \mathcal{L}^{-1}\left(\frac{R+ \frac{1}{pC}-Z_0}{R+ \frac{1}{pC}+Z_0}\frac{U_0}{p}\right) \\
+	&= U_0 + U_0 \mathcal{L}^{-1} \left( \frac{R-Z_0}{p(R+Z_0) +  \frac{1}{C}}   
+	+ \frac{1}{p} \frac{1}{pC(R+Z_0) +1 } \right) \\
+	&= U_0 + U_0\mathcal{L}^{-1} \left( \frac{R-Z_0}{p(R+Z_0) +  \frac{1}{C}} \right) + U_0  \mathcal{L}^{-1} \left( \frac{1}{p} \right) - U_0 \mathcal{L}^{-1} \left( \frac{1}{p + \frac{1}{C(R+Z_0)}} \right) \\
+		&= U_0\left( 1+  \mathcal{L}^{-1} \left( \frac{1}{p}\right) +  \left(\frac{R-Z_0}{R+Z_0}-1\right) \mathcal{L}^{-1} \left( \frac{1}{p + \frac{1}{C(R+Z_0)}} \right) \right) \\
+		&= U_0\left(2 +  \left(\frac{R-Z_0}{R+Z_0}-1\right) \exp \left( - \frac{1}{C(R+Z_0)} t\right)  \right) \\
+	&= 2U_0\left(1 -  \frac{Z_0}{R+Z_0} \exp \left( - \frac{1}{C(R+Z_0)} t\right)  \right)
+\end{align*}
+
+\subsubsection{Realer Widerstand}
+Bei dem realen Riederstand ist die Impedanz rein reell wertig $Z_A = R$.
+\begin{align*}
+	U_\text{R}(t) 
+	&= U_0 + \mathcal{L}^{-1}\left(\frac{R -Z_0}{R +Z_0}\frac{U_0}{p}\right) \\
+	&= U_0 + U_0\frac{R -Z_0}{R +Z_0} \mathcal{L}^{-1}\left(\frac{1}{p} \right) \\
+	&= U_0\left(1 +  \frac{R -Z_0}{R +Z_0} \right) \\
+	&= 2 U_0 \frac{R}{R+Z_0}
+\end{align*}
+
