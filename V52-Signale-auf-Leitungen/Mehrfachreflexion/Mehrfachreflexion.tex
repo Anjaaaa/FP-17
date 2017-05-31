@@ -1,9 +1,11 @@
+\subsection{Impulsfahrplan}
 \begin{figure}[h]
 	\centering
 	\input{Mehrfachreflexion/Impulsfahrplan.tex}
 	\caption[Impulsfahrplan]{Impulsfahrplan zur Veranschaulichung der Mehrfachreflexion}
 	\label{fig:Impulsfahrplan}
 \end{figure}
+\subsection{Bestimmung der Reflexionskonstanten}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
@@ -15,9 +17,9 @@ LGS
 	\Delta U_1 &= \Gamma_{12}U_0 \\
 	\Delta U_2 &= \Gamma_A\Gamma_{12}^2U_0 + (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \\
 	\Delta U_3 &= \Gamma_{12}\Gamma_A\Gamma_E(1-\Gamma_{21})(1-\Gamma_{12})U_0 + \Gamma_A^2\Gamma_{12}^3U_0 \\
-	&+ (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})\Gamma_A\Gamma_{12}U_0 + (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0
+%	&+ (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})\Gamma_A\Gamma_{12}U_0 + (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0
 \end{align}
-Annahme: perfekte Transmission an A:
+Annahme: perfekte Transmission an A, d.h. $\Gamma_A=0$ (rote Linien)
 \begin{align}
 	\Delta U_1 &= \Gamma_{12}U_0 \\
 	\Delta U_2 &= (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \\
@@ -36,3 +38,35 @@ Theorie
 	\Gamma_{12} &= 0.1\overline{8} \\
 	\Gamma_{21} &= -0.1\overline{8}
 \end{align}
+\todo{Bei mir kompiliert Latex nicht richtig, wenn ich dieses Bild einbinde...}
+%\begin{figure}[h]
+%	\centering
+%	\input{Mehrfachreflexion/build/Plot.pdf}
+%	\caption{text}
+%	\label{fig:U}
+%\end{figure}
+\begin{align}
+	U_0 &= \input{Mehrfachreflexion/build/U0.tex} \\
+	U_1 &= \input{Mehrfachreflexion/build/U1.tex} \\
+	U_2 &= \input{Mehrfachreflexion/build/U2.tex} \\
+	U_3 &= \input{Mehrfachreflexion/build/U3.tex} \\
+\end{align}
+\subsection{Bestimmung der Kabellängen}
+$T$ ist die Zeit zwischen zwei Signalen (Abstand zwischen den Anfängen der Plateaus):
+\begin{align}
+	T_1 &= \input{Mehrfachreflexion/build/T1} \\
+	T_2 &= \input{Mehrfachreflexion/build/T2} \\
+	T_3 &= \input{Mehrfachreflexion/build/T3} \quad.
+\end{align}
+Es gelten die Beziehungen (siehe Impulsfahrplan \ref{fig:Impulsfahrplan})
+\begin{align}
+	T_1 &= \frac{2L_1}{v} \\
+	T_2 &= \frac{2L_1 + 2L_2}{v}-T_1 = \frac{2L_2}{v} \\
+	T_3 &= \frac{2L_1+4L_2}{v}-T_2 = \frac{2L_2}{v} \quad.
+\end{align}
+Nach den Längen aufgelöst ergibt sich so
+\begin{align}
+	L_1 &= \input{Mehrfachreflexion/build/L1} \\
+	L_2 &= \input{Mehrfachreflexion/build/L2} \quad, 
+\end{align}
+wobei $L_2$ einmal mit $T_2$ und einmal mit $T_3$ ausgerechnet wurde und hier der Mittelwert steht.
