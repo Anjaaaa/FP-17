@@ -84,9 +84,9 @@ alpha = -(PLang-PKurz)/20/L/np.log10(np.exp(1))
 
 ### Plot
 w = np.linspace(0.1,26,1000)
-plt.plot(w, P(w), 'k-', label ='Kurz Theorie')
-plt.plot(wKurz, PKurz, 'bx', label ='kurz Messwerte')
-plt.plot(wLang, PLang, 'rx', label ='Lang Messwerte')
+plt.plot(w, P(w), 'k-', label ='Theoretische Kurve ohne Dämpfung')
+plt.plot(wKurz, PKurz, 'bx', label ='Messwerte kurzes Kabel')
+plt.plot(wLang, PLang, 'rx', label ='Messwerte langes Kabel')
 
 plt.xlim(0,26)
 plt.ylim(-40,2.5)

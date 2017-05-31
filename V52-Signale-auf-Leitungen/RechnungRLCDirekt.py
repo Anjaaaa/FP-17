@@ -12,7 +12,7 @@ from table import (
 
 
 Lange50 = 15
-Lange75 = 25
+Lange75 = 25 
 
 L50, R50, C50, f50 = np.genfromtxt("RLC_DirekteMessung/WerteRLC_50Ohm.txt", unpack = True)
 L75, R75, f75, C75 = np.genfromtxt("RLC_DirekteMessung/WerteRLC_75Ohm.txt", unpack = True)
