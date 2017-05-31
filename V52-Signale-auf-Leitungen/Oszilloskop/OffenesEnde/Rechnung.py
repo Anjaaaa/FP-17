@@ -10,8 +10,10 @@ x, y  = np.genfromtxt('F0048CH1.txt', unpack=True)
 x_plot = np.zeros(50)
 y_plot = np.zeros(50)
 
+
+#bereich auswählen und in Megahertz umrechen
 for i in range(0, 50):
-	x_plot[i] = x[700+8*i]
+	x_plot[i] = x[700+8*i]*10**6
 	y_plot[i] = y[700+8*i]
 
 
@@ -29,7 +31,7 @@ print(cov)
 
 plt.plot(x_plot, funktion(x_plot, 10, 1, 10**6, 10**(-7), -10), 'b-')
 #plt.errorbar(x_vector, model(x_vector, params[0], params[1]), yerr=..., xerr=..., )
-#plt.plot(x_plot, y_plot, 'rx')
+plt.plot(x_plot, y_plot, 'rx')
 
 print(x_plot)
 
