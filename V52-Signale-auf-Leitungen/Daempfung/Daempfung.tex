@@ -1,14 +1,4 @@
-Zur Bestimmung der Dämpfungskonstante wird mit dem Oszilloskop für ein langes und ein kurzes Kabel eine FFT des Signals durchgeführt. Die hier entstandenen Bilder sind in Abbildung \ref{fig:FFT} zu sehen. Die Peaks kennzeichnen die Position und Größe der Fourierkoeffizienten $P$. Sie werden herausgefiltert und sind als Messwerte in Abbildung \ref{fig:PlotDaempfung} eingezeichnet. Der Zusammenhang zwischen $P$ und der Dämpfungskonstante $\alpha$ kann durch Quadrieren und Umstellen der Lösung der Telegraphengleichung \eqref{eq:LosungTelegraph} hergestellt werden:
-\begin{align}\label{eq:Daempfung}
-	\alpha &= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right) \notag \\
-	&= -\frac{1}{x}\ln\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\neper} \quad\footnotemark \notag \\
-	&= -\frac{20}{x}\log_{10}\left(\frac{\left|U(x,t)\right|}{U_0}\right)\si{\deci\bel} \notag \\
-	&= -\frac{20}{x}\left(P(x,t)-P_0\right) \notag \\
-	&\equiv -\frac{20}{L}\left(P_\text{Lang}-P_\text{Kurz}\right) \quad .
-\end{align}
-Im letzten Schritt wurde verwendet, dass das Signal die gesamte Länge des Kabel durchläuft ($x=L$) und die Länge des kurzen Kabel vernachlässigbar ist ($P_0 = P_\text{Kurz}$, $P(L) = P_\text{Lang}$).
-\footnotetext{\si{\neper} ist eine Einheit, die das Verhältnis von zwei Werten angibt. Sie kann hier einfach hinzugefügt werden, da \SI{1}{\neper} = 1.}
-
+Zur Bestimmung der Dämpfungskonstante wird mit dem Oszilloskop für ein langes und ein kurzes Kabel eine FFT eines Rechteckpulses durchgeführt. Die hier entstandenen Bilder sind in Abbildung \ref{fig:FFT} zu sehen. Die Position und Höhe der Peaks wird aus dem Datensatz extrahiert und sind in Tabelle \ref{tab:DaempfungWerteB} zu sehen. \\
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.495\textwidth}
@@ -23,33 +13,36 @@ Im letzten Schritt wurde verwendet, dass das Signal die gesamte Länge des Kabel
 		\subcaption{Kurzes Kabel}
 		\label{fig:FFTKurz}
 	\end{subfigure}
-\caption{Oszilloskop-Bilder der FFT}
-\label{fig:FFT}
+	\caption{Oszilloskop-Bilder der FFT}
+	\label{fig:FFT}
 \end{figure}
-\input{Daempfung/build/fulltable.tex}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{Daempfung/build/Plot.pdf}
-	\caption{}
-	\label{fig:PlotDaempfung}
-\end{figure}\clearpage
-\subsubsection{Meine Lösung}
-Ich glaube die FFT macht das:
-\begin{align}
-	P = \ln\left(\frac{U(\omega)}{U_0}\right) \quad.
+Da ein ungerades Rechtecksignal betrachtet wird, sind die $\omega_n$ ungerade Vielfache der Grundfrequenz $\omega_0$. Es wird die Vermutung aufgestellt, dass das Oszilloskop die Fouriertransformierte dabei mit
+\begin{align}\label{eq:Vermutung}
+	P = \ln\left(\frac{U(\omega)}{U_0}\right)
 \end{align}
-Die Fourierkoeffizienten von einem ungeraden Rechtecksignal und die Fouriertransformierte sind
+normiert. Die Fourierkoeffizienten und die Fouriertransformierte eines ungeraden Rechtecksignals sind
 \begin{align*}
-	A_n &=\frac{4U_0}{\pi(2n+1)} = \frac{A_0}{2n+1} \\
+	A_n &=\frac{4U_0}{\pi(2n+1)} = \frac{A_0}{2n+1} \quad, \\
 	U(\omega) &= \sum_{n=0}^{\infty}A_n\delta(\omega-\omega_0(2n+1)) \quad.
 \end{align*}
-Die Amplituden, die das Oszilloskop mit der FFT darstellt können demnach auch durch die Fourierkoeffizienten ausgedrückt werden ($\omega_n = n\omega_0$)
-\begin{align*}
-	P_n = \ln\left(\frac{A_n}{A_0}\right) &= \ln\left(\frac{\omega_0}{\omega_n}\right) \\
-	&= \ln\left(\frac{\omega_0}{\omega_n}\right)\si{\neper} \\
+Die Amplituden, die das Oszilloskop mit der FFT darstellt können demnach auch durch die Fourierkoeffizienten ausgedrückt werden:
+\begin{align}\label{eq:P}
+	P_n = \ln\left(\frac{A_n}{A_0}\right) &= \ln\left(\frac{\omega_0}{\omega_n}\right)\notag \\
+	&= \ln\left(\frac{\omega_0}{\omega_n}\right)\si{\neper}\notag \quad\footnotemark \\
 	&= 20\log_{10}\left(\frac{\omega_0}{\omega_n}\right)\si{\deci\bel} \quad.
+\end{align}
+Die Grundfrequenz ist dabei
+\begin{align*}
+	\omega_0 = \frac{\omega(A_n)}{2n+1} = \input{Daempfung/build/omega0} \quad.
 \end{align*}
-Und das gilt für das kurze Kabel auch recht gut, wie Plot \ref{fig:PlotDaempfungB} zeigt. Die Dämpfungskonstante kann dann wie folgt berechnet werden
+Abbildung \ref{eq:DaempfungB} zeigt diese Amplituden zusammen mit den aus den Messwerten und bestätigt die Vermutung \eqref{eq:Vermutung}, wenn bedacht wird, dass auch beim kurzen Kabel Verluste z.B. an den Verbindungsstücken auftauchen. \footnotetext{\si{\neper} ist eine Einheit, die das Verhältnis von zwei Werten angibt. Sie kann hier einfach hinzugefügt werden, da \SI{1}{\neper} = 1.}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Daempfung/build/PlotB.pdf}
+	\caption{Aus dem Oszilloskop-Datensatz extrahierte Werte der Peaks mit der theoretischen Kurve aus \eqref{eq:P}}
+	\label{fig:PlotDaempfungB}
+\end{figure} \\
+Die Dämpfungskonstante kann nun wie folgt berechnet werden
 \begin{align}\label{eq:DaempfungB}
 	P_{n,\text{Lang}}-P_{n,\text{Kurz}} &= \ln\left(\frac{U_{n,\text{Lang}}(\omega)}{U_0}\right) - \ln\left(\frac{U_{n,\text{Kurz}}(\omega)}{U_0}\right)\notag \\
 	&= \ln\left(\frac{U_{n,\text{Lang}}(\omega)}{U_0}\right) - \ln\left(\frac{U_{n,\text{Kurz}}(\omega)}{U_0}\right)\si{\neper}\notag \\
@@ -58,14 +51,8 @@ Und das gilt für das kurze Kabel auch recht gut, wie Plot \ref{fig:PlotDaempfun
 	&= -20\cdot\alpha\cdot L\cdot\log_{10}e\ \si{\deci\bel}\notag \\
 	\Leftrightarrow\quad \alpha &= \frac{P_\text{Lang}-P_\text{Kurz}}{20\cdot L\cdot\log_{10}e\ \si{\deci\bel}} \quad.
 \end{align}
-Die Werte aus den Oszilloskop-Bildern, sowie die, sich daraus ergebenden, Werte für die Dämpfungskonstante sind in Tabelle \ref{tab:DaempfungWerteB} abgebildet. Die Mittelung ergibt
-\input{Daempfung/build/fulltableB.tex}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{Daempfung/build/PlotB.pdf}
-	\caption{}
-	\label{fig:PlotDaempfungB}
-\end{figure}
+Die  Werte für die Dämpfungskonstante sind in Tabelle \ref{tab:DaempfungWerteB} abgebildet. Die Mittelung ergibt
 \begin{align}
 	\alpha = \input{Daempfung/build/alpha.tex} \quad.
-\end{align}\clearpage
+\end{align}
+\input{Daempfung/build/fulltableB.tex}

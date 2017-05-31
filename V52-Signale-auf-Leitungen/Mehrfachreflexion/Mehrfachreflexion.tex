@@ -1,43 +1,14 @@
-\subsection{Impulsfahrplan}
+\subsubsection{Impulsfahrplan}
+Abbildung \ref{fig:Impulsfahrplan} zeigt den Impulsfahrplan für die betrachtete Mehrfachreflexion, sie ist nicht Maßstabsgetreu. Die fetten Linien kennzeichnen, dass hier zwei verschiedene Impulse überlagert werden. Es wird angenommen, dass die Verbindung von Kabel 1 zum Oszilloskop perfekt transmittierend ist, d.h. $\Gamma_A = 0$. Die Reflexionen, die dann noch übrig sind, sind in rot gezeichnet.
 \begin{figure}[h]
 	\centering
 	\input{Mehrfachreflexion/Impulsfahrplan.tex}
 	\caption[Impulsfahrplan]{Impulsfahrplan zur Veranschaulichung der Mehrfachreflexion}
 	\label{fig:Impulsfahrplan}
 \end{figure}
-\subsection{Bestimmung der Reflexionskonstanten}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
-	\caption[Mehrfachreflexion]{Bild am Oszilloskop bei der Mehrfachreflexion}
-	\label{fig:Mehrfachreflexion}
-\end{figure}
-LGS
-\begin{align}
-	\Delta U_1 &= \Gamma_{12}U_0 \\
-	\Delta U_2 &= \Gamma_A\Gamma_{12}^2U_0 + (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \\
-	\Delta U_3 &= \Gamma_{12}\Gamma_A\Gamma_E(1-\Gamma_{21})(1-\Gamma_{12})U_0 + \Gamma_A^2\Gamma_{12}^3U_0 \\
-%	&+ (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})\Gamma_A\Gamma_{12}U_0 + (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0
-\end{align}
-Annahme: perfekte Transmission an A, d.h. $\Gamma_A=0$ (rote Linien)
-\begin{align}
-	\Delta U_1 &= \Gamma_{12}U_0 \\
-	\Delta U_2 &= (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \\
-	\Delta U_3 &= (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0
-\end{align}
-Lösung
-\begin{align}
-	\Gamma_{12} &= \frac{\Delta U_1}{U_0} \\
-	\Gamma_{21} &= \frac{1}{1+\frac{\Delta U_2^2}{\Delta U_3(U_0-\Delta U_1)}} \quad, \Gamma_E \not= 0\text{ (unphysikalisch)}, \Delta U_1 \not= U_0\text{ (unphysikalisch)} \\
-	\Gamma_E &= \frac{\Delta U_3}{\Delta U_2} + \frac{\Delta U_2}{U_0-\Delta U_1}
-\end{align}
-Theorie
-\begin{align}
-	\Gamma_E &= 1 \\
-	\Gamma_A &= ?? \\
-	\Gamma_{12} &= 0.1\overline{8} \\
-	\Gamma_{21} &= -0.1\overline{8}
-\end{align}
+
+\subsubsection{Bestimmung der Reflexionskonstanten}
+Das am Oszilloskop aufgenommene Bild ist in Abbildung \ref{fig:Mehrfachreflexion} zu sehen. Es sind vier Plateaus, $U_0,U_1,U_2,U_3$, erkennbar. Um sie zu berechnen werden die in Abbildung \ref{fig:U} jeweils farbig markierten Werte verwendet und gemittelt. Die gestrichelten Linien zeigen die daraus erhaltenen Mittelwerte
 \todo{Bei mir kompiliert Latex nicht richtig, wenn ich dieses Bild einbinde...}
 %\begin{figure}[h]
 %	\centering
@@ -46,27 +17,54 @@ Theorie
 %	\label{fig:U}
 %\end{figure}
 \begin{align}
-	U_0 &= \input{Mehrfachreflexion/build/U0.tex} \\
-	U_1 &= \input{Mehrfachreflexion/build/U1.tex} \\
-	U_2 &= \input{Mehrfachreflexion/build/U2.tex} \\
-	U_3 &= \input{Mehrfachreflexion/build/U3.tex} \\
+	U_0 &= \input{Mehrfachreflexion/build/U0.tex} \notag \\
+	U_1 &= \input{Mehrfachreflexion/build/U1.tex} \notag \\
+	U_2 &= \input{Mehrfachreflexion/build/U2.tex} \notag \\
+	U_3 &= \input{Mehrfachreflexion/build/U3.tex} 
 \end{align}
-\subsection{Bestimmung der Kabellängen}
-$T$ ist die Zeit zwischen zwei Signalen (Abstand zwischen den Anfängen der Plateaus):
+
+Die Spannungsdifferenzen $\Delta U_i = U_i-U_{i-1}$ können im Impulsfahrplan abgelesen werden:
 \begin{align}
-	T_1 &= \input{Mehrfachreflexion/build/T1} \\
-	T_2 &= \input{Mehrfachreflexion/build/T2} \\
+	\Delta U_1 &= \Gamma_{12}U_0 \notag \\
+	\Delta U_2 &= (1-\Gamma_{21})\Gamma_E(1-\Gamma_{12})U_0 \notag \\
+	\Delta U_3 &= (1-\Gamma_{21})\Gamma_E^2\Gamma_{21}(1-\Gamma_{12})U_0 \quad.
+\end{align}
+Die Lösung dieses Gleichungssystems ergibt die Reflexionskonstanten
+\begin{align}
+	\Gamma_{12} &= \frac{\Delta U_1}{U_0} &&= \input{Mehrfachreflexion/build/Gamma12.tex}\notag \\
+	\Gamma_{21} &= \frac{1}{1+\frac{\Delta U_2^2}{\Delta U_3(U_0-\Delta U_1)}} &&= \input{Mehrfachreflexion/build/Gamma21.tex}\notag \\
+	\Gamma_E &= \frac{\Delta U_3}{\Delta U_2} + \frac{\Delta U_2}{U_0-\Delta U_1} &&= \input{Mehrfachreflexion/build/GammaE.tex}\notag \quad,
+\end{align}\todo{Was zur Hölle sind das für Werte?}
+wobei verwendet wurde, dass $\Gamma_E \not= 0$ und $\Delta U_1 \not= U_0$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
+	\caption[Mehrfachreflexion]{Bild am Oszilloskop bei der Mehrfachreflexion}
+	\label{fig:Mehrfachreflexion}
+\end{figure} \\
+Theorie
+\begin{align*}
+	\Gamma_E &= 1 \\
+	\Gamma_{12} &= 0.1\overline{8} \\
+	\Gamma_{21} &= -0.1\overline{8}
+\end{align*}
+
+\subsubsection{Bestimmung der Kabellängen}
+$T$ ist die Zeit zwischen zwei Signalen, der Beginn eines Signals wird als der Beginn des Plateaus definiert. Damit gilt
+\begin{align}
+	T_1 &= \input{Mehrfachreflexion/build/T1} \notag \\
+	T_2 &= \input{Mehrfachreflexion/build/T2} \notag \\
 	T_3 &= \input{Mehrfachreflexion/build/T3} \quad.
 \end{align}
 Es gelten die Beziehungen (siehe Impulsfahrplan \ref{fig:Impulsfahrplan})
-\begin{align}
+\begin{align*}
 	T_1 &= \frac{2L_1}{v} \\
 	T_2 &= \frac{2L_1 + 2L_2}{v}-T_1 = \frac{2L_2}{v} \\
 	T_3 &= \frac{2L_1+4L_2}{v}-T_2 = \frac{2L_2}{v} \quad.
-\end{align}
+\end{align*}
 Nach den Längen aufgelöst ergibt sich so
 \begin{align}
-	L_1 &= \input{Mehrfachreflexion/build/L1} \\
+	L_1 &= \input{Mehrfachreflexion/build/L1} \notag \\
 	L_2 &= \input{Mehrfachreflexion/build/L2} \quad, 
 \end{align}
 wobei $L_2$ einmal mit $T_2$ und einmal mit $T_3$ ausgerechnet wurde und hier der Mittelwert steht.

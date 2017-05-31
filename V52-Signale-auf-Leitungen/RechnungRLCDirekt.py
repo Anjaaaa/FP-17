@@ -11,8 +11,8 @@ from table import (
         write)
 
 
-Lange50 = 15
-Lange75 = 25 
+Lange50 = 10.8
+Lange75 = 10.3
 
 L50, R50, C50, f50 = np.genfromtxt("RLC_DirekteMessung/WerteRLC_50Ohm.txt", unpack = True)
 L75, R75, f75, C75 = np.genfromtxt("RLC_DirekteMessung/WerteRLC_75Ohm.txt", unpack = True)
@@ -48,11 +48,11 @@ def GT(f):
 ### Plot
 # R
 print(L50)
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, R50, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, R75, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, RT(f)*Lange50, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, RT(f)*Lange75, 'm', label ='Theorie 75$\Omega$')
+#f = np.linspace(0.1,100.1,10)
+plt.plot(f50, R50, 'gx', label ='Kabel 50$\Omega$')
+plt.plot(f75, R75, 'y.', label ='Kabel 75$\Omega$')
+plt.plot(f50, RT(f50)*Lange50, 'bx', label ='Theorie 50$\Omega$')#, linestyle = '-.')
+plt.plot(f75, RT(f75)*Lange75, 'r.', label ='Theorie 75$\Omega$')#, linestyle = '--')
 
 plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
 plt.ylabel(r'$R \ \mathrm{in} \ \Omega$')
@@ -64,11 +64,11 @@ plt.show()
 
 
 # C
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, C50*10**9, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, C75*10**9, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, CT(f)*Lange50*10**9, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, CT(f)*Lange75*10**9, 'm', label ='Theorie 75$\Omega$')
+#f = np.linspace(0.1,100.1,1000)
+plt.plot(f50, C50*10**9, 'gx', label ='Kabel 50$\Omega$')
+plt.plot(f75, C75*10**9, 'y.', label ='Kabel 75$\Omega$')
+plt.plot(f50, CT(f50)*Lange50*10**9, 'bx', label ='Theorie 50$\Omega$')
+plt.plot(f75, CT(f75)*Lange75*10**9, 'r.', label ='Theorie 75$\Omega$')
 
 plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
 plt.ylabel(r'$C \ \mathrm{in} \ \mathrm{nF}$')
@@ -79,11 +79,11 @@ plt.savefig('RLC_DirekteMessung/build/PlotC.pdf')
 plt.show()
 
 # L
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, L50*10**6, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, L75*10**6, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, LT(f)*Lange50*10**6, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, LT(f)*Lange75*10**6, 'm', label ='Theorie 75$\Omega$')
+#f = np.linspace(0.1,100.1,1000)
+plt.plot(f50, L50*10**6, 'gx', label ='Kabel 50$\Omega$')
+plt.plot(f75, L75*10**6, 'y.', label ='Kabel 75$\Omega$')
+plt.plot(f50, LT(f50)*Lange50*10**6, 'bx', label ='Theorie 50$\Omega$')
+plt.plot(f75, LT(f75)*Lange75*10**6, 'r.', label ='Theorie 75$\Omega$')
 
 plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
 plt.ylabel(r'$L \ \mathrm{in} \ \mu\mathrm{F}$')
@@ -100,11 +100,11 @@ G50 = R50 * C50 / L50
 G75 = R75 * C75 / L75
 
 # G
-f = np.linspace(0.1,100.1,1000)
-plt.plot(f50, G50*10**3, 'b.', label ='Kabel 50$\Omega$')
-plt.plot(f75, G75*10**3, 'r.', label ='Kabel 75$\Omega$')
-plt.plot(f, GT(f)*Lange50*10**3, 'c', label ='Theorie 50$\Omega$')
-plt.plot(f, GT(f)*Lange75*10**3, 'm', label ='Theorie 75$\Omega$')
+#f = np.linspace(0.1,100.1,1000)
+plt.plot(f50, G50*10**3, 'gx', label ='Kabel 50$\Omega$')
+plt.plot(f75, G75*10**3, 'y.', label ='Kabel 75$\Omega$')
+plt.plot(f50, GT(f50)*Lange50*10**3, 'bx', label ='Theorie 50$\Omega$')#, linestyle = 'dotted')
+plt.plot(f75, GT(f75)*Lange75*10**3, 'r.', label ='Theorie 75$\Omega$')#, linestyle = 'dotted')
 
 plt.xlabel(r'$f \ \mathrm{in} \ \mathrm{kHz}$')
 plt.ylabel(r'$G \ \mathrm{in} \ \mathrm{mS}$')
