@@ -1,0 +1,47 @@
+Im Allgemeinen ist dieser Versuch sehr fehleranfällig und man muss mit großen Ungenauigkeiten rechnen. Dennoch konnten einige Kenngrößen der Koaxialkabel sehr genau bestimmt werden -- meistens stimmt zumindest die Größenordnung mit dem zu erwartenden Wert überein. \\
+Bei der Ausmessung der \textbf{Mehrfachreflexionen} ergibt sich ein sehr genauer Wert für die Kabellängen. Die verwendeten Kabel sind $\si{10}{\meter}$ lang.
+\begin{align*}
+	L_1 &= \input{Mehrfachreflexion/build/L1}  \\
+	L_2 &= \input{Mehrfachreflexion/build/L2} 
+\end{align*}
+Die berechneten Reflexionskonstanten hingegen sollten eigentlich zwischen null und eins liegen. Einer der Werte ist nicht in dem Rahmen.
+\begin{align*}
+	\Gamma_{12} &=  \input{Mehrfachreflexion/build/Gamma12.tex}\notag \\
+	\Gamma_{21} &=  \input{Mehrfachreflexion/build/Gamma21.tex}\notag \\
+	\Gamma_E &= \input{Mehrfachreflexion/build/GammaE.tex}\notag \quad,
+\end{align*}
+Die \textbf{Bestimmung der Leistungskonstanten} erfolgt auf zwei Methoden. Bei der direkten Messung mit einem LRC-Meßgerät zeigen die Größen ($L, R, C$ und $G$) kaum Änderung in Abhängigkeit der Frequenz, was zu erwarten gewesen wäre. Sogar die Größenordnungen der Messungen stimmen hier nicht mit den theoretischen Werten überein. Die theoretischen Werte sind:
+\begin{align*}
+	R &= \input{RLC_DirekteMessung/build/RTheorie.tex} \notag \\
+	C &= \input{RLC_DirekteMessung/build/CTheorie.tex} \notag \\
+	L &= \input{RLC_DirekteMessung/build/LTheorie.tex} \notag \\
+	G &= \input{RLC_DirekteMessung/build/GTheorie.tex} \quad.
+\end{align*}
+Bei der Messung der Leistungskonstanten mit Hilfe des Signalverlaufes gibt es Schwierigkeiten beim Fitten an eine nichtlineare Funktion mit fünf Fit-Parametern. Dennoch konnten Werte der richtigen Größenordnung erzielt werden. Es ist auffällig, dass die Werte der Widerstände für beide Messungen so stark voneinander Abweichen und auch unterschiedliche Kabellängen berechnet wurden:
+\begin{align*}
+	R_1 &= \input{Laplace/build/R_geschlossen.tex} \\	
+	L _1&= \input{Laplace/build/L_geschlossen.tex} \\
+	l_1 &= \input{Laplace/build/lange_geschlossen.tex} \\
+	R_2&= \input{Laplace/build/R_offen.tex} \\
+	C_2 &= \input{Laplace/build/C_offen.tex}	\\
+	l_2 &= \input{Laplace/build/lange_offen.tex} \quad.
+\end{align*}
+Die \textbf{Dämpfungskonstante} ist stark von der Frequenz abhängig. Für höhere Frequenzen ist die Dämpfung stärker, das heißt die Dämpfungskonstante höher. Für die Berechnung wird die Länge des kurzen Vergleichskabels vernachlässigt. Eine Mittelung der Dämpfungskonstanten ergibt
+\begin{align*}
+	\alpha = \input{Daempfung/build/alpha.tex} \quad.
+\end{align*}
+Die Bestimmung der \textbf{Abschlussimpedanzen} birgt ähnliche Probleme wie die Bestimmung der Leitungskonstanten mit Hilfe des Signalverlaufs. Hier werden die selben Fit-Funktionen verwendet. Bis auf einen Wert (ein negativer Widerstand) liegen aber alle berechneten Kenngrößen in realistischen Bereichen (siehe Tabelle \ref{tab:diskussion}).
+\begin{figure}
+	\centering
+\begin{tabular}{l|l}
+	Box 1   & $R=  \input{Box25/build/R.tex}$ \\
+		& $C = \input{Box25/build/C.tex}$ \\
+	\hline  Box 2 &  $R = \input{Box23/build/R.tex}$ \\
+	& $L = \input{Box23/build/L.tex}$\\ 
+	\hline  Box 3 & $R = \input{Box28/build/R.tex}$ \\
+	&$L  = \input{Box28/build/L.tex}$ \\ 
+
+\end{tabular} 
+\caption{Berechnete Kenngrößen der Abschlussimpedanzen}
+\label{tab:diskussion}
+\end{figure}
