@@ -15,25 +15,30 @@ die zusammen mit den Messwerten in den Abbildungen \ref{fig:PlotR} - \ref{fig:Pl
 \input{RLC_DirekteMessung/build/fulltableRLC75.tex}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{RLC_DirekteMessung/build/PlotR.pdf}
-	\caption[Werte für $R$]{Gemessene Werte für $R$ beim Kurzschluss mit Theoriewert}
-	\label{fig:PlotR}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{RLC_DirekteMessung/build/PlotC.pdf}
-	\caption[Werte für $C$]{Gemessene Werte für $C$ beim offenen Ende mit Theoriewert}
-	\label{fig:PlotC}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{RLC_DirekteMessung/build/PlotL.pdf}
-	\caption[Werte für $L$]{Gemessene Werte für $L$ beim Kurzschluss mit Theoriewert}
-	\label{fig:PlotL}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{RLC_DirekteMessung/build/PlotG.pdf}
-	\caption[Werte für $G$]{Berechnete Werte für $G$ beim Kurzschluss mit Theoriewert}
-	\label{fig:PlotG}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{RLC_DirekteMessung/build/PlotR.pdf}
+		\subcaption{Werte für $R$}
+		\label{fig:PlotR}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{RLC_DirekteMessung/build/PlotC.pdf}
+		\subcaption{Werte für $C$}
+		\label{fig:PlotC}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{RLC_DirekteMessung/build/PlotL.pdf}
+		\caption{Werte für $L$}
+		\label{fig:PlotL}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{RLC_DirekteMessung/build/PlotG.pdf}
+		\caption{Werte für $G$}
+		\label{fig:PlotG}
+	\end{subfigure}
+	\caption[Werte bei der direkten Messung]{Gemessene Werte für $R,C,L$ bei der direkten Messung, sowie Theoriewerte und berechnete Werte für $G$}
+	\label{fig:PlotRLCG}
 \end{figure}

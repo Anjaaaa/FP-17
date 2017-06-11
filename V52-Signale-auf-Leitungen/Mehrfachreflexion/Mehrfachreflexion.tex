@@ -6,26 +6,22 @@ Abbildung \ref{fig:Impulsfahrplan} zeigt den Impulsfahrplan für die betrachtete
 	\caption[Impulsfahrplan]{Impulsfahrplan zur Veranschaulichung der Mehrfachreflexion}
 	\label{fig:Impulsfahrplan}
 \end{figure}
-
+\clearpage
 \subsubsection{Bestimmung der Reflexionskonstanten}
-
-% \begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.5\textwidth]{Mehrfachreflexion/build/Plot.png}
-%	\caption{text}
-%	\label{fig:U}
-%\end{figure}
-\todo{Bei mir kompiliert Latex nicht richtig, wenn ich dieses Bild einbinde...}
 Das am Oszilloskop aufgenommene Bild ist in Abbildung \ref{fig:Mehrfachreflexion} zu sehen. Es sind vier Plateaus, $U_0,U_1,U_2,U_3$, erkennbar. Um sie zu berechnen werden die in Abbildung \ref{fig:U} jeweils farbig markierten Werte verwendet und gemittelt. Die gestrichelten Linien zeigen die daraus erhaltenen Mittelwerte
-
-
-
 \begin{align}
 	U_0 &= \input{Mehrfachreflexion/build/U0.tex} \notag \\
 	U_1 &= \input{Mehrfachreflexion/build/U1.tex} \notag \\
 	U_2 &= \input{Mehrfachreflexion/build/U2.tex} \notag \\
-	U_3 &= \input{Mehrfachreflexion/build/U3.tex} 
+	U_3 &= \input{Mehrfachreflexion/build/U3.tex}  \ .
 \end{align}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Plot.pdf}
+	\caption{Veranschaulichung der Messdaten aus dem Oszilloskop-Bild und der berechneten Plateau-Spannungen}
+	\label{fig:U}
+\end{figure}
 
 Die Spannungsdifferenzen $\Delta U_i = U_i-U_{i-1}$ können im Impulsfahrplan abgelesen werden:
 \begin{align}
@@ -39,20 +35,14 @@ Die Lösung dieses Gleichungssystems ergibt die Reflexionskonstanten
 	\Gamma_{21} &= \frac{1}{1+\frac{\Delta U_2^2}{\Delta U_3(U_0-\Delta U_1)}} &&= \input{Mehrfachreflexion/build/Gamma21.tex}\notag \\
 	\Gamma_E &= \frac{\Delta U_3}{\Delta U_2} + \frac{\Delta U_2}{U_0-\Delta U_1} &&= \input{Mehrfachreflexion/build/GammaE.tex}\notag \quad,
 \end{align}\todo{Was zur Hölle sind das für Werte?}
-wobei verwendet wurde, dass $\Gamma_E \not= 0$ und $\Delta U_1 \not= U_0$.
+wobei $\Gamma_E \not= 0$ und $\Delta U_1 \not= U_0$ gelten muss.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
+	\includegraphics[width=0.8\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
 	\caption[Mehrfachreflexion]{Bild am Oszilloskop bei der Mehrfachreflexion}
 	\label{fig:Mehrfachreflexion}
-\end{figure} \\
-Theorie
-\begin{align*}
-	\Gamma_E &= 1 \\
-	\Gamma_{12} &= 0.1\overline{8} \\
-	\Gamma_{21} &= -0.1\overline{8}
-\end{align*}
-
+\end{figure}
+\clearpage
 \subsubsection{Bestimmung der Kabellängen}
 $T$ ist die Zeit zwischen zwei Signalen, der Beginn eines Signals wird als der Beginn des Plateaus definiert. Damit gilt
 \begin{align}
@@ -66,7 +56,7 @@ Es gelten die Beziehungen (siehe Impulsfahrplan \ref{fig:Impulsfahrplan})
 	T_2 &= \frac{2L_1 + 2L_2}{v}-T_1 = \frac{2L_2}{v} \\
 	T_3 &= \frac{2L_1+4L_2}{v}-T_2 = \frac{2L_2}{v} \quad.
 \end{align*}
-Nach den Längen aufgelöst ergibt sich so
+Die Geschwindigkeit ist der Quotient aus der Vakuumlichtgeschwindigkeit und der Wurzel der relativen Permittivität von Kupfer. Nach den Längen aufgelöst ergibt sich so
 \begin{align}
 	L_1 &= \input{Mehrfachreflexion/build/L1} \notag \\
 	L_2 &= \input{Mehrfachreflexion/build/L2} \quad, 

@@ -2,12 +2,11 @@
 \input{../Allgemeines/Header.tex}
 
 
-\newcommand{\Versuch}{Elektronenspinresonanz}
-\newcommand{\Betreuer}{Matthias \textsc{Salewski}}
-\newcommand{\Tag}{10.05.17}
-\newcommand{\V}{V28}
-\newcommand{\Korrektur}{1. Korrektur}
-
+\newcommand{\Versuch}{Versuch}
+\newcommand{\Betreuer}{Max \textsc{Mustermann}}
+\newcommand{\Tag}{TT.MM.JJ}
+\newcommand{\V}{VXXX}
+\newcommand{\Korrektur}{}
 % Bibliographie erstellen:
 % 	pdflatex Protokoll.tex
 % 	biber Protokoll
@@ -16,7 +15,7 @@
 
 
 \usepackage[
-	disable,
+%	disable,
 colorinlistoftodos,
 linecolor=yellow,
 backgroundcolor=yellow,
@@ -31,9 +30,10 @@ textsize=footnotesize
 \tableofcontents
 \clearpage
 
-\textbf{Ziel des Versuchs} ist die Berechnung des Landé-Faktors des freien Elektrons mittels der Elektronenspinresonanz-Methode und die Bestimmung der Magnetischen Flussdichte des Erdmagnetfeldes. \\
-Die theoretische Betrachtung und die Beschreibung von Aufbau und Durchführung orientieren sich eng an der Versuchsanleitung \cite{V28}. Alle Berechnung und Plots werden mit Python 3.6 durchgeführt bzw. erstellt, zum Fitten wird die Funktion \textit{curve\_fit} verwendet.
 
+
+\textbf{Ziel des Versuchs} \\
+Die theoretische Betrachtung und die Beschreibung von Aufbau und Durchführung orientieren sich eng an der Versuchsanleitung \cite{\V}. Alle Berechnung und Plots werden mit Python 3.6 durchgeführt bzw. erstellt, zum Fitten wird die Funktion \textit{curve\_fit} verwendet.
 
 \section{Theorie}
 \input{Theorie.tex}
@@ -58,7 +58,7 @@ Die theoretische Betrachtung und die Beschreibung von Aufbau und Durchführung o
 \listoffigures
 \listoftables
 \clearpage
-\nocite{Griffiths}
+\nocite{\V}
 \printbibliography[title = Literaturverzeichnis]
 
 \end{document}

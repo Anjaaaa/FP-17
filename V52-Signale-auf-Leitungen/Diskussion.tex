@@ -8,16 +8,23 @@ Die berechneten Reflexionskonstanten hingegen sollten eigentlich zwischen null u
 \begin{align*}
 	\Gamma_{12} &=  \input{Mehrfachreflexion/build/Gamma12.tex}\notag \\
 	\Gamma_{21} &=  \input{Mehrfachreflexion/build/Gamma21.tex}\notag \\
-	\Gamma_E &= \input{Mehrfachreflexion/build/GammaE.tex}\notag \quad,
+	\Gamma_E &= \input{Mehrfachreflexion/build/GammaE.tex}\notag \quad.
 \end{align*}
-Die \textbf{Bestimmung der Leistungskonstanten} erfolgt auf zwei Methoden. Bei der direkten Messung mit einem LRC-Meßgerät zeigen die Größen ($L, R, C$ und $G$) kaum Änderung in Abhängigkeit der Frequenz, was zu erwarten gewesen wäre. Sogar die Größenordnungen der Messungen stimmen hier nicht mit den theoretischen Werten überein. Die theoretischen Werte sind:
+Allerdings weichen alle stark von den mit \eqref{eq:Reflexion} berechneten theoretischen Werten
+\begin{align*}
+	\Gamma_{12} &=  -0.2 \\
+	\Gamma_{21} &=  0.2 \\
+	\Gamma_E &= 1
+\end{align*}
+ab. \\
+Die \textbf{Bestimmung der Leitungskonstanten} erfolgt auf zwei Methoden. Bei der direkten Messung mit einem LRC-Meßgerät zeigen die Größen ($L, R, C$ und $G$) kaum Änderung in Abhängigkeit der Frequenz, was zu erwarten gewesen wäre. Sogar die Größenordnungen der Messungen stimmen hier nicht mit den theoretischen Werten überein. Die theoretischen Werte sind:
 \begin{align*}
 	R &= \input{RLC_DirekteMessung/build/RTheorie.tex} \notag \\
 	C &= \input{RLC_DirekteMessung/build/CTheorie.tex} \notag \\
 	L &= \input{RLC_DirekteMessung/build/LTheorie.tex} \notag \\
 	G &= \input{RLC_DirekteMessung/build/GTheorie.tex} \quad.
 \end{align*}
-Bei der Messung der Leistungskonstanten mit Hilfe des Signalverlaufes gibt es Schwierigkeiten beim Fitten an eine nichtlineare Funktion mit fünf Fit-Parametern. Dennoch konnten Werte der richtigen Größenordnung erzielt werden. Es ist auffällig, dass die Werte der Widerstände für beide Messungen so stark voneinander Abweichen und auch unterschiedliche Kabellängen berechnet wurden:
+Bei der Messung der Leitungskonstanten mit Hilfe des Signalverlaufes gibt es Schwierigkeiten beim Fitten an eine nichtlineare Funktion mit fünf Fit-Parametern. Dennoch konnten Werte der richtigen Größenordnung erzielt werden. Es ist auffällig, dass die Werte der Widerstände für beide Messungen so stark voneinander Abweichen und auch unterschiedliche Kabellängen berechnet wurden:
 \begin{align*}
 	R_1 &= \input{Laplace/build/R_geschlossen.tex} \\	
 	L _1&= \input{Laplace/build/L_geschlossen.tex} \\

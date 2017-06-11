@@ -101,7 +101,7 @@ plt.plot(t4, P4, 'y.', ms=1)
 
 plt.ylabel(r'$U \ \mathrm{in} \ \mathrm{kHz}$')
 plt.xlabel(r'$t \ \mathrm{in} \ \mathrm{ms}$')
-plt.savefig('Mehrfachreflexion/build/Plot.pdf')
+plt.savefig('Plot.pdf')
 plt.show()
 
 
