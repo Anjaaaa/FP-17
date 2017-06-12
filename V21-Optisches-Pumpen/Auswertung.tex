@@ -1,0 +1,58 @@
+\todo{Hast du eine gute Idee, wie man die Stromstärke nennen könnte, damit sie nicht mit dem Kernspin $I$ verwechselt wird?}
+\subsection{Umrechnung der Messwerte}
+Die für jede Frequenz eingestellten Werte an den Drehschrauben sind in Tabelle \ref{tab:Messwerte} zu sehen. Zusätzlich wird der Wert für das vertikale Magnetfeld auf 1.45 eingestellt.
+Das Ablesen der Schraubenanzeige ist mit einer Unsicherheit von 0.01 behaftet. Dieser Fehler wird für die Werte der horizontalen und vertikalen Schraube verwendet. Da das Oszilloskop zu Beginn eines Sweep-Intervalls immer einen Ausschlag anzeigt wird die Unsicherheit beim Einstellen der Sweep-Schraube auf die Resonanzstelle auf 0.20 abgeschätzt. \\
+Für die Schrauben des horizontalen und des Sweep-Magnetfelds gilt, dass ein Schraubenwert von 10 einem Strom von \SI{1}{\ampere} entspricht. Um auf die Stromstärke zu kommen, werden daher all diese Werte mit 0.1 multipliziert. Bei der Schraube für das vertikale Feld gilt: Ein Schraubenwert von 10 entspricht einem Strom von \SI{3}{\ampere}, d.h. durch die vertikale Spule fließt ein Strom von $1.45\cdot \SI{0.3}{\ampere} = \SI{0.435}{\ampere}$.
+\input{build/fulltableMesswerte.tex}
+\subsection{Landé-Faktor und Erdmagnetfeld}
+Die Windungsanzahl $N$ und der Radius $R$ aller Spulen sind bekannt, sodass die gemessenen Stromstärken mit Hilfe von
+\begin{align*}
+	B = \frac{8\mu_0}{\sqrt{125}}\cdot\frac{I\cdot N}{R}
+\end{align*}
+in magnetische Feldstärken übersetzt werden können. In horizontaler Richtung wirkt kein Magnetfeld auf das Gas, da das Erdmagnetfeld gerade durch das vertikale Feld einer Helmholtzspule kompensiert wird. Das Gesamtfeld ist demnach die Summe aus Sweep- und Horizontal-Feld. Diese Werte sind für die erste Resonanzstelle $B_1$ und die zweite Resonanzstelle $B_2$ mit der zugehörigen Frequenz in Tabelle \ref{tab:Regression} aufgetragen. An diese Werte wird eine lineare Funktion gefittet, siehe Abbildung \ref{fig:Fit}. Nach \eqref{eq:Resonanz} ist die Steigung $m$ der Geraden
+\begin{align*}
+	m = \frac{h}{g_F\mu_\text{B}} \ .
+\end{align*}
+Durch Umstellen ergibt sich so der Landé-Faktor für die beiden Isotope:
+\begin{align}
+	g_{F1} &= \input{build/Lande1.tex} \ , \notag \\
+	g_{F2} &= \input{build/Lande2.tex} \ .
+\end{align}
+Der y-Achsenabschnitt entspricht der horizontalen Komponente des Erdmagnetfelds:
+\begin{align}\label{eq:Bhor}
+	B_{\text{hor.}1} &= \input{build/Bhor1.tex} \ , \notag \\
+	B_{\text{hor.}2} &= \input{build/Bhor2.tex} \ .
+\end{align}
+Aus der Stromstärke durch die vertikalen Helmholtzspulen kann der Betrag des Magnetfelds in vertikaler Richtung
+\begin{align}
+	B_\text{vert.} &= \input{build/Bvert.tex}
+\end{align}
+berechnet werden. Mit diesem Wert und dem Mittelwert aus \eqref{eq:Bhor} wird nun die Stärke des gesamten Erdmagnetfeldes zu
+\begin{align}
+	B_\text{Erde} &= \input{build/BErde1.tex}
+\end{align}
+bestimmt.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Fit.pdf}
+	\caption{Messwertepaare $\{\nu,B\}$ und Fit für beide Resonanzstellen}
+	\label{fig:Fit}
+\end{figure}
+\input{build/fulltableRegression.tex} \\
+\subsection{Kernspin}
+Zur Berechnung des Kernspins wird Gleichung \eqref{eq:LandeF} benötigt. Der Gesamtdrehimpuls $F$ wird er durch $J+I$ ersetzt. Es ergibt sich die quadratische Gleichung
+\begin{align*}
+	I^2 + I\left(J\left(2-\frac{g_J}{g_F}\right)+1\right) + J(J+1)\left(1-\frac{g_J}{g_F}\right) = 0 \ .
+\end{align*}
+Da Rubidium ein Alkalimetall ($L = 0$) ist, gilt $J=S=\frac{1}{2}$ und $\mu_J = \mu_S = 2.00232$. Die (plus-) Lösung für die beiden Isotope ist dann
+\begin{align}
+	I_1 &= \input{build/I1.tex} \ , \notag \\
+	I_2 &= \input{build/I2.tex} \ .
+\end{align}
+\subsection{Isotopenverhältnis}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Oszilloskop/TEK0003.JPG}
+	\caption{Oszilloskop-Bild}
+	\label{fig:Oszilloskop}
+\end{figure}
