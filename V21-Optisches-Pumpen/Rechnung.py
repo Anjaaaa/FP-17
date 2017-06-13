@@ -136,6 +136,15 @@ c2 = J*(J+1)*(1-gJ/g2)
 I1 = -b1/2 + unp.sqrt(b1**2/4 - c1)
 I2 = -b2/2 + unp.sqrt(b2**2/4 - c2)
 
+### Isotopenverhältnis
+Tmax = ufloat(3.47, 0.25)
+T1 = ufloat(2.69, 0.25)
+T1 = T1/Tmax
+T2 = ufloat(1.80 ,0.25)
+T2 = T2/Tmax
+Ratio = T1/T2
+
+
 ###################################################################################
 ### Werte in Latex-Dateien schreiben
 write('build/tableRegression.tex', make_table([f*10**-3, B1_nom*10**3, B2_nom*10**3],[0,3,3]))
@@ -160,3 +169,7 @@ write('build/I2.tex', make_SI(I2, r'', figures = 1))
 write('build/Bvert.tex', make_SI(Bvert*10**6, r'\micro\tesla', figures = 1))
 write('build/BErdeA.tex', make_SI(BErdeA*10**6, r'\micro\tesla', figures = 1))
 write('build/BErdeB.tex', make_SI(BErdeB*10**6, r'\micro\tesla', figures = 1))
+
+write('build/T1.tex', make_SI(T1, r'', figures = 1))
+write('build/T2.tex', make_SI(T2, r'', figures = 1))
+write('build/Ratio.tex', make_SI(Ratio, r'', figures = 1))
