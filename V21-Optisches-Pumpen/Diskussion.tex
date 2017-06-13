@@ -1,0 +1,18 @@
+Tabelle \ref{tab:Vergleich} zeigt die bestimmten Größen und vergleicht sie mit den Theoriewerten aus den angegebenen Referenzen. Die Bestimmung der Landé-Faktoren und der Kernspins ergibt sehr gute Werte, deren Vertrauensintervalle (mit Ausnahme von $g_{F2}$) den Theoriewert einschließen. Der Wert für das Erdmagnetfeld ist erstaunlich gut, wird bedacht, dass Messungen des Erdmagnetfelds üblicherweise um Größenordnungen abweichen. Das Isotopenverhältnis im Experiment entspricht nicht dem natürlichen Isotopenverhältnis.
+\begin{table}
+	\centering
+	\begin{tabular}{lccccc}
+		\toprule
+		Größe (Referenz) & & Experiment & Theorie & Referenz & Abweichung \\
+		\hline
+		Landé-Faktor \eqref{eq:LandeExp}& $g_{F1}$ & \input{build/Lande1.tex} & $\nicefrac{1}{2}$ & \cite{Lande} & $\pm$\SI{0.0}{\%} \\
+		& $g_{F2}$ & \input{build/Lande2.tex} & $\nicefrac{1}{3}$ & \cite{Lande} & +\SI{5.0}{\%} \\
+		Erdmagnetfeld \eqref{eq:BErdeExp} & $B_\text{Erde}$ & \input{build/BErdeA.tex} & \SI{49}{\micro\tesla} & \cite{BErde} & \SI{-38.8}{\%} \\
+		Kernspin \eqref{eq:KernspinExp} & $I_1$ & \input{build/I1.tex} & $\nicefrac{3}{2}$ & \cite{Ru} & +\SI{0.7}{\%} \\
+		& $I_2$ & \input{build/I2.tex} & $\nicefrac{5}{2}$ & \cite{Ru} & \SI{-4.0}{\%} \\
+		Isotopenverhältnis \eqref{eq:RatioExp} & $\nicefrac{N_{85}}{N_{87}}$ & \input{build/Ratio.tex} & 2.6 & \cite{Ru} & \SI{-42.3}{\%} \\
+		\bottomrule
+	\end{tabular}
+\caption{Vergleich der berechneten Größen mit Theoriewerten}
+\label{tab:Vergleich}
+\end{table}
