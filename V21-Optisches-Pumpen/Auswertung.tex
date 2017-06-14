@@ -49,7 +49,7 @@ Da Rubidium ein Alkalimetall ($L = 0$) ist, gilt $J=S=\frac{1}{2}$ und $\mu_J = 
 	I_1 &= \input{build/I1.tex} \ , \notag \\
 	I_2 &= \input{build/I2.tex} \ .
 \end{align}
-Die erste Resonanz kommt daher von Rubidium-87 ($I=\frac{5}{2}$) und die zweite von Rubidium-85 ($I=\frac{3}{2}$).
+Die erste Resonanz kommt daher von Rubidium-87 ($I=\frac{3}{2}$) und die zweite von Rubidium-85 ($I=\frac{5}{2}$).
 \subsection{Isotopenverhältnis}
 Abbildung \ref{fig:Oszilloskop} zeigt das verwendete Bild am Oszilloskop, die verwendeten Größen sind eingezeichnet. Die absoluten und auf 1 normierten Werte, die vom Bild abgelesen werden, sind
 \begin{alignat}{3}
@@ -83,3 +83,23 @@ bestimmt.
 	\caption[Oszilloskop-Bild]{Oszilloskop-Bild. Die schwarze Linie entspricht $T_0=0$, die rote Linie $T_\text{max}=1$, die grüne Linie $T_1$, die blaue Linie $T_2$.}
 	\label{fig:Oszilloskop}
 \end{figure}
+\clearpage
+\subsection{Quadratischer Zeemann-Effekt}
+Um den Anteil des quadratischen Zeemann-Effekts zu berechnen wird das Verhältnis $a$ aus dem quadratischen Term und der gesamten Energielücke (Gleichung \eqref{eq:quadrat}) gebildet.
+\begin{align}
+	a = \frac{g_F^2 \mu_B^2 B^2 \frac{(1-2 M_F)}{\Delta E}}{g_F \mu_B B +g_F^2 \mu_B^2 B^2 \frac{(1-2 M_F)}{\Delta E}}
+\end{align}
+Da es sich um eine Abschätzung handelt und der Effekt bei zunehmendem Magnetfeld stärker wird, nehmen wir einen Wert für $B$ an, der knapp oberhalb der berechneten Resonanzstellen liegt
+\begin{align*}
+	B = \si{0.5}{\milli\tesla}
+\end{align*}
+Die Landé-Faktoren sind in vorherigen Aufgabenteilen bestimmt worden. Als Orientierungszahl $M_F$ wird der Kernspin $I$ eingesetzt. Die Energien $\Delta E$ in in der Anleitung angegeben \cite{\V}.
+ Für Rubidium-87 ist das Verhältnis
+ \begin{align*}
+ 	a_1 = \input{build/quadrat1.tex}
+ \end{align*}
+ und für Rubidium-85
+  \begin{align*}
+  	a_2 = \input{build/quadrat2.tex} \quad .
+  \end{align*}
+ 

@@ -144,6 +144,24 @@ T2 = ufloat(1.80 ,0.25)
 T2 = T2/Tmax
 Ratio = T1/T2
 
+### quadtrtischer zeemann-effekt
+#Energiedifferenzen sind angegeben in der anleitung:
+E1 = 4.53E-24 #rubidium-87
+E2 = 2.01E-24 #rubidium-85
+
+B = 0.5E-3 #für die abschätzung wähle ich einen wert für das B-Feld, der größer ist als alle gemessenen resonanzen
+
+E1_quadrat = g1*g1*muB*muB*B*B*(1-2*(3/2))
+E2_quadrat = g2*g2*muB*muB*B*B*(1-2*(5/2))
+
+#anteil der quadtratischen terms an der energielücke:
+
+verhaeltnis1 = E1_quadrat / (g1*muB*B + E1_quadrat)
+verhaeltnis2 = E2_quadrat / (g2*muB*B + E2_quadrat)
+
+print(verhaeltnis1)
+print(verhaeltnis2)
+
 
 ###################################################################################
 ### Werte in Latex-Dateien schreiben
@@ -173,3 +191,6 @@ write('build/BErdeB.tex', make_SI(BErdeB*10**6, r'\micro\tesla', figures = 1))
 write('build/T1.tex', make_SI(T1, r'', figures = 1))
 write('build/T2.tex', make_SI(T2, r'', figures = 1))
 write('build/Ratio.tex', make_SI(Ratio, r'', figures = 1))
+
+write('build/quadrat1.tex', make_SI(verhaeltnis1*10**27, r'', exp='e-27',figures = 1))
+write('build/quadrat2.tex', make_SI(verhaeltnis2*10**27, r'', exp='e-27', figures = 1))
