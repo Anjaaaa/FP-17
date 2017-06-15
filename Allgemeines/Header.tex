@@ -45,11 +45,17 @@
 % Bilder
 
 %figures zusammen zu einer packen
-\usepackage{subfigure}
-	
+
+
+
+\usepackage{floatrow}
+\floatplacement{figure}{!ht}
+\floatplacement{table}{!ht}
+
+
+
 \usepackage{caption}
 \usepackage{graphicx, wrapfig}
-\usepackage{subcaption} % Bilder in Gruppe einzeln benennen
 \usepackage{tikz}
 \usetikzlibrary{matrix} % zeigt Koordinatensystem an
 \usepackage[european]{circuitikz} % Schaltkreise
@@ -78,10 +84,3 @@ width=0.9\textwidth, % maximale Breite einer Caption schmaler
 \fancyhead{} % Default-Einstellungen im Header löschen
 \fancyhead[L]{\sc{Versuch \V}}
 \fancyhead[R]{\sc{\rightmark}}
-
-
-\usepackage{floatrow}
-\floatplacement{figure}{!ht}
-\floatplacement{table}{!ht}
-
-

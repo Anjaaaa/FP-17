@@ -1,6 +1,6 @@
 Im Folgenden wird der theoretische Hintergrund zum Experiment erläutert.
 \subsection{Beschreibung von verlustbehafteten Leitungen}
-Um die elektrischen Eigenschaften von Bauteilen zu Modellieren wird üblicherweise ein Ersatzschaltbild verwendet. Abbildung \ref{fig:Ersatzschaltbild} zeigt die Ersatzschaltbilder für eine verlustfreie und eine verlustbehaftete Leitung. Die Bausteine werden in diesem Fall als \textit{Beläge} bezeichnet: Kapazitätsbelag $C$, Induktivitätsbelag $L$, ohmscher Belag $R$, Querleitfähigkeitsbelag $G$. Es wird zudem zwischen Längsspannungsverlust (an $R$) und Querstromverlust (an $G$) unterschieden, wobei die ohmschen bzw. Längsspannungsverluste meist überwiegen.
+Um die elektrischen Eigenschaften von Bauteilen zu modellieren, wird üblicherweise ein Ersatzschaltbild verwendet. Abbildung \ref{fig:Ersatzschaltbild} zeigt die Ersatzschaltbilder für eine verlustfreie und eine verlustbehaftete Leitung. Die Bausteine werden in diesem Fall als \textit{Beläge} bezeichnet: Kapazitätsbelag $C$, Induktivitätsbelag $L$, ohmscher Belag $R$, Querleitfähigkeitsbelag $G$. Es wird zudem zwischen Längsspannungsverlust (an $R$) und Querstromverlust (an $G$) unterschieden, wobei die ohmschen bzw. Längs\-span\-nungs\-ver\-lus\-te meist überwiegen.
 \begin{figure}[h!]
 	\centering
 	\input{Ersatzschaltbild.tex}
@@ -88,11 +88,11 @@ Hierbei sind $\varepsilon$ die Permittivität, $\mu$ die Permeabilität, $\sigma
 \end{figure}
 \subsection{Laplace-Transformationen} \label{seq:laplace}
 \todo{evtl. auch in den Anhang oder woanders hin}
-Die Spannungsverläufe für verschiedene Beläge werden mit Hilfe der Laplace-Transformation bestimmt. Im Folgenden werden die Verläufe für eine Induktivität~$L$, eine Kapazität~$C$ und einen reell wertigen Widerstand~$R$ berechnet. Da die Elemente nur die Abschlussimpedanz~$Z_A$ bestimmen, sind die ersten Schritte der Transformation für alle identisch
+Die Spannungsverläufe für verschiedene Beläge werden mit Hilfe der Laplace-Trans\-for\-ma\-tion bestimmt. Im Folgenden werden die Verläufe für eine Induktivität~$L$, eine Kapazität~$C$ und einen reell wertigen Widerstand~$R$ berechnet. Da die Elemente nur die Abschlussimpedanz~$Z_A$ bestimmen, sind die ersten Schritte der Transformation für alle identisch
 \begin{align}
 	U(t) &= U_0 + U_r(t) = U_0 + \mathcal{L}^{-1} \{U_r(p) \} 
 	= U_0 + \mathcal{L}^{-1} \{\Gamma(p) U_h(p) \} \\
-&= U_0 + \mathcal{L}^{-1}\left(\frac{Z_A(p)-Z_0}{Z_A(p)+Z_0}\frac{U_0}{p}\right) \quad .
+&= U_0 + \mathcal{L}^{-1}\left(\frac{Z_A(p)-Z_0}{Z_A(p)+Z_0}\frac{U_0}{p}\right) \quad .\label{eq:Laplace}
 \end{align}
 Je nachdem, wie $Z_A$ aussieht, wird dann eine Partialbruchzerlegung durchgeführt, um die Laplacetransformationen durchzuführen. Wichtig sind hier folgende Transformationen:
 \begin{align}
@@ -102,7 +102,7 @@ Je nachdem, wie $Z_A$ aussieht, wird dann eine Partialbruchzerlegung durchgefüh
 \end{align}
 Die Laplacetransformation ist linear.
 \subsubsection{Induktivität}
-Die Impedanz der Spule im Impulsraum ist $Z_A(p) = R + pL$.
+Die Impedanz der Spule im Impulsraum ist $Z_A(p) = R + pL$. Eingesetzt in \eqref{eq:Laplace}, kann der Spannungsverlauf wie folgt berechnet werden:
 %Eingangsspannung: $U_0\cdot\theta(t)\rightarrow U_h(p) = \frac{U_0}{p}$ \\
 
 \begin{align*}
@@ -112,11 +112,11 @@ Die Impedanz der Spule im Impulsraum ist $Z_A(p) = R + pL$.
 	 	 &= U_0 + \frac{R-Z_0}{R+Z_0} + \frac{2Z_0}{R+Z_0}U_0\mathcal{L}\left(\frac{1}{p+\frac{R+Z_0}{L}}\right) \\
 	&= U_0 + \frac{R-Z_0}{R+Z_0}U_0 + \frac{2Z_0}{R+Z_0}U_0\exp\left(-\frac{R+Z_0}{L}t\right) \\
 	&= U_0\left(1 + \frac{R-Z_0}{R+Z_0} + \frac{2Z_0}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right) \\
-		&= 2U_0\left(1 - \frac{Z_0}{R+Z_0} + \frac{Z_0}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right)
+		&= 2U_0\left(1 - \frac{Z_0}{R+Z_0} + \frac{Z_0}{R+Z_0}\exp\left(-\frac{R+Z_0}{L}t\right)\right) \ .
 \end{align*}
 \clearpage
 \subsubsection{Kapazität}
-Die Impedanz der Kapazität im Impulsraum ist $Z_A = R + \frac{1}{pC}$.
+Für die Kapazität gilt im Impulsraum $Z_A = R + \frac{1}{pC}$. Auch hier kann wieder durch Einsetzen in \eqref{eq:Laplace} dier Spannungsverlauf berechnet werden:
 
 \begin{align*}
 	U_\text{RC}(t) 
@@ -126,16 +126,16 @@ Die Impedanz der Kapazität im Impulsraum ist $Z_A = R + \frac{1}{pC}$.
 	&= U_0 + U_0\mathcal{L}^{-1} \left( \frac{R-Z_0}{p(R+Z_0) +  \frac{1}{C}} \right) + U_0  \mathcal{L}^{-1} \left( \frac{1}{p} \right) - U_0 \mathcal{L}^{-1} \left( \frac{1}{p + \frac{1}{C(R+Z_0)}} \right) \\
 		&= U_0\left( 1+  \mathcal{L}^{-1} \left( \frac{1}{p}\right) +  \left(\frac{R-Z_0}{R+Z_0}-1\right) \mathcal{L}^{-1} \left( \frac{1}{p + \frac{1}{C(R+Z_0)}} \right) \right) \\
 		&= U_0\left(2 +  \left(\frac{R-Z_0}{R+Z_0}-1\right) \exp \left( - \frac{1}{C(R+Z_0)} t\right)  \right) \\
-	&= 2U_0\left(1 -  \frac{Z_0}{R+Z_0} \exp \left( - \frac{1}{C(R+Z_0)} t\right)  \right)
+	&= 2U_0\left(1 -  \frac{Z_0}{R+Z_0} \exp \left( - \frac{1}{C(R+Z_0)} t\right)  \right) \ .
 \end{align*}
 
 \subsubsection{Realer Widerstand}
-Bei dem realen Widerstand ist die Impedanz rein reell wertig $Z_A = R$.
+Bei einem reellen Widerstand ist die Berechnung besonders einfach, da für die Impedanz im Impulsraum gilt $Z_A = R$, so wird die Spannung zu
 \begin{align*}
 	U_\text{R}(t) 
 	&= U_0 + \mathcal{L}^{-1}\left(\frac{R -Z_0}{R +Z_0}\frac{U_0}{p}\right) \\
 	&= U_0 + U_0\frac{R -Z_0}{R +Z_0} \mathcal{L}^{-1}\left(\frac{1}{p} \right) \\
 	&= U_0\left(1 +  \frac{R -Z_0}{R +Z_0} \right) \\
-	&= 2 U_0 \frac{R}{R+Z_0}
+	&= 2 U_0 \frac{R}{R+Z_0} \ .
 \end{align*}
 

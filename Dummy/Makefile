@@ -17,6 +17,8 @@ all:  Aufbau_Ablauf.tex Auswertung.tex Diskussion.tex Theorie.tex $(NAME).tex
 	rm -rf *.run.xml
 	rm -rf *.lof
 	rm -rf *.lot
+	rm -rf *.fls
+	rm -rf *.fdb_latexmk
 
 
 clean:
@@ -32,6 +34,8 @@ clean:
 	rm -rf *.run.xml
 	rm -rf *.lof
 	rm -rf *.lot
+	rm -rf *.fls
+	rm -rf *.fdb_latexmk
 
 
 clean-all:
@@ -47,4 +51,6 @@ clean-all:
 	rm -rf *.run.xml
 	rm -rf *.lof
 	rm -rf *.lot
+	rm -rf *.fls
+	rm -rf *.fdb_latexmk
 	rm -rf $(NAME).pdf

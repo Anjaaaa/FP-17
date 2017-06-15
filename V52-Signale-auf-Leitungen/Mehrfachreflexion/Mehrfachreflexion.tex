@@ -6,7 +6,7 @@ Abbildung \ref{fig:Impulsfahrplan} zeigt den Impulsfahrplan für die betrachtete
 	\caption[Impulsfahrplan]{Impulsfahrplan zur Veranschaulichung der Mehrfachreflexion}
 	\label{fig:Impulsfahrplan}
 \end{figure}
-\clearpage
+%\clearpage
 \subsubsection{Bestimmung der Reflexionskonstanten}
 Das am Oszilloskop aufgenommene Bild ist in Abbildung \ref{fig:Mehrfachreflexion} zu sehen. Es sind vier Plateaus, $U_0,U_1,U_2,U_3$, erkennbar. Um sie zu berechnen werden die in Abbildung \ref{fig:U} jeweils farbig markierten Werte verwendet und gemittelt. Die gestrichelten Linien zeigen die daraus erhaltenen Mittelwerte
 \begin{align}
@@ -15,14 +15,6 @@ Das am Oszilloskop aufgenommene Bild ist in Abbildung \ref{fig:Mehrfachreflexion
 	U_2 &= \input{Mehrfachreflexion/build/U2.tex} \notag \\
 	U_3 &= \input{Mehrfachreflexion/build/U3.tex}  \ .
 \end{align}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{Plot.pdf}
-	\caption{Veranschaulichung der Messdaten aus dem Oszilloskop-Bild und der berechneten Plateau-Spannungen}
-	\label{fig:U}
-\end{figure}
-
 Die Spannungsdifferenzen $\Delta U_i = U_i-U_{i-1}$ können im Impulsfahrplan abgelesen werden:
 \begin{align}
 	\Delta U_1 &= \Gamma_{12}U_0 \notag \\
@@ -36,15 +28,21 @@ Die Lösung dieses Gleichungssystems ergibt die Reflexionskonstanten
 	\Gamma_E &= \frac{\Delta U_3}{\Delta U_2} + \frac{\Delta U_2}{U_0-\Delta U_1} &&= \input{Mehrfachreflexion/build/GammaE.tex}\notag \quad,
 \end{align}\todo{Was zur Hölle sind das für Werte?}
 wobei $\Gamma_E \not= 0$ und $\Delta U_1 \not= U_0$ gelten muss.
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
+	\includegraphics[width=0.6\textwidth]{Oszilloskop/Mehrfachreflexion/F0054TEK.JPG}
 	\caption[Mehrfachreflexion]{Bild am Oszilloskop bei der Mehrfachreflexion}
 	\label{fig:Mehrfachreflexion}
 \end{figure}
-\clearpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Plot.pdf}
+	\caption{Veranschaulichung der Messdaten aus dem Oszilloskop-Bild und der berechneten Plateau-Spannungen}
+	\label{fig:U}
+\end{figure}
 \subsubsection{Bestimmung der Kabellängen}
-$T$ ist die Zeit zwischen zwei Signalen, der Beginn eines Signals wird als der Beginn des Plateaus definiert. Damit gilt
+$T$ ist die Zeit zwischen zwei Signalen. Der Beginn eines Signals wird als der Beginn des Plateaus definiert. Damit gilt
 \begin{align}
 	T_1 &= \input{Mehrfachreflexion/build/T1} \notag \\
 	T_2 &= \input{Mehrfachreflexion/build/T2} \notag \\
