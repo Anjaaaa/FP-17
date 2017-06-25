@@ -1,0 +1,55 @@
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{}
+	\caption{}
+	\label{fig:}
+\end{figure}
+
+#############
+
+ \begin{figure}[h!]
+ 	\centering
+ 	\captionof{table}{CAPTION}
+ 	\begin{tabular}{c|c|c}
+ 		caption & caption & caption \\
+ 		\hline
+ 	\end{tabular}
+ 	\label{tab:}
+ \end{figure}
+ 
+ ###############
+ 
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+ 
+ def  g(f, c):
+    return np.arctan(- 2 * np.pi * f * c)
+
+parameters, popt = curve_fit(g, f, phi)
+
+c = ufloat(parameters[0], np.sqrt(popt[0,0]))
+
+x = np.linspace(0, 1400)
+plt.errorbar(f, phi, xerr=1, yerr=unp.std_devs(phi_gesamt), fmt='r.')
+plt.plot(x, g(x, *parameters), 'b-')
+
+plt.ylabel('Winkel in Bogenmaß')
+plt.xlabel('Frequenz / Hz')
+
+# erste Liste: Tick-Positionen, zweite Liste: Tick-Beschriftung
+plt.yticks([0, np.pi/8 , np.pi / 4, 3*np.pi /8, np.pi / 2],[r"$0$", r"$\frac{1}{8}\pi$", r"$\frac{1}{4}\pi$", r"$\frac{3}{8}\pi$", r"$\frac{1}{2}\pi$"])
+
+plt.savefig('')
+plt.show()
+
+
+
+##################
+
+key ist immer die "Kennung" der Quelle
+\nocite{key} = irgendwo ins Dokument schreiben, kommt dann im Literaturverzeichnis vor auch, wenn niemals direkt darauf verwiesen wird
+\cite[prenote][postnote]{key}
+\footcitetext[prenote][postnote]{key} = Zitation in Fußnote
+\cites(multiprenote)(multipostnote)[prenote1][postnote1]{key1}...[prenote_n][postnote_n]{key_n} = mehrere Quellen
+prenote ist sowas wie "siehe" oder "nach"
+postnote könnte die Seitenangabe sein
