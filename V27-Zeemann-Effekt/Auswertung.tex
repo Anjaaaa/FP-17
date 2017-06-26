@@ -1,0 +1,43 @@
+\subsection{Eichung des Magnetfeldes}
+Um den Zusammenhang zwischen Magnetfeldstärke und eingestelltem Strom herauszufinden, wird eine Eichmessung durchgeführt. Dabei werden zehn Stromstärken zwischen (0-15.5)\si{\ampere} eingestellt und mit einer Hall-Sonde das zugehörige Magnetfeld gemessen. Diese Messung wird einmal mit steigenden und einmal mit fallenden Stromstärken durchgeführt, um Hysterese-Effekte zu berücksichtigen. Die gemessenen Werte sind in Tabelle \ref{tab:Messwerte} aufgeführt. Bei den Stromstärken wird ein Ablesefehler von \SI{0.5}{\ampere} berücksichtigt. Aus den Quotienten der Wertepaare wird die Proportionalitätskonstante 
+\begin{align}
+	a = \input{build/Steigung.tex}
+\end{align}
+berechnet.
+\input{build/fulltableMesswerte.tex}
+
+\subsection{Landé-Faktor}
+Mit Hilfe des Bildbearbeitungsprogramm werden die Größen $\Delta s$ und $\delta s$ in den Photos ausgemessen. Diese Werte sind in den Tabellen \ref{tab:WerteFotosRot} und \ref{tab:WerteFotosBlau} zu sehen. Die Breite einer Linie ist im Bereich von 40-50 Pixeln, daher wird ein Ablesefehler von 10 Pixeln eingerechnet. Mit Hilfe von
+\begin{align}
+	\Delta\lambda = \frac{1}{2}\frac{\delta s}{\Delta s}\Delta\lambda_\text{D}
+\end{align}
+kann die Wellenlängenverschiebung $\Delta\lambda = \lambda - \lambda_0$ berechnet werden.
+
+Die Änderung der Energiedifferenz zwischen zwei Niveaus beim Einschalten eines Magnetfeldes, $dE$, kann durch die Wellenlänge eines beim Übergang emittierten Photons ausgedrückt werden:
+\begin{align*}
+	dE &= E(B\not=0) - E(B=0) \\
+	&=\frac{hc}{\lambda} - \frac{hc}{\lambda_0} \approx hc\frac{\Delta\lambda}{\lambda_0^2} \ ,\quad\text{da }\lambda \approx \lambda_0 \ .
+\end{align*}
+Durch Gleichsetzen mit \eqref{eq:Energieverschiebung} kann so der Landé-Faktor
+\begin{align*}
+	g = \frac{dE}{\mu_\text{B}B} = \frac{hc}{\mu_\text{B}B}\frac{\Delta\lambda}{\lambda_0^2}
+\end{align*}
+berechnet werden. Neben den physikalischen Konstanten $h,c,\mu_\text{B}$, werden die Magnetfeldstärke $B$ und die Wellenlänge $\lambda_0$ benötigt:
+\begin{align*}
+	&B_{\text{red,}\sigma} &= \ &\SI{514(11)}{\milli\tesla} &&\lambda_{\text{red},0} &= \SI{643.8}{\nano\meter} \\
+	&B_{\text{blue,}\sigma} &= \ &\SI{286(6)}{\milli\tesla} &&\lambda_{\text{blue},0} &= \SI{480.0}{\nano\meter} \\
+	&B_{\text{blue,}\pi} &= \ &\SI{857(18)}{\milli\tesla} \ . && & & \\
+\end{align*}
+Gemittelt ergeben sich so die Landé-Faktoren
+\begin{align}
+	g_{\text{red,}\sigma} &= \input{build/gRedSigma.tex}\notag \\
+	g_{\text{blue,}\sigma} &= \input{build/gBlueSigma.tex}\notag \\
+	g_{\text{blue,}\pi} &= \input{build/gBluePi.tex} \ .
+\end{align}
+Es gilt zu beachten, dass bei der roten Linie der normale Zeemann-Effekt auftritt, sodass hier der \glqq echte\grqq\ Landé-Faktor berechnet wurde. Bei der blauen Linie kann der anomale Zeemann-Effekt beobachtet werden, daher ist der berechnete Landé-Faktor die Superposition
+\begin{align*}
+	g = m_1g_1-m_2g_2 \ .
+\end{align*}
+
+\input{build/fulltableFotosRed.tex}
+\input{build/fulltableFotosBlue.tex}
