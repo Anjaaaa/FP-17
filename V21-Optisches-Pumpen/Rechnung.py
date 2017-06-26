@@ -137,10 +137,10 @@ I1 = -b1/2 + unp.sqrt(b1**2/4 - c1)
 I2 = -b2/2 + unp.sqrt(b2**2/4 - c2)
 
 ### Isotopenverhältnis
-Tmax = ufloat(3.47, 0.25)
-T1 = ufloat(2.69, 0.25)
+Tmax = ufloat(3.47, 0.25)*2
+T1 = ufloat(2.69, 0.25)*2
 T1 = T1/Tmax
-T2 = ufloat(1.80 ,0.25)
+T2 = ufloat(1.80 ,0.25)*2
 T2 = T2/Tmax
 Ratio = T1/T2
 
