@@ -7,7 +7,10 @@ berechnet.
 \input{build/fulltableMesswerte.tex}
 
 \subsection{Landé-Faktor}
-Mit Hilfe des Bildbearbeitungsprogramm werden die Größen $\Delta s$ und $\delta s$ in den Photos ausgemessen. Diese Werte sind in den Tabellen \ref{tab:WerteFotosRot} und \ref{tab:WerteFotosBlau} zu sehen. Die Breite einer Linie ist im Bereich von 40-50 Pixeln, daher wird ein Ablesefehler von 10 Pixeln eingerechnet. Mit Hilfe von
+Mit Hilfe des Bildbearbeitungsprogramm werden die Größen $\Delta s$ und $\delta s$ in den Photos ausgemessen. Diese Werte sind in den Tabellen \ref{tab:WerteFotosRot} und \ref{tab:WerteFotosBlau} zu sehen. Die Breite einer Linie ist im Bereich von 40-50 Pixeln, daher wird ein Ablesefehler von 10 Pixeln eingerechnet.
+
+
+Mit Hilfe von
 \begin{align}
 	\Delta\lambda = \frac{1}{2}\frac{\delta s}{\Delta s}\Delta\lambda_\text{D}
 \end{align}
@@ -19,14 +22,14 @@ Die Änderung der Energiedifferenz zwischen zwei Niveaus beim Einschalten eines 
 	&=\frac{hc}{\lambda} - \frac{hc}{\lambda_0} \approx hc\frac{\Delta\lambda}{\lambda_0^2} \ ,\quad\text{da }\lambda \approx \lambda_0 \ .
 \end{align*}
 Durch Gleichsetzen mit \eqref{eq:Energieverschiebung} kann so der Landé-Faktor
-\begin{align*}
+\begin{align}\label{eq:Lande}
 	g = \frac{dE}{\mu_\text{B}B} = \frac{hc}{\mu_\text{B}B}\frac{\Delta\lambda}{\lambda_0^2}
-\end{align*}
+\end{align}
 berechnet werden. Neben den physikalischen Konstanten $h,c,\mu_\text{B}$, werden die Magnetfeldstärke $B$ und die Wellenlänge $\lambda_0$ benötigt:
 \begin{align*}
-	&B_{\text{red,}\sigma} &= \ &\SI{514(11)}{\milli\tesla} &&\lambda_{\text{red},0} &= \SI{643.8}{\nano\meter} \\
-	&B_{\text{blue,}\sigma} &= \ &\SI{286(6)}{\milli\tesla} &&\lambda_{\text{blue},0} &= \SI{480.0}{\nano\meter} \\
-	&B_{\text{blue,}\pi} &= \ &\SI{857(18)}{\milli\tesla} \ . && & & \\
+	B_{\text{red,}\sigma}= &\SI{514(11)}{\milli\tesla} \quad && \quad &\lambda_{\text{red},0} = &\SI{643.8}{\nano\meter} \\
+	B_{\text{blue,}\sigma}= &\SI{286(6)}{\milli\tesla} \quad && \quad &\lambda_{\text{blue},0} = &\SI{480.0}{\nano\meter} \\
+	B_{\text{blue,}\pi}= &\SI{857(18)}{\milli\tesla} \ . && & & & \\
 \end{align*}
 Gemittelt ergeben sich so die Landé-Faktoren
 \begin{align}
@@ -36,7 +39,7 @@ Gemittelt ergeben sich so die Landé-Faktoren
 \end{align}
 Es gilt zu beachten, dass bei der roten Linie der normale Zeemann-Effekt auftritt, sodass hier der \glqq echte\grqq\ Landé-Faktor berechnet wurde. Bei der blauen Linie kann der anomale Zeemann-Effekt beobachtet werden, daher ist der berechnete Landé-Faktor die Superposition
 \begin{align*}
-	g = m_1g_1-m_2g_2 \ .
+	g_{12} = m_1g_1-m_2g_2 \ .
 \end{align*}
 
 \input{build/fulltableFotosRed.tex}
