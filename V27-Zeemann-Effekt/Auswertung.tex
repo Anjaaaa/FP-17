@@ -1,35 +1,61 @@
-\subsection{Eichung des Magnetfeldes}
-Um den Zusammenhang zwischen Magnetfeldstärke und eingestelltem Strom herauszufinden, wird eine Eichmessung durchgeführt. Dabei werden zehn Stromstärken zwischen (0-15.5)\si{\ampere} eingestellt und mit einer Hall-Sonde das zugehörige Magnetfeld gemessen. Diese Messung wird einmal mit steigenden und einmal mit fallenden Stromstärken durchgeführt, um Hysterese-Effekte zu berücksichtigen. Die gemessenen Werte sind in Tabelle \ref{tab:Messwerte} aufgeführt. Bei den Stromstärken wird ein Ablesefehler von \SI{0.5}{\ampere} berücksichtigt. Aus den Quotienten der Wertepaare wird die Proportionalitätskonstante 
+\subsection{Kalibrierung des Magnetfeldes}
+Um den Zusammenhang zwischen Magnetfeldstärke und eingestelltem Strom herauszufinden, wird eine Kalibrierung-Messung durchgeführt. Dabei werden zehn Stromstärken zwischen (0-15.5)\si{\ampere} eingestellt und mit einer Hall-Sonde das zugehörige Magnetfeld gemessen. Diese Messung wird einmal mit steigenden und einmal mit fallenden Stromstärken durchgeführt, um Hysterese-Effekte zu berücksichtigen. Die gemessenen Werte sind in Abbildung \ref{fig:Hysterese} abgebildet und in Tabelle \ref{tab:Messwerte} aufgeführt. Bei den Stromstärken wird ein Ablesefehler von \SI{0.5}{\ampere} berücksichtigt. Es sind keine eindeutigen Unterschiede zwischen der Messung beim steigenden und beim fallenden Magnetfeld zu erkennen, daher wird auf einen Fit verzichtet. Statt dessen werden die Quotienten der Wertepaare zur Proportionalitätskonstante 
 \begin{align}
 	a = \input{build/Steigung.tex}
 \end{align}
-berechnet.
+gemittelt.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Hysterese.pdf}
+	\caption{Messwerte bei der Kalibrierung des Magnetfeldes}
+	\label{fig:Hysterese}
+\end{figure}
 \input{build/fulltableMesswerte.tex}
 
 \subsection{Landé-Faktor}
-Mit Hilfe des Bildbearbeitungsprogramm werden die Größen $\Delta s$ und $\delta s$ in den Photos ausgemessen. Diese Werte sind in den Tabellen \ref{tab:WerteFotosRot} und \ref{tab:WerteFotosBlau} zu sehen. Die Breite einer Linie ist im Bereich von 40-50 Pixeln, daher wird ein Ablesefehler von 10 Pixeln eingerechnet.
-
-
-Mit Hilfe von
+Abbildungen \ref{fig:FotoRot} und \ref{fig:FotoBlau} zeigen die aufgenommenen Bilder für die beiden Spektrallinien. Mit einem Bildbearbeitungsprogramm wird aus den Bildern ohne Magnetfeld der Abstand zwischen den Spektrallinien gemessen. Diese Größe wird mit $\Delta s$ bezeichnet. Beim Anlegen des Magnetfelds spaltet sich jede dieser Linien in zwei Linien auf. (Bei der blauen Spektrallinie spaltet es sich eigentlich in vier Linien auf, aber das mit dieser Apparatur nicht aufgelöst werden.) Der Abstand zwischen zwei Linien, die aus derselben Linie hervorgegangen sind, wird ebenfalls ausgemessen und mit $\delta s$ bezeichnet. Die Werte für $\Delta s$ und $\delta s$ sind in den Tabellen \ref{tab:WerteFotosRot} und \ref{tab:WerteFotosBlau} zu sehen. Die Breite einer Linie ist im Bereich von 40-50 Pixeln, daher wird ein Ablesefehler von 10 Pixeln eingerechnet. Mit Hilfe von
 \begin{align}
-	\Delta\lambda = \frac{1}{2}\frac{\delta s}{\Delta s}\Delta\lambda_\text{D}
+\Delta\lambda = \frac{1}{2}\frac{\delta s}{\Delta s}\Delta\lambda_\text{D}
 \end{align}
-kann die Wellenlängenverschiebung $\Delta\lambda = \lambda - \lambda_0$ berechnet werden.
+kann dann die Wellenlängenverschiebung $\Delta\lambda = \lambda_0 - \lambda$ berechnet werden.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.49\textwidth]{Fotos/OhneBFeldRot.JPG} \hfill
+	\includegraphics[width=.49\textwidth]{Fotos/senkrechtRot9A.JPG}
+	\caption{Aufgenommene Bilder bei der roten Spektrallinie. Links ohne Magnetfeld, rechts mit Magnetfeld und senkrechtem Polarisationsfilter.}
+	\label{fig:FotoRot}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[width=.32\textwidth]{Fotos/OhneBFeldBlau.JPG} \hfill
+	\includegraphics[width=.32\textwidth]{Fotos/senkrechtBlau5A.JPG} \hfill
+	\includegraphics[width=.32\textwidth]{Fotos/parallelBlau15A.JPG}
+	\caption{Aufgenommene Bilder bei der blauen Spektrallinie. Links ohne Magnetfeld, mittig mit Magnetfeld und senkrechtem Polarisationsfilter, rechts mit Magnetfeld und parallelem Polarisationsfilter.}
+	\label{fig:FotoBlau}
+\end{figure}\ \\ \ \\
 
 Die Änderung der Energiedifferenz zwischen zwei Niveaus beim Einschalten eines Magnetfeldes, $dE$, kann durch die Wellenlänge eines beim Übergang emittierten Photons ausgedrückt werden:
 \begin{align*}
-	dE &= E(B\not=0) - E(B=0) \\
-	&=\frac{hc}{\lambda} - \frac{hc}{\lambda_0} \approx hc\frac{\Delta\lambda}{\lambda_0^2} \ ,\quad\text{da }\lambda \approx \lambda_0 \ .
+	dE &= E(B\not=0) - E(B=0) = \frac{hc}{\lambda} - \frac{hc}{\lambda_0} \ .
 \end{align*}
+Der erste Term wird durch die ersten beiden Glieder seiner Taylor-Reihe ausgedrückt
+\begin{align*}
+	\frac{hc}{\lambda}\approx\frac{hc}{\lambda_0}-\frac{hc}{\lambda_0^2}(\lambda-\lambda_0) \ .
+\end{align*}
+Für die Änderung der Energiedifferenz gilt dann
+\begin{align}
+	dE = \frac{hc}{\lambda_0^2}\Delta\lambda \ .
+\end{align}
 Durch Gleichsetzen mit \eqref{eq:Energieverschiebung} kann so der Landé-Faktor
 \begin{align}\label{eq:Lande}
-	g = \frac{dE}{\mu_\text{B}B} = \frac{hc}{\mu_\text{B}B}\frac{\Delta\lambda}{\lambda_0^2}
+	g_{12} = \frac{dE}{\mu_\text{B}B} = \frac{hc}{\mu_\text{B}B}\frac{\Delta\lambda}{\lambda_0^2}
 \end{align}
 berechnet werden. Neben den physikalischen Konstanten $h,c,\mu_\text{B}$, werden die Magnetfeldstärke $B$ und die Wellenlänge $\lambda_0$ benötigt:
 \begin{align*}
 	B_{\text{red,}\sigma}= &\SI{514(11)}{\milli\tesla} \quad && \quad &\lambda_{\text{red},0} = &\SI{643.8}{\nano\meter} \\
 	B_{\text{blue,}\sigma}= &\SI{286(6)}{\milli\tesla} \quad && \quad &\lambda_{\text{blue},0} = &\SI{480.0}{\nano\meter} \\
-	B_{\text{blue,}\pi}= &\SI{857(18)}{\milli\tesla} \ . && & & & \\
+	B_{\text{blue,}\pi}= &\SI{857(18)}{\milli\tesla} \ . && & & &
 \end{align*}
 Gemittelt ergeben sich so die Landé-Faktoren
 \begin{align}
@@ -37,10 +63,6 @@ Gemittelt ergeben sich so die Landé-Faktoren
 	g_{\text{blue,}\sigma} &= \input{build/gBlueSigma.tex}\notag \\
 	g_{\text{blue,}\pi} &= \input{build/gBluePi.tex} \ .
 \end{align}
-Es gilt zu beachten, dass bei der roten Linie der normale Zeemann-Effekt auftritt, sodass hier der \glqq echte\grqq\ Landé-Faktor berechnet wurde. Bei der blauen Linie kann der anomale Zeemann-Effekt beobachtet werden, daher ist der berechnete Landé-Faktor die Superposition
-\begin{align*}
-	g_{12} = m_1g_1-m_2g_2 \ .
-\end{align*}
 
 \input{build/fulltableFotosRed.tex}
 \input{build/fulltableFotosBlue.tex}

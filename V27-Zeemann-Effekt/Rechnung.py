@@ -48,6 +48,16 @@ write('build/fulltableFotosBlue.tex', make_full_table(
     r'$\delta s_{\mathrm{blue,}\sigma}$',
     r'$\delta s_{\mathrm{blue,}\pi}$']))
 
+plt.plot(Iup, Bup, 'ro', label = 'steigendes Magnetfeld')
+plt.plot(Idown, Bdown, 'b.', label = 'fallendes Magnetfeld')
+plt.xlabel('$I$ in $A$')
+plt.ylabel('$B$ in $T$')
+plt.legend(loc='best')
+plt.savefig('Hysterese.pdf')
+plt.show()
+
+    
+    
 ######################################################################################
 ### Konstanten
 h = 6.626070040 * 10**(-34)     # Plancksches Wirkungsquantum

@@ -1,16 +1,15 @@
-Der theoretische Wert für den Landé-Faktor beim anomalen Zeemann-Effekt wird durch Mittelwertbildung der Werte für $g_{12}$ in Tabelle \ref{tab:g12} berechnet. Da im Experiment nur absolute Werte bestimmt werden können, werden auch für den Mittelwert nur absolute Werte verwendet. Bei dieser Berechnung wird vernachlässigt, dass einige Übergänge wahrscheinlicher sind als andere, z. B. ist der $\pi$-Übergang von $m_1=0$ nach $m_2=0$ sehr unwahrscheinlich, sodass der Theoriewert in diesem Fall näher bei 0.5 liegen müsste. Dasselbe wird für den $\sigma$-Übergang von $m_1=0$ auf $m_2=\pm1$ vermutet, dieser Theoriewert läge dann näher bei 2.
+Der theoretische Wert für den Landé-Faktor beim anomalen Zeemann-Effekt wird durch Mittelwertbildung der Werte für $g_{12}$ in Tabelle \ref{tab:g12} berechnet. Da im Experiment nur absolute Werte bestimmt werden können, werden auch für den Mittelwert nur absolute Werte verwendet. Außerdem wird der der Übergang von $m_1=0$ nach $m_2=0$ vernachlässigt, da er verboten ist \cite{Protokoll}.
 
-
-Wenn die genannten Übergänge stark unterdrückt wären, wären die gemessenen Werte sehr gut, allerdings leicht zu hoch. Beim Eichen des Magnetfeldes wurde nicht immer sorgfältig darauf geachtet, dass die Hall-Sonde senkrecht zum Feld steht, sodass die gemessenen Werte unter dem tatsächlichen Wert liegen. Nach \eqref{eq:Lande} sorgt das für einen zu großen Landé-Faktor.
+Insgesamt sind alle Werte etwas zu hoch, wobei die Werte für den normalen Zeeman-Effekt und für den $\pi$-Übergang beim anomalen Zeeman-Effekt fast im Toleranzbereich der Unsicherheit liegen. Bei der Kalibrierung des Magnetfeldes wurde nicht immer sorgfältig darauf geachtet, dass die Hall-Sonde senkrecht zum Feld steht, sodass die gemessenen Werte unter dem tatsächlichen Wert liegen. Nach \eqref{eq:Lande} sorgt das für einen zu großen Landé-Faktor. Wenn die $\sigma$-Übergänge, die von $m_1=0$ ausgehen, stark unterdrückt sind, müssten sie bei der oben erklärten Mittelwertbildung mit einem kleinen Gewicht versehen werden, sodass der Theoriewert eigentlich näher am gemessenen Wert liegt.
 \begin{table}
 	\centering
 	\begin{tabular}{l|ccc}
 		\toprule
 		& Theorie & Experiment & Abweichung \\
 		\midrule
-		normaler Zeemann-Effekt & 1 & \input{build/gRedSigma.tex} & $+\SI{12}{\%}$ \\
-		anomaler Zeemann-Effekt $\pi$ & 0.33 & \input{build/gBluePi.tex} & $+\SI{71}{\%}$ \\
-		anomaler Zeemann-Effekt $\sigma$ & 1.75 & \input{build/gBlueSigma.tex} & $+\SI{20}{\%}$ \\
+		normaler Zeeman-Effekt & 1 & \input{build/gRedSigma.tex} & $+\SI{12}{\%}$ \\
+		anomaler Zeeman-Effekt $\pi$ & 0.5 & \input{build/gBluePi.tex} & $+\SI{14}{\%}$ \\
+		anomaler Zeeman-Effekt $\sigma$ & 1.75 & \input{build/gBlueSigma.tex} & $+\SI{20}{\%}$ \\
 		\bottomrule
 	\end{tabular}
 \caption{Vergleich der Messdaten mit den Theoriewerten}
