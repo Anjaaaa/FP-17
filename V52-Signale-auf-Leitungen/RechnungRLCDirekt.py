@@ -144,6 +144,6 @@ write('RLC_DirekteMessung/build/fulltableRLC75.tex', make_full_table(
 
 write('RLC_DirekteMessung/build/RTheorie.tex', make_SI(Rconst*10**6, r'\micro\ohm\per\meter', figures = 1))
 write('RLC_DirekteMessung/build/CTheorie.tex', make_SI(Cconst*10**12, r'\pico\farad\per\meter', figures = 1))
-write('RLC_DirekteMessung/build/LTheorie.tex', make_SI(Lconst*10**9, r'\nano\farad\per\meter', figures = 1))
+write('RLC_DirekteMessung/build/LTheorie.tex', make_SI(Lconst*10**9, r'\nano\henry\per\meter', figures = 1))
 write('RLC_DirekteMessung/build/GTheorie.tex', make_SI(Gconst*10**9, r'\nano\siemens\per\meter', figures = 1))
 
