@@ -1,3 +1,5 @@
+Alle Berechnung und Plots in der Auswertung werden mit Python 3.6 durchgeführt bzw. erstellt, zum Fitten wird die Funktion \textit{curve\_fit} verwendet.
+
 \subsection{Kalibrierung des Magnetfeldes}
 Um den Zusammenhang zwischen Magnetfeldstärke und eingestelltem Strom herauszufinden, wird eine Kalibrierung-Messung durchgeführt. Dabei werden zehn Stromstärken zwischen (0-15.5)\si{\ampere} eingestellt und mit einer Hall-Sonde das zugehörige Magnetfeld gemessen. Diese Messung wird einmal mit steigenden und einmal mit fallenden Stromstärken durchgeführt, um Hysterese-Effekte zu berücksichtigen. Die gemessenen Werte sind in Abbildung \ref{fig:Hysterese} abgebildet und in Tabelle \ref{tab:Messwerte} aufgeführt. Bei den Stromstärken wird ein Ablesefehler von \SI{0.5}{\ampere} berücksichtigt. Es sind keine eindeutigen Unterschiede zwischen der Messung beim steigenden und beim fallenden Magnetfeld zu erkennen, daher wird auf einen Fit verzichtet. Statt dessen werden die Quotienten der Wertepaare zur Proportionalitätskonstante 
 \begin{align}
